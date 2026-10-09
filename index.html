@@ -95,8 +95,9 @@ section{padding:96px 0}
 
 /* proof */
 .proof{padding:24px 0 8px}
-.ledger{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-@media (min-width:860px){ .ledger{grid-template-columns:repeat(4,1fr)} }
+.ledger{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:560px){ .ledger{grid-template-columns:repeat(3,1fr)} }
+@media (min-width:860px){ .ledger{grid-template-columns:repeat(3,1fr)} }
 .stat{background:var(--bone);border-radius:var(--r);padding:26px 22px}
 .stat .n{font-size:clamp(34px,4.4vw,52px);font-weight:600;line-height:1;letter-spacing:-.04em}
 .stat .l{font-size:15px;color:var(--steel);margin-top:10px;line-height:1.4}
@@ -280,9 +281,8 @@ textarea.in{min-height:90px;resize:vertical}
       <div class="stat"><div class="n">1,000s</div><div class="l">of active client files managed</div></div>
       <div class="stat"><div class="n">15+ yrs</div><div class="l">in operations</div></div>
       <div class="stat"><div class="n">4+ yrs</div><div class="l">working inside luxury travel agencies</div></div>
-      <div class="stat"><div class="n">10+</div><div class="l">cruise lines certified</div></div>
     </div>
-    <div class="certs reveal"><span class="cert">Travefy Advanced Certified</span><span class="cert">Tern Workflows &amp; Automations Certified</span><span class="cert">CLIA certified</span></div>
+    <div class="certs reveal"><span class="cert">Travefy Advanced Certified</span><span class="cert">Tern Workflows &amp; Automations Certified</span></div>
   </div>
 </section>
 
