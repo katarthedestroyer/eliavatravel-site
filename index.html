@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eliava | Client emails, reminders and checklists for travel advisors</title>
+<meta name="description" content="Kady Dennis sets up the client emails, payment reminders and checklists for your trips, inside the system you already use.">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<meta property="og:title" content="Client emails, reminders and checklists, set up with you">
+<meta property="og:description" content="For luxury travel advisors. Set up inside the system you already use: Tern, TravelJoy, Travefy and more.">
+<meta property="og:image" content="https://eliavatravel.com/assets/share.png">
+<meta property="og:url" content="https://eliavatravel.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --page:#FAF9F6; --bone:#F0EDE6; --bone-2:#E6E1D7; --line:#E3DED4;
+  --ink:#1B1C1E; --steel:#5E5F63;
+  --saddle:#7A4A2A; --saddle-h:#5F3A22; --juniper:#2F3A32; --juniper-2:#3A473D; --brass:#C4AD84;
+  --r:22px; --wrap:1180px;
+  --sans:'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *,*::before,*::after{animation:none!important;transition:none!important} }
+body{margin:0;background:var(--page);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--saddle)} a:hover{color:var(--saddle-h)}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 16px}
+@media (min-width:720px){ .wrap{padding:0 32px} }
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;z-index:20}
+.skip:focus{left:12px}
+:focus-visible{outline:2px solid var(--saddle);outline-offset:3px;border-radius:8px}
+
+/* header */
+.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--page) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.scrolled{border-bottom-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.brand img{height:38px;width:auto}
+.nav{display:flex;align-items:center;gap:28px;font-size:15px;font-weight:500}
+.nav .links{display:none;gap:28px}
+.nav .links a{text-decoration:none;color:var(--steel)}
+.nav .links a:hover{color:var(--ink)}
+@media (min-width:900px){ .nav .links{display:flex} }
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 16px/1 var(--sans);text-decoration:none;border-radius:999px;padding:16px 26px;border:1px solid transparent;transition:background .15s ease, transform .15s ease, border-color .15s ease;white-space:nowrap}
+.btn-primary{background:var(--saddle);color:#fff}
+.btn-primary:hover{background:var(--saddle-h);color:#fff;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:#cfc9bd}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
+.btn-light{background:var(--page);color:var(--ink)}
+.btn-light:hover{background:#fff;color:var(--ink)}
+.btn-sm{padding:11px 18px;font-size:14.5px}
+@media (max-width:420px){ .top .btn-sm{padding:10px 14px;font-size:13.5px} }
+.arrow{transition:transform .15s}
+.btn:hover .arrow{transform:translateX(3px)}
+
+/* type */
+.kicker{font-size:15px;font-weight:600;color:var(--saddle);margin:0 0 14px}
+h1,h2,h3{font-family:var(--sans);color:var(--ink);margin:0;font-weight:600;text-wrap:balance}
+h1{font-size:clamp(42px,7.2vw,88px);line-height:1.0;letter-spacing:-.04em}
+h2{font-size:clamp(32px,4.8vw,56px);line-height:1.04;letter-spacing:-.035em}
+h3{font-size:21px;line-height:1.25;letter-spacing:-.015em}
+.lede{font-size:clamp(18px,1.9vw,21px);color:var(--steel);line-height:1.55}
+section{padding:96px 0}
+@media (max-width:719px){ section{padding:64px 0} }
+
+/* hero */
+.hero{padding:72px 0 40px;text-align:center}
+.hero h1{max-width:980px;margin:0 auto}
+.hero .lede{max-width:700px;margin:24px auto 0}
+.hero .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:32px}
+.hero .fine{margin-top:16px;font-size:15px;color:var(--steel)}
+.stage{margin:56px auto 0;max-width:920px;background:var(--bone);border-radius:28px;padding:clamp(18px,4vw,44px)}
+.board{background:#fff;border-radius:var(--r);padding:22px 24px 8px;text-align:left;box-shadow:0 1px 0 rgba(27,28,30,.04),0 24px 60px rgba(27,28,30,.08)}
+.board-hd{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--steel);padding-bottom:12px;border-bottom:1px solid var(--line)}
+.board-hd span:last-child{color:var(--saddle)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 0;border-bottom:1px solid #EFEBE3;opacity:0;transform:translateY(8px);animation:rowin .55s cubic-bezier(.2,.7,.2,1) forwards}
+.row:last-of-type{border-bottom:0}
+.row .when{font-size:14px;color:var(--steel)}
+.row .what{font-size:18px;font-weight:600;color:var(--ink);margin-top:1px;letter-spacing:-.01em}
+.pill{flex:none;font-size:13px;font-weight:600;color:var(--juniper);background:#E8EDE6;border-radius:999px;padding:6px 12px;white-space:nowrap;opacity:0;transform:scale(.85);animation:pillin .35s cubic-bezier(.3,1.4,.5,1) forwards}
+.row:nth-of-type(2){animation-delay:.2s}.row:nth-of-type(2) .pill{animation-delay:.7s}
+.row:nth-of-type(3){animation-delay:.4s}.row:nth-of-type(3) .pill{animation-delay:.95s}
+.row:nth-of-type(4){animation-delay:.6s}.row:nth-of-type(4) .pill{animation-delay:1.2s}
+.row:nth-of-type(5){animation-delay:.8s}.row:nth-of-type(5) .pill{animation-delay:1.45s}
+.row:nth-of-type(6){animation-delay:1s}.row:nth-of-type(6) .pill{animation-delay:1.7s}
+@keyframes rowin{to{opacity:1;transform:none}}
+@keyframes pillin{to{opacity:1;transform:none}}
+.board-note{font-size:14px;color:var(--steel);padding:12px 0 10px;border-top:1px solid var(--line)}
+
+/* proof */
+.proof{padding:24px 0 8px}
+.ledger{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (min-width:860px){ .ledger{grid-template-columns:repeat(4,1fr)} }
+.stat{background:var(--bone);border-radius:var(--r);padding:26px 22px}
+.stat .n{font-size:clamp(34px,4.4vw,52px);font-weight:600;line-height:1;letter-spacing:-.04em}
+.stat .l{font-size:15px;color:var(--steel);margin-top:10px;line-height:1.4}
+.certs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
+.cert{font-size:14px;font-weight:500;color:var(--steel);border:1px solid var(--line);border-radius:999px;padding:8px 15px;background:#fff}
+
+/* split statement */
+.split{display:grid;gap:40px}
+@media (min-width:980px){ .split{grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start} .split.flip{grid-template-columns:1.15fr .85fr} .split.flip > :first-child{order:2} }
+.split .lede{margin-top:18px}
+.sticky{position:static}
+@media (min-width:980px){ .sticky{position:sticky;top:110px} }
+
+/* how */
+.how-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.how-list li{background:var(--bone);border-radius:var(--r);padding:24px 26px}
+.how-list .num{font-size:14px;font-weight:600;color:var(--saddle)}
+.how-list h3{margin-top:6px}
+.how-list p{margin:8px 0 0;color:var(--steel)}
+
+/* packages */
+.pk-head{text-align:center;max-width:760px;margin:0 auto 44px}
+.pk-head .lede{margin-top:16px}
+.packages{display:grid;gap:14px}
+@media (min-width:980px){ .packages{grid-template-columns:repeat(3,1fr);align-items:stretch} }
+.pk{background:var(--bone);border-radius:var(--r);padding:30px 28px 26px;display:flex;flex-direction:column;position:relative}
+.pk.feature{background:var(--juniper);color:#EDE9E0}
+.pk .badge{display:inline-block;align-self:flex-start;font-size:13px;font-weight:600;border-radius:999px;padding:5px 12px;margin-bottom:16px;background:#fff;color:var(--saddle)}
+.pk.feature .badge{background:var(--brass);color:var(--juniper)}
+.pk .tier{font-size:15px;font-weight:600;color:var(--steel)}
+.pk.feature .tier{color:var(--brass)}
+.pk .price{font-size:54px;font-weight:600;line-height:1;margin:10px 0 6px;letter-spacing:-.045em}
+.pk.feature .price,.pk.feature .name{color:#fff}
+.pk .name{font-weight:600;font-size:18px;letter-spacing:-.01em}
+.pk .for{font-size:15px;color:var(--steel);margin-top:6px}
+.pk.feature .for{color:#C9CFC6}
+.pk ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:11px;font-size:15.5px;color:var(--steel)}
+.pk.feature ul{color:#DDE2DA}
+.pk li{position:relative;padding-left:26px;line-height:1.45}
+.pk li::before{content:"";position:absolute;left:3px;top:.42em;width:11px;height:6px;border-left:2px solid var(--saddle);border-bottom:2px solid var(--saddle);transform:rotate(-45deg)}
+.pk.feature li::before{border-color:var(--brass)}
+.pk .time{margin-top:auto;padding-top:22px;font-size:14.5px;color:var(--steel)}
+.pk.feature .time{color:#C9CFC6}
+.pk .time b{color:var(--ink);font-weight:600}
+.pk.feature .time b{color:#fff}
+.pk .spacer{flex:1;min-height:18px}
+.pk-notes{display:grid;gap:12px;margin-top:14px}
+.pk-notes.one{grid-template-columns:1fr!important}
+.note.center{text-align:center}
+@media (min-width:860px){ .pk-notes{grid-template-columns:1fr 1fr} }
+.note{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px 22px;font-size:16px;color:var(--steel)}
+.note b{color:var(--ink);font-weight:600}
+.pk-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
+
+/* catch-up */
+.order{list-style:none;padding:0;margin:26px 0 0;counter-reset:o;display:grid;gap:10px}
+.order li{counter-increment:o;display:flex;gap:16px;align-items:baseline;background:var(--bone);border-radius:16px;padding:16px 20px;font-weight:500}
+.order li::before{content:counter(o);color:var(--saddle);font-weight:600;min-width:14px}
+.sweep{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
+.sweep div{text-align:center;padding:12px 8px;border-radius:999px;font-size:14.5px;font-weight:600;background:#fff;border:1px solid var(--line);color:var(--steel)}
+.sprint{background:var(--bone);border-radius:28px;padding:34px 30px}
+.sprint .kicker{margin-bottom:8px}
+.sprint h3{font-size:28px;letter-spacing:-.025em}
+.sprint .big{font-size:64px;font-weight:600;line-height:1;margin:18px 0 6px;letter-spacing:-.045em;color:var(--saddle)}
+.sprint p{color:var(--steel);margin:12px 0 0}
+.sprint .btn{margin-top:24px}
+
+/* details */
+.details{margin:0;display:grid;gap:0}
+.detail{display:grid;gap:6px;padding:22px 0;border-top:1px solid var(--line)}
+.detail:last-child{border-bottom:1px solid var(--line)}
+@media (min-width:860px){ .detail{grid-template-columns:220px 1fr;gap:28px} }
+.detail dt{font-size:19px;font-weight:600;letter-spacing:-.015em}
+.detail dd{margin:0;color:var(--steel)}
+
+/* about */
+.portrait img{border-radius:28px;aspect-ratio:4/5;object-fit:cover;object-position:50% 22%;width:100%}
+.about-copy p{color:var(--steel);margin:18px 0 0}
+.about-copy .sign{color:var(--ink);font-weight:600;margin-top:22px}
+
+/* close */
+.close{background:var(--juniper);color:#EDE9E0;padding:104px 0 96px;text-align:center}
+.close h2{color:#fff;max-width:820px;margin:0 auto}
+.close p{color:#C9CFC6;max-width:640px;margin:20px auto 0;font-size:19px}
+.close .btn{margin-top:34px}
+.close .alt{margin-top:22px;font-size:16px;color:#C9CFC6}
+.close .alt a{color:var(--brass)}
+
+/* footer (light) */
+footer{background:var(--page);padding:56px 0 36px;font-size:15px;color:var(--steel)}
+.fgrid{display:grid;gap:28px}
+@media (min-width:860px){ .fgrid{grid-template-columns:1.4fr 1fr 1fr 1fr} }
+.fgrid h4{font-size:14px;font-weight:600;color:var(--ink);margin:0 0 10px}
+.fgrid ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.fgrid a{color:var(--steel);text-decoration:none}
+.fgrid a:hover{color:var(--ink)}
+.fgrid img{height:34px;width:auto;margin-bottom:12px}
+.legal{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+
+/* application dialog */
+dialog.apply{width:min(640px,calc(100vw - 24px));max-height:calc(100dvh - 24px);border:0;border-radius:24px;padding:0;background:var(--page);color:var(--ink);box-shadow:0 30px 80px rgba(27,28,30,.25)}
+dialog.apply::backdrop{background:rgba(27,28,30,.45);backdrop-filter:blur(3px)}
+.apply-inner{padding:28px 26px 26px;overflow:auto;max-height:calc(100dvh - 24px)}
+@media (min-width:720px){ .apply-inner{padding:36px 38px 32px} }
+.apply-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.apply h2{font-size:clamp(28px,4vw,36px)}
+.apply .intro{color:var(--steel);margin:8px 0 0}
+.x{flex:none;width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:#fff;font:600 20px/1 var(--sans);color:var(--ink);cursor:pointer}
+.x:hover{border-color:var(--ink)}
+.fld{margin-top:20px}
+.fld > label,.fld legend{display:block;font-weight:600;font-size:16px;margin:0 0 8px;padding:0}
+.fld fieldset{border:0;margin:0;padding:0;min-width:0}
+.opt-hint{font-weight:400;color:var(--steel);font-size:14px}
+.in{width:100%;font:16px/1.4 var(--sans);color:var(--ink);background:#fff;border:1px solid #d8d2c6;border-radius:14px;padding:13px 14px}
+.in:focus{outline:2px solid var(--saddle);outline-offset:1px;border-color:var(--saddle)}
+textarea.in{min-height:90px;resize:vertical}
+.two{display:grid;gap:12px}
+@media (min-width:600px){ .two{grid-template-columns:1fr 1fr} }
+.choices{display:flex;flex-wrap:wrap;gap:8px}
+.choices label{position:relative}
+.choices input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.choices span{display:inline-block;padding:10px 15px;border-radius:999px;border:1px solid #d8d2c6;background:#fff;font-size:15px;cursor:pointer;transition:background .12s,border-color .12s,color .12s}
+.choices input:checked + span{background:var(--saddle);border-color:var(--saddle);color:#fff}
+.choices input:focus-visible + span{outline:2px solid var(--saddle);outline-offset:2px}
+.apply-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:26px}
+.apply .small{font-size:14px;color:var(--steel)}
+.err{color:#9b2c1e;font-size:14.5px;margin-top:14px;display:none}
+.err.show{display:block}
+.step[hidden]{display:none}
+.done-box{background:var(--bone);border-radius:18px;padding:20px 22px;margin-top:18px;color:var(--steel)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.no-js .reveal{opacity:1;transform:none}
+</style>
+</head>
+<body class="no-js">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Eliava Travel Ops, back to top"><img src="assets/eliava-logo.png" alt="Eliava Travel Ops" width="93" height="38"></a>
+    <nav class="nav" aria-label="Main">
+      <div class="links"><a href="#how">How I work</a><a href="#packages">Packages</a><a href="#about">About</a></div>
+      <a class="btn btn-primary btn-sm" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener" data-apply>Start your audit application <span class="arrow" aria-hidden="true">&rarr;</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">For luxury travel advisors</p>
+    <h1>Client emails, reminders and checklists, set up with you.</h1>
+    <p class="lede">You shouldn't have to keep every payment date and client email in your head. I set it all up inside the system you already use, so it happens on time.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener" data-apply>Start your audit application <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-ghost" href="#packages">See the packages</a>
+    </div>
+
+    <div class="stage">
+      <div class="board" role="img" aria-label="Example: the emails that go out for one trip, each one approved by the advisor">
+        <div class="board-hd"><span>What goes out, and when</span><span>Example trip</span></div>
+        <div class="row"><div><div class="when">Deposit received</div><div class="what">Welcome email</div></div><div class="pill">&#10003; Approved</div></div>
+        <div class="row"><div><div class="when">Right after booking</div><div class="what">Traveler details form</div></div><div class="pill">&#10003; Approved</div></div>
+        <div class="row"><div><div class="when">14 days before final payment</div><div class="what">Payment reminder</div></div><div class="pill">&#10003; Approved</div></div>
+        <div class="row"><div><div class="when">Documents ready</div><div class="what">Travel documents sent</div></div><div class="pill">&#10003; Approved</div></div>
+        <div class="row"><div><div class="when">2 days after they get home</div><div class="what">Welcome-home email</div></div><div class="pill">&#10003; Approved</div></div>
+        <div class="board-note">Written from your own emails. You approve each one.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof" aria-label="Experience">
+  <div class="wrap">
+    <div class="ledger reveal">
+      <div class="stat"><div class="n">1,000s</div><div class="l">of active client files managed</div></div>
+      <div class="stat"><div class="n">15+ yrs</div><div class="l">in operations</div></div>
+      <div class="stat"><div class="n">4+ yrs</div><div class="l">working inside luxury travel agencies</div></div>
+      <div class="stat"><div class="n">10+</div><div class="l">cruise lines certified</div></div>
+    </div>
+    <div class="certs reveal"><span class="cert">Travefy Advanced Certified</span><span class="cert">Tern Workflows &amp; Automations Certified</span><span class="cert">CLIA certified</span></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap split">
+    <div class="sticky reveal">
+      <p class="kicker">How it works</p>
+      <h2>One kind of trip at a time.</h2>
+      <p class="lede">We start with one kind of trip, like cruises. The next kind goes faster and costs less.</p>
+    </div>
+    <ol class="how-list">
+      <li class="reveal"><div class="num">01</div><h3>We look at one trip together</h3><p>I show you what goes out, when, and what to fix.</p></li>
+      <li class="reveal"><div class="num">02</div><h3>I set it up for you</h3><p>Emails, reminders and checklists for that kind of trip, inside your system. I write your emails from emails you've already sent, so they sound like you.</p></li>
+      <li class="reveal"><div class="num">03</div><h3>You stay in charge</h3><p>You approve every email. You get a short guide with screenshots. It shows what is set up and how to change it.</p></li>
+      <li class="reveal"><div class="num">04</div><h3>No explaining the travel side</h3><p>I already know hotel perks, cruise payments, DMCs and commission.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="pk-head reveal">
+      <p class="kicker">Packages</p>
+      <h2>Every package starts with the audit.</h2>
+      <p class="lede">We agree on the exact details in writing after the audit.</p>
+    </div>
+    <div class="packages">
+      <article class="pk reveal">
+        <span class="badge">Start here</span>
+        <div class="tier">Basic</div>
+        <div class="price">$295</div>
+        <div class="name">Audit</div>
+        <ul>
+          <li>A call to look at one of your trips</li>
+          <li>Every email, document and deadline on one page</li>
+          <li>A plan: what to fix first</li>
+        </ul>
+        <div class="time"><b>About 1 week</b></div>
+      </article>
+      <article class="pk feature reveal">
+        <span class="badge">Recommended</span>
+        <div class="tier">Standard</div>
+        <div class="price">$1,175</div>
+        <div class="name">Audit + Setup</div>
+        <ul>
+          <li>Everything in Basic</li>
+          <li>Up to 8 client emails, written in your words</li>
+          <li>Forms, checklist and reminders, set up in your system</li>
+          <li>You approve every email first</li>
+        </ul>
+        <div class="time"><b>2-3 weeks</b></div>
+      </article>
+      <article class="pk reveal">
+        <span class="badge">With an assistant</span>
+        <div class="tier">Premium</div>
+        <div class="price">$2,695</div>
+        <div class="name">Audit + Setup + Training</div>
+        <ul>
+          <li>Everything in Standard</li>
+          <li>Up to 15 current trips cleaned up or moved into Tern</li>
+          <li>Steps and training for you and your assistant</li>
+          <li>I check your next 2 trips</li>
+        </ul>
+        <div class="time"><b>4-6 weeks</b></div>
+      </article>
+    </div>
+    <div class="pk-notes one">
+      <div class="note center reveal"><b>Start with the audit.</b> If you add Setup later, you pay $880 more.</div>
+    </div>
+    <div class="pk-cta reveal">
+      <a class="btn btn-primary" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener" data-apply>Start your audit application <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-ghost" href="https://www.letslucia.com/agent/copilots/profile/313-kady" target="_blank" rel="noopener">Prefer Lucia? Hire me there</a>
+    </div>
+  </div>
+</section>
+
+<section class="catch" style="padding-top:24px">
+  <div class="wrap split flip">
+    <div class="reveal">
+      <p class="kicker">Behind on trips?</p>
+      <h2>I can help you catch up.</h2>
+      <p class="lede">I work on your backlog while we set things up. I go in this order:</p>
+      <ol class="order">
+        <li>Trips leaving soonest</li>
+        <li>Your biggest bookings and the clients who send you referrals</li>
+        <li>Everything else</li>
+      </ol>
+      <p style="color:var(--steel);margin:22px 0 0">Like cleaning a house: sweep first, then mop, then the deep clean.</p>
+      <div class="sweep" aria-hidden="true"><div>Sweep</div><div>Mop</div><div>Deep clean</div></div>
+    </div>
+    <div class="sprint reveal">
+      <p class="kicker">Catch-up sprint</p>
+      <h3>Up to 12 hours over 2 weeks</h3>
+      <div class="big">$495</div>
+      <p>Add it to any package.</p>
+      <a class="btn btn-primary" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener" data-apply>Ask about it on your call <span class="arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="padding-top:24px">
+  <div class="wrap split">
+    <div class="portrait reveal"><img src="assets/kady.webp" alt="Kady Dennis on a sailboat" width="804" height="804"></div>
+    <div class="about-copy reveal">
+      <p class="kicker">About me</p>
+      <h2>Hi, I'm Kady!</h2>
+      <p>My background is in operations long before travel. I spent years coordinating large-scale training events and executive travel, then brought that same discipline into luxury travel agencies.</p>
+      <p>I build the setup so the details don't depend on your memory, and I get the small things right: the welcome email that sounds like you wrote it, the wheelchair request that makes it to the hotel. That matters with every client, and most with the ones who need extra care: first-time travelers, older clients, and travelers with accessibility needs.</p>
+      <p>When I'm not working, I'm on my acreage in rural Georgia with my dog and kids, usually deep in a botany or mushroom rabbit hole, or planning the next trip.</p>
+      <p class="sign">-Kady</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="close">
+  <div class="wrap">
+    <h2>Start with one kind of trip.</h2>
+    <p>You don't need a big agency or a team. Let's talk about your trips.</p>
+    <a class="btn btn-light" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener" data-apply>Start your audit application <span class="arrow" aria-hidden="true">&rarr;</span></a>
+    <div class="alt">Questions? Email <a href="mailto:kady@eliavatravel.com">kady@eliavatravel.com</a></div>
+  </div>
+</section>
+
+
+<dialog class="apply" id="apply" aria-labelledby="apply-title">
+  <div class="apply-inner">
+    <form class="step" id="apply-form" novalidate>
+      <div class="apply-top">
+        <div>
+          <h2 id="apply-title">Audit application</h2>
+          <p class="intro">A few quick questions. It takes about 2 minutes. Then you'll pick a time for your call.</p>
+        </div>
+        <button type="button" class="x" data-close aria-label="Close">&times;</button>
+      </div>
+
+      <div class="fld two">
+        <div><label for="a-name">Your name</label><input class="in" id="a-name" name="name" autocomplete="name" required></div>
+        <div><label for="a-email">Your email</label><input class="in" id="a-email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <div class="fld"><label for="a-biz">Your business name or website <span class="opt-hint">(optional)</span></label><input class="in" id="a-biz" name="business" autocomplete="organization"></div>
+
+      <div class="fld"><fieldset><legend>What best describes you?</legend><div class="choices">
+        <label><input type="radio" name="role" value="Travel advisor" required><span>I'm a travel advisor</span></label>
+        <label><input type="radio" name="role" value="Agency owner"><span>I own a travel agency</span></label>
+        <label><input type="radio" name="role" value="Not in travel"><span>I'm not in travel</span></label>
+      </div></fieldset></div>
+
+      <div class="fld two">
+        <div><label for="a-system">What system do you use?</label>
+          <select class="in" id="a-system" name="system" required><option value="">Choose one</option><option>Tern</option><option>Travefy</option><option>TravelJoy</option><option>Tess</option><option>CBO</option><option>A spreadsheet</option><option>Something else</option></select></div>
+        <div><label for="a-trip">Which kind of trip first?</label>
+          <select class="in" id="a-trip" name="trip" required><option value="">Choose one</option><option>Cruises</option><option>Multi-city / FIT</option><option>Resort or all-inclusive</option><option>Groups</option><option>Tours</option><option>Not sure yet</option></select></div>
+      </div>
+
+      <div class="fld"><fieldset><legend>What would help most right now?</legend><div class="choices">
+        <label><input type="radio" name="help" value="Get caught up on my backlog" required><span>Get caught up</span></label>
+        <label><input type="radio" name="help" value="Set up emails, reminders and checklists"><span>Set up emails and reminders</span></label>
+        <label><input type="radio" name="help" value="Train my assistant"><span>Train my assistant</span></label>
+        <label><input type="radio" name="help" value="Not sure yet"><span>Not sure yet</span></label>
+      </div></fieldset></div>
+
+      <div class="fld"><fieldset><legend>When would you like to start?</legend><div class="choices">
+        <label><input type="radio" name="when" value="Right away" required><span>Right away</span></label>
+        <label><input type="radio" name="when" value="In the next month"><span>In the next month</span></label>
+        <label><input type="radio" name="when" value="Just looking for now"><span>Just looking for now</span></label>
+      </div></fieldset></div>
+
+      <div class="fld"><label for="a-notes">Anything else I should know? <span class="opt-hint">(optional)</span></label><textarea class="in" id="a-notes" name="notes"></textarea></div>
+
+      <p class="err" id="apply-err" role="alert">Please answer each question so I can get ready for our call.</p>
+      <div class="apply-actions">
+        <button type="submit" class="btn btn-primary">Next: pick a time <span class="arrow" aria-hidden="true">&rarr;</span></button>
+        <span class="small">Your answers go with your booking, just to me.</span>
+      </div>
+    </form>
+
+    <div class="step" id="apply-yes" hidden>
+      <div class="apply-top"><h2 tabindex="-1">Thanks, <span data-first></span>!</h2><button type="button" class="x" data-close aria-label="Close">&times;</button></div>
+      <p class="intro">Last step: pick a time for your audit call. Your answers are already filled in.</p>
+      <div class="apply-actions"><a class="btn btn-primary" id="apply-go" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener">Pick a time <span class="arrow" aria-hidden="true">&rarr;</span></a></div>
+    </div>
+
+    <div class="step" id="apply-no" hidden>
+      <div class="apply-top"><h2 tabindex="-1">Thank you for your interest!</h2><button type="button" class="x" data-close aria-label="Close">&times;</button></div>
+      <div class="done-box">This service is built for travel advisors and travel agencies. If you think I can still help, email me at <a href="mailto:kady@eliavatravel.com">kady@eliavatravel.com</a>.</div>
+    </div>
+  </div>
+</dialog>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><img src="assets/eliava-logo.png" alt="Eliava Travel Ops" width="83" height="34"><div>Client emails, reminders and checklists for luxury travel advisors.</div></div>
+      <div><h4>Packages</h4><ul><li><a href="#packages">Audit, $295</a></li><li><a href="#packages">Audit + Setup, $1,175</a></li><li><a href="#packages">Audit + Setup + Training, $2,695</a></li></ul></div>
+      <div><h4>Get started</h4><ul><li><a href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener" data-apply>Audit application</a></li><li><a href="https://www.letslucia.com/agent/copilots/profile/313-kady" target="_blank" rel="noopener">Hire me on Lucia</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="mailto:kady@eliavatravel.com">kady@eliavatravel.com</a></li></ul></div>
+    </div>
+    <div class="legal"><span>&copy; 2026 Eliava Consulting, LLC &middot; Georgia</span><span>Operations services for travel advisors. Eliava doesn't sell travel.</span></div>
+  </div>
+</footer>
+
+<script>
+document.body.classList.remove('no-js');
+(function(){
+  var top=document.getElementById('top');
+  function onScroll(){ top.classList.toggle('scrolled', window.scrollY>8); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{rootMargin:'0px 0px -8% 0px', threshold:0.08});
+  els.forEach(function(e){ io.observe(e); });
+})();
+
+(function(){
+  var CAL="https://cal.com/kady-dennis/discovery-call";
+  var dlg=document.getElementById('apply'); if(!dlg || typeof dlg.showModal!=='function') return;
+  var form=document.getElementById('apply-form'), yes=document.getElementById('apply-yes'), no=document.getElementById('apply-no'), err=document.getElementById('apply-err');
+  function show(step){ [form,yes,no].forEach(function(s){ s.hidden = (s!==step); }); var h=step.querySelector('h2'); if(step!==form && h){ h.focus(); } }
+  document.querySelectorAll('[data-apply]').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); show(form); err.classList.remove('show'); dlg.showModal(); setTimeout(function(){ var f=document.getElementById('a-name'); if(f) f.focus(); },30); });
+  });
+  dlg.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click',function(){ dlg.close(); }); });
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
+  form.addEventListener('change',function(){ err.classList.remove('show'); });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d=new FormData(form);
+    var need=['name','email','role','system','trip','help','when'];
+    var missing=need.filter(function(k){ return !(d.get(k)||'').toString().trim(); });
+    var emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((d.get('email')||'').toString().trim());
+    if(missing.length || !emailOk){ err.textContent = !emailOk && !missing.length ? 'Please check your email address.' : 'Please answer each question so I can get ready for our call.'; err.classList.add('show'); return; }
+    err.classList.remove('show');
+    if(d.get('role')==='Not in travel'){ show(no); return; }
+    var lines=['Audit application from eliavatravel.com',
+      'Role: '+d.get('role'),
+      'Business: '+((d.get('business')||'').toString().trim()||'-'),
+      'System: '+d.get('system'),
+      'Start with: '+d.get('trip'),
+      'Help most: '+d.get('help'),
+      'Start: '+d.get('when')];
+    var extra=(d.get('notes')||'').toString().trim(); if(extra) lines.push('Notes: '+extra);
+    var q='?name='+encodeURIComponent(d.get('name').toString().trim())+'&email='+encodeURIComponent(d.get('email').toString().trim())+'&notes='+encodeURIComponent(lines.join('\n'));
+    document.getElementById('apply-go').href=CAL+q;
+    yes.querySelector('[data-first]').textContent=d.get('name').toString().trim().split(/\s+/)[0];
+    show(yes);
+  });
+})();
+</script>
+</body>
+</html>
