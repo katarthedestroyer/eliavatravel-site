@@ -191,9 +191,17 @@
     .sv-plan > .sv-price { grid-row: 5; margin-top: 0; }
   }
 }
-.sv-price > div { border-top: 1px solid var(--sc-hairline); padding-top: var(--sc-5); }
-.sv-price-main { margin: 0; font-size: 1.0625rem; font-weight: 500; color: var(--sc-ink); }
-.sv-price-alt { margin: var(--sc-2) 0 0; color: var(--sc-ink-soft); }
+/* two price rows: the 3-month price leads, month to month sits under it */
+.sv-rates { margin: 0; border-top: 1px solid var(--sc-hairline); }
+.sv-rates > div {
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--sc-2) var(--sc-4);
+  padding-top: var(--sc-4);
+}
+.sv-rates > div + div { margin-top: var(--sc-3); padding-top: var(--sc-3); border-top: 1px solid var(--sc-hairline); }
+.sv-rates dt { font-weight: 600; color: var(--sc-ink); }
+.sv-rates dd { margin: 0; text-align: right; white-space: nowrap; color: var(--sc-ink-soft); }
+.sv-rates > div + div dt { font-weight: 500; color: var(--sc-ink-soft); }
+.sv-rates .sv-amt { display: inline; margin: 0 0.1em 0 0; font-size: clamp(2.2rem, 1.9rem + 1.2vw, 3rem); }
 
 .sv-trial {
   margin-top: var(--sc-5);
@@ -240,17 +248,12 @@
 .sv-fix-in .sv-note + .sv-note { margin-top: var(--sc-1); }
 .sv-fix-in .btn { margin-top: var(--sc-5); }
 
+/* four offers, one style: name, price line, a sentence or two */
 .sv-train-grid {
-  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: var(--sc-6) var(--sc-7); align-items: start;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sc-7) var(--sc-7); align-items: start;
 }
-.sv-train-main {
-  grid-row: span 2;
-  padding: clamp(1.5rem, 1rem + 1.4vw, 2.5rem);
-  border: 1px solid var(--sc-hairline); border-radius: var(--sc-r-lg);
-  background: var(--sc-surface); box-shadow: var(--sc-edge), var(--sc-e1);
-}
-.sv-train-main.sv-offer { border-top: 1px solid var(--sc-hairline); }
+.sv-train .sv-offer-price { color: var(--sc-accent); }
 .sv-train .sv-offer-top { flex-direction: column; align-items: flex-start; row-gap: var(--sc-2); }
 .sv-train-grid .sv-offer + .sv-offer { margin-top: 0; }
 .sv-train-included { color: var(--sc-ink) !important; }
@@ -339,8 +342,6 @@
   .sv-menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sv-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sv-split { grid-template-columns: 1fr; gap: var(--sc-6); }
-  .sv-train-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .sv-train-main { grid-column: 1 / -1; grid-row: auto; }
 }
 @media (max-width: 860px) {
   .sv-plans, .sv-promises { grid-template-columns: 1fr; }
@@ -358,8 +359,10 @@
   /* number in a left gutter; the text (with any nowrap span) flows as one block */
   .sv-steps li { display: block; position: relative; padding-left: calc(2.25rem + var(--sc-3)); }
   .sv-steps li::before { position: absolute; left: 0; top: var(--sc-4); margin: 0; font-size: 1.9rem; }
-  .sv-fix-list { display: grid; justify-content: center; justify-items: start; }
-  .sv-train-grid { grid-template-columns: 1fr; }
+  /* on a phone the fix reads like the other offers: left-aligned */
+  .sv-fix-in { text-align: left; align-items: flex-start; }
+  .sv-fix-list { display: grid; justify-content: start; }
+  .sv-train-grid { grid-template-columns: 1fr; gap: var(--sc-6); }
   .sv-actions .btn { width: 100%; }
   .sv-fix-in .btn, .sv-close .btn { width: 100%; }
   .sv-q p { padding-right: 0; }

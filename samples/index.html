@@ -109,33 +109,26 @@
   <div class="foot-in">
     <div class="foot-brand">
       <a class="foot-logo" href="/"><img src="/assets/eliava-logo.png" alt="Eliava Travel Ops" width="83" height="34"></a>
-      <p>Behind-the-scenes help for travel advisors.</p>
+      <p class="foot-what">Back-office help for travel advisors.</p>
+      <p>Client emails, payment reminders, documents and deadlines, done on time inside your tools.</p>
     </div>
-    <nav aria-labelledby="foot-ways">
-      <h2 class="foot-head" id="foot-ways">Ways I help</h2>
-      <ul>
-        <li><a href="/services/#keep">Keep it running</a></li>
-        <li><a href="/services/#setup">Set it up</a></li>
-        <li><a href="/services/#fix">Single Fix</a></li>
-        <li><a href="/services/#train">Train your team</a></li>
-      </ul>
-    </nav>
-    <nav aria-labelledby="foot-start">
-      <h2 class="foot-head" id="foot-start">Get started</h2>
-      <ul>
-        <li><a href="https://cal.com/kady-dennis/discovery-call" data-apply>Start your application</a></li>
-        <li><a href="/samples/">Sample work</a></li>
-      </ul>
-    </nav>
-    <div>
-      <h2 class="foot-head">Contact</h2>
-      <ul>
-        <li><a href="mailto:kady@eliavatravel.com">kady@eliavatravel.com</a></li>
-      </ul>
+    <div class="foot-cta">
+      <p class="foot-ready">Ready when you are.</p>
+      <a class="btn" href="https://cal.com/kady-dennis/discovery-call" data-apply>Start your application</a>
+      <p class="foot-mail">Or email <a href="mailto:kady@eliavatravel.com">kady@eliavatravel.com</a></p>
     </div>
-    <div class="foot-legal">
-      <p>&copy; 2026 Eliava Consulting, LLC &middot; Georgia</p>
-      <p>Operations services for travel advisors. Eliava doesn't sell travel.</p>
+    <div class="foot-bar">
+      <nav class="foot-nav" aria-label="Footer">
+        <ul>
+          <li><a href="/services/">Services and prices</a></li>
+          <li><a href="/samples/">Sample work</a></li>
+          <li><a href="/#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="foot-legal">
+        <p>&copy; 2026 Eliava Consulting, LLC</p>
+        <p>I don't sell travel, so I'm never your competition.</p>
+      </div>
     </div>
   </div>
 </footer>
@@ -180,11 +173,11 @@
             <label class="chip"><input type="radio" name="hours" value="Not sure yet"><span>Not sure yet</span></label>
           </div></fieldset>
           <fieldset class="fld"><legend>What should I help with first? Pick any.</legend><div class="choices">
-            <label class="chip"><input type="checkbox" name="priorities" value="Client emails and follow-ups"><span>Client emails and follow-ups</span></label>
+            <label class="chip"><input type="checkbox" name="priorities" value="New inquiries and proposals"><span>New inquiries and proposals</span></label>
+            <label class="chip"><input type="checkbox" name="priorities" value="Booked trips and payments"><span>Booked trips and payments</span></label>
             <label class="chip"><input type="checkbox" name="priorities" value="Itineraries and final documents"><span>Itineraries and final documents</span></label>
-            <label class="chip"><input type="checkbox" name="priorities" value="Trip tracking and deadlines"><span>Trip tracking and deadlines</span></label>
-            <label class="chip"><input type="checkbox" name="priorities" value="Suppliers and travel documents"><span>Suppliers and travel documents</span></label>
-            <label class="chip"><input type="checkbox" name="priorities" value="Tools and automations"><span>Tools and automations</span></label>
+            <label class="chip"><input type="checkbox" name="priorities" value="After the trip"><span>After the trip</span></label>
+            <label class="chip"><input type="checkbox" name="priorities" value="Inbox, tools and AI"><span>Inbox, tools and AI</span></label>
           </div></fieldset>
           <fieldset class="fld"><legend>Which plan sounds right?</legend><div class="choices">
             <label class="chip"><input type="radio" name="level" value="Steady (20 hours a month)"><span>Steady (20 hours a month)</span></label>
@@ -222,6 +215,11 @@
             <label class="chip"><input type="radio" name="location" value="In the US"><span>In the US</span></label>
             <label class="chip"><input type="radio" name="location" value="Outside the US"><span>Outside the US</span></label>
             <label class="chip"><input type="radio" name="location" value="Some of each"><span>Some of each</span></label>
+          </div></fieldset>
+          <fieldset class="fld"><legend>What should the training cover? <span class="opt">(optional)</span></legend><div class="choices">
+            <label class="chip"><input type="radio" name="trainwhat" value="A tool, like Travefy or Tern"><span>A tool, like Travefy or Tern</span></label>
+            <label class="chip"><input type="radio" name="trainwhat" value="Using AI (Claude)"><span>Using AI (Claude)</span></label>
+            <label class="chip"><input type="radio" name="trainwhat" value="Both"><span>Both</span></label>
           </div></fieldset>
           <div class="fld"><label class="q" for="a-traintool">Which tool, and which kind of trip?</label><input class="in" id="a-traintool" name="traintool" placeholder="For example: Travefy, cruises."></div>
         </fieldset>
@@ -283,6 +281,7 @@
         </div></fieldset>
 
         <div class="fld"><label class="q" for="a-notes">Anything else I should know? <span class="opt">(optional)</span></label><textarea class="in" id="a-notes" name="notes"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="a-website">Leave this empty</label><input id="a-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
       </div>
 
       <p class="apply-err" id="apply-err" role="alert" data-missing="A few answers are missing. Please fill them in so I can get ready for our call." data-email="That email address doesn't look right. Please check it and try again."></p>
@@ -294,10 +293,17 @@
 
     <div class="step" id="apply-yes" hidden>
       <h2 tabindex="-1">Thanks, <span data-first></span>!</h2>
-      <p class="apply-intro">Last step: pick a time for your Scoping Call. Your answers are already filled in.</p>
-      <div class="apply-actions"><a class="btn" id="apply-go" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener">Pick a time</a></div>
-      <p class="apply-alt">Not ready to pick a time?</p>
-      <a class="btn btn--quiet" id="apply-mail" href="mailto:kady@eliavatravel.com">Email me your answers instead</a>
+      <div data-yes="call">
+        <p class="apply-intro">Last step: pick a time for your Scoping Call. Your answers are already filled in.</p>
+        <div class="apply-actions"><a class="btn" id="apply-go" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener">Pick a time</a></div>
+        <p class="apply-alt">Not ready to pick a time?</p>
+        <a class="btn btn--quiet" id="apply-mail" href="mailto:kady@eliavatravel.com">Email me your answers instead</a>
+      </div>
+      <div data-yes="fix" hidden>
+        <p class="apply-intro">Next step: pay for your Single Fix. Then you'll show me the problem in a short Loom video or on a quick call.</p>
+        <div class="apply-actions"><a class="btn" id="apply-pay" href="https://cal.com/kady-dennis/discovery-call">Pay $225 and book your fix</a></div>
+        <p class="apply-alt">Questions first? <a id="apply-fix-call" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener">Book a free Scoping Call</a></p>
+      </div>
       <p class="apply-note">Either way, I'll reply the same business day.</p>
     </div>
 
