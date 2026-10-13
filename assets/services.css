@@ -234,6 +234,10 @@
 .sv-fix-list li + li { margin-top: 0; }
 .sv-fix-list li { color: var(--sc-ink); }
 .sv-fix-in .sv-note { margin-top: var(--sc-6); }
+/* how buying works: apply, pay, then a Loom or a call */
+.sv-fix-how { margin: var(--sc-6) 0 0; max-width: 40ch; font-weight: 600; color: var(--sc-ink); text-wrap: balance; }
+.sv-fix-in .sv-fix-how + .sv-note { margin-top: var(--sc-3); }
+.sv-fix-in .sv-note + .sv-note { margin-top: var(--sc-1); }
 .sv-fix-in .btn { margin-top: var(--sc-5); }
 
 .sv-train-grid {

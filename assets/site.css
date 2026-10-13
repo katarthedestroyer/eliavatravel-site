@@ -482,6 +482,15 @@ select.in {
 
 /* yes / not a fit */
 .apply-alt { margin: var(--sc-6) 0 var(--sc-3); padding-top: var(--sc-5); border-top: 1px solid var(--sc-hairline); color: var(--sc-ink-soft); }
+.apply-alt a {
+  color: var(--sc-accent); font-weight: 600;
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em;
+}
+.apply-alt a:hover { text-decoration-thickness: 2px; }
+
+/* the honeypot: a field only bots fill in. Off screen, out of the tab order
+   and hidden from screen readers (aria-hidden in the markup) */
+.hp { position: absolute !important; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 .apply-note { margin: var(--sc-5) 0 0; font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
 
 @media (max-width: 600px) {
