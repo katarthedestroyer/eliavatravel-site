@@ -1,0 +1,377 @@
+/* ============================================================================
+   Eliava services.css: the Services page only. Loads after site.css and uses
+   its Harbor tokens, type scale and buttons. Plain and fast: no scroll
+   devices, one light fade-in (skipped under reduced motion).
+
+   Contents
+     1. Page rhythm: section padding, bands, heads
+     2. Intro + jump links
+     3. What I handle (#menu)
+     4. Tools (#tools)
+     5. Shared bits: tick lists, prices, offer rows
+     6. Keep it running (#keep)
+     7. Set it up (#setup), Single Fix (#fix), Train your team (#train)
+     8. How it works (#how)
+     9. FAQ (#faq)
+    10. Why work with me (#why) + closing application
+    11. Fade-in + reduced motion
+   ========================================================================== */
+
+/* ------------------------------------------------------ 1. page rhythm -- */
+.page-services {
+  --sv-section: clamp(3.25rem, 1.75rem + 4.5vw, 6.25rem);
+  --sv-tick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.2 6.3l2.4 2.4 5-5.4' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --sv-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 2.5v10.5M3.5 8.5L8 13l4.5-4.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --sv-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 2.5v11M2.5 8h11' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.sv-section { padding-block: var(--sv-section); }
+.sv-band { background: var(--sc-surface); }
+.sv-ruled { border-top: 1px solid var(--sc-hairline); }
+
+/* a section head: heading, a lede under it, then the content group well below
+   (the spacing itself sits in "spacing" near the end, so it wins over component margins) */
+.sv-head { max-width: 48rem; }
+.sv-lede {
+  margin: 0; max-width: 52ch;
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem); line-height: 1.55;
+  color: var(--sc-ink-soft); text-wrap: pretty;
+}
+
+/* ------------------------------------------------ 2. intro + jump links -- */
+.sv-intro { padding-block: clamp(2.25rem, 0.75rem + 5vw, 5.75rem) clamp(2.75rem, 1.5rem + 3.5vw, 5rem); }
+.sv-title {
+  max-width: 15ch;
+  font-size: var(--sc-t-3xl); line-height: 1.0; letter-spacing: var(--sc-track-tight);
+}
+.sv-intro .el-lede { margin-top: var(--sc-5); max-width: 40ch; }
+
+.sv-jump {
+  margin-top: clamp(2rem, 1.25rem + 2.5vw, 3.5rem);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--sc-5);
+  list-style: none; padding: 0;
+}
+.sv-jump li { border-top: 1px solid var(--sc-hairline-strong); }
+.sv-jump a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--sc-3);
+  min-height: 60px; padding: var(--sc-3) 0;
+  font-weight: 600; font-size: 1.0625rem; color: var(--sc-ink); text-decoration: none;
+  text-decoration-thickness: 1px; text-underline-offset: 0.28em;
+}
+.sv-jump a::after {
+  content: ""; flex: none; width: 16px; height: 16px; background: var(--sc-accent);
+  -webkit-mask: var(--sv-down) center / contain no-repeat; mask: var(--sv-down) center / contain no-repeat;
+  transition: transform 160ms var(--sc-ease-out);
+}
+.sv-jump a:hover { text-decoration-line: underline; text-decoration-color: var(--sc-accent); }
+@media (hover: hover) and (pointer: fine) {
+  .sv-jump a:hover::after { transform: translateY(2px); }
+}
+.sv-jump a:active::after { transform: translateY(3px); }
+
+/* ---------------------------------------------------- 3. what I handle -- */
+/* heading + five groups = six cells: 3 x 2 wide, 2 x 3 mid, one column on a phone */
+.sv-menu-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sc-7) var(--sc-6);
+}
+.sv-menu-head .sv-lede { margin-top: var(--sc-4); max-width: 30ch; }
+.sv-group { border-top: 1px solid var(--sc-hairline-strong); padding-top: var(--sc-4); }
+.sv-group-title {
+  font-family: var(--sc-font-text); font-size: 1.0625rem; font-weight: 650;
+  line-height: 1.3; letter-spacing: -0.005em; text-wrap: balance;
+}
+.sv-dots { list-style: none; margin: var(--sc-3) 0 0; padding: 0; color: var(--sc-ink-soft); }
+.sv-dots li { position: relative; padding: 3px 0 3px 20px; }
+.sv-dots li::before {
+  content: ""; position: absolute; left: 1px; top: calc(3px + 0.81em - 3px);
+  width: 6px; height: 6px; border-radius: 50%; background: var(--sc-accent);
+}
+
+/* ----------------------------------------------------------- 4. tools -- */
+.sv-tool-list {
+  list-style: none; margin: var(--sc-6) 0 0; padding: 0; max-width: 60rem;
+  display: flex; flex-wrap: wrap; overflow: hidden;
+  font-family: var(--sc-font-display); font-weight: 450;
+  font-size: var(--sc-t-xl); line-height: 1.35; letter-spacing: var(--sc-track-snug);
+  color: var(--sc-ink);
+}
+/* Each separator dot sits in front of its item. The first item on every line
+   has its dot outside the list box, where overflow clips it, so no line ever
+   starts or ends with a dangling dot. */
+.sv-tool-list li { position: relative; margin-right: 1.1em; white-space: nowrap; }
+.sv-tool-list li::before {
+  content: ""; position: absolute; left: -0.65em; top: 0.56em;
+  width: 0.2em; height: 0.2em; border-radius: 50%; background: var(--sc-accent);
+}
+.sv-tools .sv-note { margin-top: var(--sc-5); max-width: 52ch; font-size: 1rem; }
+
+/* --------------------------------------------------- 5. shared bits -- */
+.sv-note { margin: 0; font-size: var(--sc-t-sm); line-height: 1.55; color: var(--sc-ink-soft); text-wrap: pretty; }
+
+.sv-checks { list-style: none; margin: 0; padding: 0; color: var(--sc-ink-soft); }
+.sv-checks li { position: relative; padding-left: 28px; text-wrap: pretty; }
+.sv-checks li + li { margin-top: var(--sc-2); }
+.sv-checks li::before {
+  content: ""; position: absolute; left: 0; top: calc(0.81em - 8px);
+  width: 16px; height: 16px; background: var(--sc-accent);
+  -webkit-mask: var(--sv-tick) center / contain no-repeat; mask: var(--sv-tick) center / contain no-repeat;
+}
+
+/* the big number in a price; the words after it stay on the same line in the source */
+.sv-amt {
+  display: block; margin-bottom: var(--sc-1);
+  font-family: var(--sc-font-display); font-weight: 500;
+  font-size: clamp(2.5rem, 2rem + 1.8vw, 3.4rem); line-height: 1; letter-spacing: -0.02em;
+  color: var(--sc-ink); font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* a menu row: name left, price right on the same baseline */
+.sv-offer { border-top: 1px solid var(--sc-hairline-strong); padding-top: var(--sc-5); }
+.sv-offer + .sv-offer { margin-top: var(--sc-7); }
+.sv-offer-top {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: var(--sc-1) var(--sc-5);
+}
+.sv-offer-top h3 { font-size: var(--sc-t-xl); }
+.sv-offer-price {
+  margin: 0; font-family: var(--sc-font-display); font-weight: 500;
+  font-size: var(--sc-t-lg); line-height: 1.2; color: var(--sc-ink);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.sv-offer > p, .sv-offer > ul { margin: var(--sc-3) 0 0; max-width: 58ch; }
+.sv-offer > p:not(.sv-note) { color: var(--sc-ink-soft); text-wrap: pretty; }
+.sv-offer > ul { margin-top: var(--sc-4); }
+.sv-offer > .sv-note { margin-top: var(--sc-4); }
+
+.sv-actions {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sc-4) var(--sc-5);
+  margin-top: var(--sc-7);
+}
+.sv-actions .sv-note { font-size: 1rem; }
+
+/* ------------------------------------------------- 6. keep it running -- */
+.sv-approve {
+  display: flex; align-items: center; gap: var(--sc-3);
+  font-weight: 600; color: var(--sc-ink); text-wrap: balance;
+}
+.sv-approve::before {
+  content: ""; flex: none; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--sc-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.4 6.3l2.3 2.3 4.9-5.2' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px 12px no-repeat;
+}
+
+.sv-plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sc-5); }
+.sv-plan {
+  display: flex; flex-direction: column;
+  padding: clamp(1.5rem, 1rem + 1.4vw, 2.5rem);
+  border: 1px solid var(--sc-hairline); border-radius: var(--sc-r-lg);
+  background: var(--sc-surface); box-shadow: var(--sc-edge), var(--sc-e1);
+}
+.sv-plan h3 { font-size: var(--sc-t-xl); }
+.sv-plan-hours { margin: var(--sc-2) 0 0; font-weight: 600; color: var(--sc-ink); }
+.sv-plan-tag {
+  align-self: flex-start; margin: var(--sc-3) 0 0; padding: 4px 12px;
+  border-radius: var(--sc-r-pill); background: var(--el-accent-tint);
+  font-size: var(--sc-t-sm); font-weight: 600; line-height: 1.4; color: var(--sc-accent);
+}
+.sv-plan .sv-checks { margin-top: var(--sc-5); }
+.sv-price {
+  margin-top: auto; padding-top: var(--sc-6);
+}
+/* side by side, the two plans share rows, so Steady's list lines up with
+   Embedded's even though Embedded has an extra tag line */
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 861px) {
+    .sv-plans { grid-template-rows: repeat(5, auto); }
+    .sv-plan { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; }
+    .sv-plan > h3 { grid-row: 1; }
+    .sv-plan > .sv-plan-hours { grid-row: 2; }
+    .sv-plan > .sv-plan-tag { grid-row: 3; justify-self: start; }
+    .sv-plan > .sv-checks { grid-row: 4; align-self: start; }
+    .sv-plan > .sv-price { grid-row: 5; margin-top: 0; }
+  }
+}
+.sv-price > div { border-top: 1px solid var(--sc-hairline); padding-top: var(--sc-5); }
+.sv-price-main { margin: 0; font-size: 1.0625rem; font-weight: 500; color: var(--sc-ink); }
+.sv-price-alt { margin: var(--sc-2) 0 0; color: var(--sc-ink-soft); }
+
+.sv-trial {
+  margin-top: var(--sc-5);
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--sc-3) var(--sc-7);
+  align-items: baseline;
+  padding: clamp(1.5rem, 1rem + 1.4vw, 2.5rem);
+  border-radius: var(--sc-r-lg); background: var(--el-accent-tint);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--sc-accent) 16%, transparent);
+}
+.sv-trial h3 { font-size: var(--sc-t-xl); max-width: 16ch; }
+.sv-trial p { margin: 0; max-width: 56ch; color: var(--sc-ink); text-wrap: pretty; }
+
+/* ------------------------------------- 7. set it up, single fix, train -- */
+.sv-split {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--sc-7) clamp(2rem, 0.5rem + 5vw, 6.5rem); align-items: start;
+}
+.sv-split .sv-actions { margin-top: var(--sc-7); }
+@media (min-width: 1100px) {
+  .sv-split > .sv-head { position: sticky; top: calc(var(--el-mast-h) + var(--sc-6)); }
+}
+
+.sv-fix-in {
+  max-width: 46rem; margin-inline: auto; text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+}
+.sv-fix-price {
+  margin: var(--sc-4) 0 0;
+  font-family: var(--sc-font-display); font-weight: 500; font-size: var(--sc-t-xl); line-height: 1;
+  color: var(--sc-ink-soft);
+}
+.sv-fix-price .sv-amt { display: inline; margin: 0 0.12em 0 0; }
+.sv-fix-in .sv-lede { margin-top: var(--sc-5); max-width: 34ch; color: var(--sc-ink); }
+.sv-fix-list {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sc-3) var(--sc-6);
+  margin-top: var(--sc-6);
+}
+.sv-fix-list li + li { margin-top: 0; }
+.sv-fix-list li { color: var(--sc-ink); }
+.sv-fix-in .sv-note { margin-top: var(--sc-6); }
+.sv-fix-in .btn { margin-top: var(--sc-5); }
+
+.sv-train-grid {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: var(--sc-6) var(--sc-7); align-items: start;
+}
+.sv-train-main {
+  grid-row: span 2;
+  padding: clamp(1.5rem, 1rem + 1.4vw, 2.5rem);
+  border: 1px solid var(--sc-hairline); border-radius: var(--sc-r-lg);
+  background: var(--sc-surface); box-shadow: var(--sc-edge), var(--sc-e1);
+}
+.sv-train-main.sv-offer { border-top: 1px solid var(--sc-hairline); }
+.sv-train .sv-offer-top { flex-direction: column; align-items: flex-start; row-gap: var(--sc-2); }
+.sv-train-grid .sv-offer + .sv-offer { margin-top: 0; }
+.sv-train-included { color: var(--sc-ink) !important; }
+
+/* ---------------------------------------------------- 8. how it works -- */
+.sv-steps {
+  list-style: none; margin: 0; padding: 0; counter-reset: sv-step;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sc-7) var(--sc-6);
+}
+.sv-steps li {
+  counter-increment: sv-step;
+  border-top: 1px solid var(--sc-hairline-strong); padding-top: var(--sc-4);
+  color: var(--sc-ink-soft); text-wrap: pretty;
+}
+.sv-steps li::before {
+  content: counter(sv-step); display: block; margin-bottom: var(--sc-3);
+  font-family: var(--sc-font-display); font-weight: 500; font-size: 2.25rem; line-height: 1;
+  color: var(--sc-accent); font-variant-numeric: lining-nums tabular-nums;
+}
+.sv-steps strong { display: block; margin-bottom: var(--sc-1); font-weight: 650; color: var(--sc-ink); }
+
+.sv-promises {
+  margin-top: var(--sc-8);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sc-5);
+}
+.sv-promise {
+  padding: clamp(1.5rem, 1rem + 1.4vw, 2.25rem);
+  border-radius: var(--sc-r-lg); background: var(--sc-canvas);
+}
+.sv-promise h3 { font-size: var(--sc-t-xl); }
+.sv-promise > ul, .sv-promise > p { margin: var(--sc-4) 0 0; max-width: 52ch; }
+.sv-promise > p { color: var(--sc-ink-soft); text-wrap: pretty; }
+.sv-promise > p + p { margin-top: var(--sc-3); }
+
+/* -------------------------------------------------------------- 9. faq -- */
+.sv-faq-in { max-width: 52rem; margin-inline: 0; }
+.sv-faq-list { margin-top: var(--sc-7); border-top: 1px solid var(--sc-hairline-strong); }
+.sv-q { border-bottom: 1px solid var(--sc-hairline-strong); }
+.sv-q summary {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--sc-4);
+  min-height: 64px; padding: var(--sc-4) 0;
+  list-style: none; cursor: pointer;
+  font-size: 1.0625rem; font-weight: 600; line-height: 1.4; color: var(--sc-ink); text-wrap: balance;
+  transition: color 140ms var(--sc-ease-out);
+}
+.sv-q summary::-webkit-details-marker { display: none; }
+.sv-q summary::after {
+  content: ""; flex: none; width: 18px; height: 18px; background: var(--sc-accent);
+  -webkit-mask: var(--sv-plus) center / contain no-repeat; mask: var(--sv-plus) center / contain no-repeat;
+  transition: transform 180ms var(--sc-ease-out);
+}
+.sv-q[open] summary::after { transform: rotate(45deg); }
+.sv-q summary:hover { color: var(--sc-accent); }
+.sv-q summary:active::after { transform: scale(0.9); }
+.sv-q[open] summary:active::after { transform: rotate(45deg) scale(0.9); }
+.sv-q p { margin: calc(var(--sc-2) * -1) 0 var(--sc-5); max-width: 62ch; padding-right: var(--sc-6); color: var(--sc-ink-soft); text-wrap: pretty; }
+
+/* ---------------------------------- 10. why work with me + application -- */
+.sv-why-list {
+  list-style: none; margin: 0; padding: 0;
+  columns: 3 17rem; column-gap: var(--sc-7);
+}
+.sv-why-list li {
+  position: relative; break-inside: avoid;
+  padding: var(--sc-4) 0 var(--sc-4) 32px;
+  border-top: 1px solid var(--sc-hairline);
+  color: var(--sc-ink); text-wrap: pretty;
+}
+.sv-why-list li::before {
+  content: ""; position: absolute; left: 0; top: calc(var(--sc-4) + 0.83em - 9px);
+  width: 18px; height: 18px; background: var(--sc-accent);
+  -webkit-mask: var(--sv-tick) center / contain no-repeat; mask: var(--sv-tick) center / contain no-repeat;
+}
+
+.sv-close-in { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.sv-close .sv-lede { margin-top: var(--sc-4); max-width: 44ch; }
+.sv-close .btn { margin-top: var(--sc-6); }
+
+/* ---------------------------------------------------------------- spacing -- */
+.sv-head > * + * { margin-top: var(--sc-4); }
+.sv-group-gap { margin-top: var(--sc-7); }
+.sv-nw { white-space: nowrap; }
+
+/* ------------------------------------------------------------ breakpoints -- */
+@media (max-width: 1099px) {
+  .sv-menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sv-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sv-split { grid-template-columns: 1fr; gap: var(--sc-6); }
+  .sv-train-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .sv-train-main { grid-column: 1 / -1; grid-row: auto; }
+}
+@media (max-width: 860px) {
+  .sv-plans, .sv-promises { grid-template-columns: 1fr; }
+  .sv-trial { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .sv-title { font-size: var(--sc-t-2xl); line-height: 1.04; }
+  .sv-jump { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sc-4); }
+  .sv-jump a { min-height: 52px; font-size: 1rem; }
+  .sv-tool-list { font-size: 1.5rem; }
+}
+@media (max-width: 640px) {
+  .sv-menu-grid { grid-template-columns: 1fr; gap: var(--sc-6); }
+  .sv-steps { grid-template-columns: 1fr; gap: var(--sc-5); }
+  /* number in a left gutter; the text (with any nowrap span) flows as one block */
+  .sv-steps li { display: block; position: relative; padding-left: calc(2.25rem + var(--sc-3)); }
+  .sv-steps li::before { position: absolute; left: 0; top: var(--sc-4); margin: 0; font-size: 1.9rem; }
+  .sv-fix-list { display: grid; justify-content: center; justify-items: start; }
+  .sv-train-grid { grid-template-columns: 1fr; }
+  .sv-actions .btn { width: 100%; }
+  .sv-fix-in .btn, .sv-close .btn { width: 100%; }
+  .sv-q p { padding-right: 0; }
+}
+
+/* ---------------------------------------- 11. fade-in + reduced motion -- */
+/* The page script adds .sv-fade-on only when IntersectionObserver exists and
+   motion is allowed, so nothing is ever hidden without a way back. */
+.sv-fade-on [data-fade] {
+  opacity: 0; transform: translate3d(0, 10px, 0);
+  transition: opacity 520ms var(--sc-ease-out), transform 520ms var(--sc-ease-out);
+}
+.sv-fade-on [data-fade].is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sv-fade-on [data-fade] { opacity: 1; transform: none; transition: none; }
+  .sv-jump a::after, .sv-q summary::after, .sv-q summary { transition: none; }
+  .sv-jump a:hover::after, .sv-jump a:active::after { transform: none; }
+}
