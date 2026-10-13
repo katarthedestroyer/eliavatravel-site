@@ -1,12 +1,38 @@
+// The Google Apps Script web app URL (ends in /exec). Empty = answers are not saved anywhere.
+var APPLY_ENDPOINT = "";
+// The Stripe Payment Link for the $225 Single Fix. Empty = Single Fix gets the usual "pick a time" step.
+var FIX_PAYMENT_LINK = "";
+
 /* ============================================================================
-   Eliava site.js: shared by Home and Services. Load with defer.
+   Eliava site.js: shared by every page. Load with defer.
+     0. Saving answers (APPLY_ENDPOINT)
      1. Header: sticky shadow (Services), phone menu
      2. The branched application (build plan Task 6, Step 2)
      3. Landing on an anchor from another page
+     4. Single Fix next steps: the Loom form on /fix/next/
    No dependencies. The ScrollCraft engine and home.js are separate files.
    ========================================================================== */
 
 document.documentElement.classList.add('js');
+
+/* ----------------------------------------------------- 0. saving answers -- */
+// Sends [key, value] pairs to APPLY_ENDPOINT as a form post and does not wait
+// for an answer, so it never holds up the page, and failures stay silent.
+// Returns false only when nothing could be sent (no endpoint, or no way to send).
+function eliavaSend(pairs) {
+  if (!APPLY_ENDPOINT) return false;
+  var body = new URLSearchParams();
+  pairs.forEach(function (p) { if (p[1] != null && String(p[1]) !== '') body.append(p[0], String(p[1])); });
+  try {
+    var blob = new Blob([body.toString()], { type: 'application/x-www-form-urlencoded' });
+    if (navigator.sendBeacon && navigator.sendBeacon(APPLY_ENDPOINT, blob)) return true;
+  } catch (e) {}
+  try {
+    fetch(APPLY_ENDPOINT, { method: 'POST', mode: 'no-cors', keepalive: true, body: body }).catch(function () {});
+    return true;
+  } catch (e) {}
+  return false;
+}
 
 /* ---------------------------------------------------------- 1. header -- */
 (function () {
@@ -141,17 +167,48 @@ document.documentElement.classList.add('js');
       }
       return;
     }
-    if (d.get('role') === 'Not in travel') { show(no); return; }
+    // Valid. Save the answers first, for every door and role (even "Not in
+    // travel"), then show the next step. Saving never holds up the page.
+    var name = d.get('name').toString().trim(), email = d.get('email').toString().trim();
+    var doorText = doorSel.selectedIndex > 0 ? doorSel.options[doorSel.selectedIndex].text : door;
+    // A short id that ties a Single Fix payment back to this application.
+    var ref = door === 'fix' ? 'fix-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6) : '';
     var lines = ['Application from eliavatravel.com'];
+    var pairs = [['type', 'application'], ['door', doorText], ['name', name], ['email', email],
+      ['business', (d.get('business') || '').toString().trim()], ['page', location.pathname],
+      ['website', (d.get('website') || '').toString()]];
     Object.keys(LABELS).forEach(function (k) {
       var v = d.getAll(k).join(', ').trim();
-      if (k === 'door' && doorSel.selectedIndex > 0) v = doorSel.options[doorSel.selectedIndex].text;
-      if (v && (k !== 'priorities' || door === 'keep')) lines.push(LABELS[k] + ': ' + v);
+      if (k === 'door' && doorSel.selectedIndex > 0) v = doorText;
+      if (v && (k !== 'priorities' || door === 'keep')) {
+        lines.push(LABELS[k] + ': ' + v);
+        if (k !== 'door' && k !== 'business') pairs.push([LABELS[k], v]);
+      }
     });
-    var name = d.get('name').toString().trim(), email = d.get('email').toString().trim(), body = lines.join('\n');
-    document.getElementById('apply-go').href = CAL + '?name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&notes=' + encodeURIComponent(body);
+    if (ref) pairs.push(['Payment ref', ref]);
+    eliavaSend(pairs);
+
+    if (d.get('role') === 'Not in travel') { show(no); return; }
+    var body = lines.join('\n');
+    var calHref = CAL + '?name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&notes=' + encodeURIComponent(body);
+    document.getElementById('apply-go').href = calHref;
     document.getElementById('apply-mail').href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Application: ' + name) + '&body=' + encodeURIComponent(body + '\n\nEmail: ' + email);
     yes.querySelector('[data-first]').textContent = name.split(/\s+/)[0];
+
+    // Single Fix with a payment link: pay first (Stripe fills in the email and
+    // carries the ref), with a free Scoping Call as the quiet second choice.
+    // Without a payment link, Single Fix gets the usual "pick a time" step.
+    var payBase = door === 'fix' ? FIX_PAYMENT_LINK : '';
+    var yesCall = yes.querySelector('[data-yes="call"]'), yesFix = yes.querySelector('[data-yes="fix"]');
+    if (yesCall && yesFix) { yesCall.hidden = !!payBase; yesFix.hidden = !payBase; }
+    if (payBase) {
+      document.getElementById('apply-pay').href = payBase + (payBase.indexOf('?') < 0 ? '?' : '&') +
+        'prefilled_email=' + encodeURIComponent(email) + '&client_reference_id=' + encodeURIComponent(ref);
+      document.getElementById('apply-fix-call').href = calHref;
+      // Stripe brings them back to /fix/next/ in this tab, where the Loom form
+      // fills in their name and email from here.
+      try { sessionStorage.setItem('eliava-fix', JSON.stringify({ name: name, email: email, ref: ref })); } catch (e) {}
+    }
     show(yes);
   });
 })();
@@ -187,4 +244,67 @@ document.documentElement.classList.add('js');
 (function () {
   function ready() { requestAnimationFrame(function () { requestAnimationFrame(function () { document.documentElement.classList.add('is-ready'); }); }); }
   if (document.readyState === 'complete') ready(); else window.addEventListener('load', ready);
+})();
+
+/* --------------------------- 4. Single Fix next steps: the Loom form -- */
+// Only on /fix/next/ (where Stripe sends people after they pay). The form posts
+// type=fix-loom to APPLY_ENDPOINT. With no endpoint it opens a prefilled email
+// to Kady instead, so the Loom link is never lost.
+(function () {
+  var form = document.getElementById('loom-form'); if (!form) return;
+  var MAIL = "kady@eliavatravel.com";
+  var err = document.getElementById('loom-err'), done = document.getElementById('loom-done'),
+      mail = document.getElementById('loom-mail'), intro = document.getElementById('loom-intro');
+  var saved = {};
+  try { saved = JSON.parse(sessionStorage.getItem('eliava-fix') || '{}') || {}; } catch (e) {}
+  ['name', 'email'].forEach(function (k) { if (saved[k] && !form.elements[k].value) form.elements[k].value = saved[k]; });
+
+  function val(k) { return (form.elements[k] ? form.elements[k].value : '').trim(); }
+  function clearMarks() {
+    form.querySelectorAll('.fld.is-missing').forEach(function (f) { f.classList.remove('is-missing'); });
+    form.querySelectorAll('[aria-invalid]').forEach(function (f) { f.removeAttribute('aria-invalid'); });
+  }
+  function unmark(e) {
+    err.classList.remove('show');
+    var f = e.target.closest && e.target.closest('.fld'); if (f) f.classList.remove('is-missing');
+    if (e.target.removeAttribute) e.target.removeAttribute('aria-invalid');
+  }
+  form.addEventListener('input', unmark);
+  form.addEventListener('change', unmark);
+
+  function finish(step) {
+    form.hidden = true; if (intro) intro.hidden = true; step.hidden = false;
+    var t = step.querySelector('[tabindex="-1"]'); if (t) t.focus();
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearMarks();
+    var name = val('name'), email = val('email'), loom = val('loom'), look = val('look');
+    var bad = ['name', 'email', 'loom'].filter(function (k) { return !val(k); });
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email), linkOk = /^https?:\/\/\S+\.\S+$/i.test(loom);
+    var msg = bad.length ? err.dataset.missing : !emailOk ? err.dataset.email : !linkOk ? err.dataset.link : '';
+    if (email && !emailOk) bad.push('email');
+    if (loom && !linkOk) bad.push('loom');
+    if (msg) {
+      bad.forEach(function (k) {
+        var el = form.elements[k]; el.setAttribute('aria-invalid', 'true');
+        var w = el.closest('.fld'); if (w) w.classList.add('is-missing');
+      });
+      err.textContent = msg; err.classList.add('show');
+      var first = form.querySelector('.fld.is-missing .in'); if (first) first.focus();
+      return;
+    }
+    var pairs = [['type', 'fix-loom'], ['door', 'Single Fix'], ['name', name], ['email', email],
+      ['page', location.pathname], ['website', val('website')],
+      ['Loom link', loom], ['What to look at', look], ['Payment ref', saved.ref || '']];
+    if (eliavaSend(pairs)) { finish(done); return; }
+    var lines = ['Single Fix Loom from eliavatravel.com'];
+    pairs.slice(2).forEach(function (p) {
+      if (p[1] && p[0] !== 'page' && p[0] !== 'website') lines.push(p[0].charAt(0).toUpperCase() + p[0].slice(1) + ': ' + p[1]);
+    });
+    document.getElementById('loom-mail-go').href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Single Fix Loom: ' + name) +
+      '&body=' + encodeURIComponent(lines.join('\n'));
+    finish(mail);
+  });
 })();
