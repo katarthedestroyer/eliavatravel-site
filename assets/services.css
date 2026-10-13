@@ -91,14 +91,18 @@
 /* ----------------------------------------------------------- 4. tools -- */
 .sv-tool-list {
   list-style: none; margin: var(--sc-6) 0 0; padding: 0; max-width: 60rem;
+  display: flex; flex-wrap: wrap; overflow: hidden;
   font-family: var(--sc-font-display); font-weight: 450;
   font-size: var(--sc-t-xl); line-height: 1.35; letter-spacing: var(--sc-track-snug);
-  color: var(--sc-ink); text-wrap: pretty;
+  color: var(--sc-ink);
 }
-.sv-tool-list li { display: inline; white-space: nowrap; }
-.sv-tool-list li:not(:last-child)::after {
-  content: ""; display: inline-block; width: 0.2em; height: 0.2em; margin: 0 0.5em;
-  border-radius: 50%; background: var(--sc-accent); vertical-align: 0.24em;
+/* Each separator dot sits in front of its item. The first item on every line
+   has its dot outside the list box, where overflow clips it, so no line ever
+   starts or ends with a dangling dot. */
+.sv-tool-list li { position: relative; margin-right: 1.1em; white-space: nowrap; }
+.sv-tool-list li::before {
+  content: ""; position: absolute; left: -0.65em; top: 0.56em;
+  width: 0.2em; height: 0.2em; border-radius: 50%; background: var(--sc-accent);
 }
 .sv-tools .sv-note { margin-top: var(--sc-5); max-width: 52ch; font-size: 1rem; }
 
@@ -174,6 +178,19 @@
 .sv-price {
   margin-top: auto; padding-top: var(--sc-6);
 }
+/* side by side, the two plans share rows, so Steady's list lines up with
+   Embedded's even though Embedded has an extra tag line */
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 861px) {
+    .sv-plans { grid-template-rows: repeat(5, auto); }
+    .sv-plan { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; }
+    .sv-plan > h3 { grid-row: 1; }
+    .sv-plan > .sv-plan-hours { grid-row: 2; }
+    .sv-plan > .sv-plan-tag { grid-row: 3; justify-self: start; }
+    .sv-plan > .sv-checks { grid-row: 4; align-self: start; }
+    .sv-plan > .sv-price { grid-row: 5; margin-top: 0; }
+  }
+}
 .sv-price > div { border-top: 1px solid var(--sc-hairline); padding-top: var(--sc-5); }
 .sv-price-main { margin: 0; font-size: 1.0625rem; font-weight: 500; color: var(--sc-ink); }
 .sv-price-alt { margin: var(--sc-2) 0 0; color: var(--sc-ink-soft); }
@@ -230,7 +247,7 @@
   background: var(--sc-surface); box-shadow: var(--sc-edge), var(--sc-e1);
 }
 .sv-train-main.sv-offer { border-top: 1px solid var(--sc-hairline); }
-.sv-train .sv-offer-top { flex-direction: column; align-items: flex-start; }
+.sv-train .sv-offer-top { flex-direction: column; align-items: flex-start; row-gap: var(--sc-2); }
 .sv-train-grid .sv-offer + .sv-offer { margin-top: 0; }
 .sv-train-included { color: var(--sc-ink) !important; }
 
@@ -265,8 +282,8 @@
 .sv-promise > p + p { margin-top: var(--sc-3); }
 
 /* -------------------------------------------------------------- 9. faq -- */
-.sv-faq-in { max-width: 52rem; margin-inline: auto; }
-.sv-faq-list { margin-top: var(--sc-6); border-top: 1px solid var(--sc-hairline-strong); }
+.sv-faq-in { max-width: 52rem; margin-inline: 0; }
+.sv-faq-list { margin-top: var(--sc-7); border-top: 1px solid var(--sc-hairline-strong); }
 .sv-q { border-bottom: 1px solid var(--sc-hairline-strong); }
 .sv-q summary {
   display: flex; align-items: center; justify-content: space-between; gap: var(--sc-4);
@@ -334,8 +351,10 @@
 @media (max-width: 640px) {
   .sv-menu-grid { grid-template-columns: 1fr; gap: var(--sc-6); }
   .sv-steps { grid-template-columns: 1fr; gap: var(--sc-5); }
-  .sv-steps li { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: var(--sc-3); }
-  .sv-steps li::before { grid-row: span 2; margin: 0; font-size: 1.9rem; }
+  /* number in a left gutter; the text (with any nowrap span) flows as one block */
+  .sv-steps li { display: block; position: relative; padding-left: calc(2.25rem + var(--sc-3)); }
+  .sv-steps li::before { position: absolute; left: 0; top: var(--sc-4); margin: 0; font-size: 1.9rem; }
+  .sv-fix-list { display: grid; justify-content: center; justify-items: start; }
   .sv-train-grid { grid-template-columns: 1fr; }
   .sv-actions .btn { width: 100%; }
   .sv-fix-in .btn, .sv-close .btn { width: 100%; }
