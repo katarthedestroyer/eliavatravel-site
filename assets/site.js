@@ -2,6 +2,7 @@
    Eliava site.js: shared by Home and Services. Load with defer.
      1. Header: sticky shadow (Services), phone menu
      2. The branched application (build plan Task 6, Step 2)
+     3. Landing on an anchor from another page
    No dependencies. The ScrollCraft engine and home.js are separate files.
    ========================================================================== */
 
@@ -130,6 +131,14 @@ document.documentElement.classList.add('js');
       });
       err.textContent = onlyEmail ? err.dataset.email : err.dataset.missing;
       err.classList.add('show');
+      // Bring the first missing answer into view, just under the strip behind
+      // the X, and put focus on it, so nobody has to hunt for the red question.
+      var first = form.querySelector('.fld.is-missing');
+      if (first) {
+        inner.scrollTop += first.getBoundingClientRect().top - inner.getBoundingClientRect().top - 84;
+        var field = first.querySelector('input, select, textarea');
+        if (field) field.focus({ preventScroll: true });
+      }
       return;
     }
     if (d.get('role') === 'Not in travel') { show(no); return; }
@@ -145,4 +154,37 @@ document.documentElement.classList.add('js');
     yes.querySelector('[data-first]').textContent = name.split(/\s+/)[0];
     show(yes);
   });
+})();
+
+/* -------------------------------------- 3. landing on an anchor -- */
+// A link from another page (/services/#faq) lands before the web fonts swap in,
+// and the swap changes the page height. So smooth scrolling stays off until the
+// page has loaded (site.css), and once the fonts and the page are in, the target
+// is put back in place. Not if the reader has already started scrolling, and
+// not on reload or back/forward, where the browser restores its own position.
+(function () {
+  if (!location.hash) return;
+  var nav = window.performance && performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+  if (nav && (nav.type === 'reload' || nav.type === 'back_forward')) return;
+  var id = location.hash.slice(1);
+  try { id = decodeURIComponent(id); } catch (e) {}
+  var target = document.getElementById(id);
+  if (!target) return;
+  var moved = false;
+  var mark = function () { moved = true; };
+  ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (t) { window.addEventListener(t, mark, { passive: true, once: true }); });
+  function settle() {
+    // two frames: let the layout work that also waits on fonts and load run first
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      if (!moved) target.scrollIntoView({ block: 'start', behavior: 'instant' });
+    }); });
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
+  if (document.readyState === 'complete') settle(); else window.addEventListener('load', settle);
+})();
+
+// Smooth scrolling for in-page links switches on once the page has loaded.
+(function () {
+  function ready() { requestAnimationFrame(function () { requestAnimationFrame(function () { document.documentElement.classList.add('is-ready'); }); }); }
+  if (document.readyState === 'complete') ready(); else window.addEventListener('load', ready);
 })();
