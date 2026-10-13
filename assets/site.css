@@ -286,43 +286,66 @@ a { color: inherit; }
 }
 
 /* --------------------------------------------------------------- 5. footer -- */
+/* Deep navy, like the trip spread: a clear end to every page. What I do,
+   one way to start, three plain links and the legal line. */
 .foot {
-  background: var(--sc-canvas); color: var(--sc-ink-soft);
-  border-top: 1px solid var(--sc-hairline);
+  background: var(--el-deep); color: var(--el-deep-soft);
   font-size: var(--sc-t-sm);
 }
 .foot-in {
   max-width: var(--sc-maxw); margin-inline: auto; padding: var(--sc-8) var(--sc-gutter) var(--sc-6);
-  display: grid; gap: var(--sc-6) var(--sc-5);
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  grid-template-areas: "brand cta" "bar bar";
+  gap: var(--sc-7) var(--sc-7);
 }
+.foot-brand { grid-area: brand; }
+.foot-logo { color: var(--el-deep-ink); }
 .foot-logo img { height: 34px; width: auto; }
-.foot-brand p { margin: var(--sc-3) 0 0; max-width: 28ch; color: var(--sc-ink-soft); text-wrap: balance; }
-.foot-head {
-  font-family: var(--sc-font-text); font-size: 0.8125rem; font-weight: 650; letter-spacing: 0.01em;
-  color: var(--sc-ink); margin: 0 0 var(--sc-2);
+.foot-brand p { margin: 0; max-width: 40ch; text-wrap: pretty; }
+.foot-brand .foot-what {
+  margin: var(--sc-4) 0 var(--sc-2);
+  font-family: var(--sc-font-display); font-weight: 500; font-size: var(--sc-t-lg); line-height: 1.25;
+  color: var(--el-deep-ink);
 }
-.foot ul { list-style: none; margin: 0; padding: 0; }
-.foot li a {
-  display: inline-flex; align-items: center; min-height: var(--el-tap);
-  color: var(--sc-ink-soft); text-decoration: none;
-  text-decoration-thickness: 1px; text-underline-offset: 0.25em;
+.foot-cta { grid-area: cta; justify-self: end; }
+.foot-ready {
+  margin: 0 0 var(--sc-4);
+  font-family: var(--sc-font-display); font-weight: 500; font-size: var(--sc-t-xl); line-height: 1.1;
+  letter-spacing: var(--sc-track-snug); color: var(--el-deep-ink);
 }
-.foot li a:hover { color: var(--sc-ink); text-decoration-line: underline; }
+.foot .btn { background: var(--el-accent-light); color: var(--el-deep); }
+.foot .btn:hover { background: var(--el-deep-ink); color: var(--el-deep); }
+.foot-mail { margin: var(--sc-3) 0 0; }
+.foot a:not(.btn):not(.foot-logo) {
+  color: var(--el-deep-ink); text-decoration-line: underline;
+  text-decoration-thickness: 1px; text-underline-offset: 0.25em; text-decoration-color: rgb(255 255 255 / 0.35);
+}
+.foot a:not(.btn):not(.foot-logo):hover { text-decoration-color: currentColor; }
+.foot :focus-visible { outline-color: var(--el-accent-light); }
+.foot-bar {
+  grid-area: bar; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--sc-3) var(--sc-6); padding-top: var(--sc-4); border-top: 1px solid rgb(255 255 255 / 0.12);
+}
+.foot-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--sc-5); }
+.foot-nav a { display: inline-flex; align-items: center; min-height: var(--el-tap); }
+.foot .foot-nav a { text-decoration-line: none; }
+.foot .foot-nav a:hover { text-decoration-line: underline; }
 .foot-legal {
-  grid-column: 1 / -1;
-  display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sc-2) var(--sc-5);
-  padding-top: var(--sc-5); border-top: 1px solid var(--sc-hairline);
-  font-size: var(--sc-t-xs);
+  display: flex; flex-direction: column; align-items: flex-end; justify-content: center;
+  gap: 2px; font-size: var(--sc-t-xs); text-align: right;
 }
 .foot-legal p { margin: 0; text-wrap: pretty; }
 
-@media (max-width: 899px) {
-  .foot-in { grid-template-columns: 1fr 1fr; }
-  .foot-brand { grid-column: 1 / -1; }
-}
 @media (max-width: 767px) {
-  .foot-in { padding-top: var(--sc-7); column-gap: var(--sc-4); }
+  .foot-in {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "brand" "cta" "bar";
+    gap: var(--sc-6); padding-top: var(--sc-7);
+  }
+  .foot-cta { justify-self: stretch; }
+  .foot-cta .btn { width: 100%; }
+  .foot-bar { flex-direction: column; align-items: flex-start; }
+  .foot-legal { align-items: flex-start; text-align: left; }
 }
 
 /* ---------------------------------------------- 6. application dialog -- */

@@ -84,7 +84,7 @@ function eliavaSend(pairs) {
     triptypes:'Trip types', slipping:'What keeps slipping', tech:'Tech comfort (1-4)', when:'Start',
     hours:'Hours wanted', priorities:'Help first with', level:'Plan', build:'Wants set up', deadline:'Deadline',
     audit:'Wants audit', fix:'Fix', platform:'Tool to fix', due:'Due', trainee:'Who needs training',
-    location:'Where they are', traintool:'Tool/trip type', notes:'Notes' };
+    location:'Where they are', trainwhat:'Training topic', traintool:'Tool/trip type', notes:'Notes' };
 
   function show(step) {
     [form, yes, no].forEach(function (s) { s.hidden = (s !== step); });
