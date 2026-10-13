@@ -328,9 +328,23 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
 .trip:not(.is-live) .trip-live { display: none; }
 .trip.is-live .trip-still { display: none; }
 .trip.is-live { --trip-x: 0; }
-.trip.is-live.is-wheels .trip-unit { display: none; }
+.trip.is-live.is-label .trip-unit { display: none; }
 .trip.is-live .trip-end { opacity: 0; transform: translate3d(0, 8px, 0); transition: opacity 260ms var(--sc-ease-out), transform 260ms var(--sc-ease-out); }
-.trip.is-live.is-wheels .trip-end { opacity: 1; transform: none; }
+.trip.is-live.is-end .trip-end { opacity: 1; transform: none; }
+
+/* The full trip has 11 steps, taller than a phone screen. Live, the list
+   slides inside this window (home.js keeps the current step in view) and
+   the edges fade so rows enter and leave softly. Static: the whole list. */
+.trip.is-live .trip-window {
+  position: relative; overflow: hidden;
+  max-height: max(240px, calc(100vh - 300px));
+  --ft: 18px; --fb: 28px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 var(--ft), #000 calc(100% - var(--fb)), transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 var(--ft), #000 calc(100% - var(--fb)), transparent 100%);
+}
+.trip.is-live .trip-window.at-top { --ft: 0px; }
+.trip.is-live .trip-window.at-bottom { --fb: 0px; }
+.trip.is-live .trip-list { will-change: transform; }
 
 /* below 1100 the folio runs along the bottom edge; keep the stage clear of it */
 @media (max-width: 1099px) {
@@ -346,6 +360,7 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
   .trip-note { margin-top: var(--sc-5); }
 }
 @media (max-width: 760px) {
+  .trip.is-live .trip-window { max-height: max(220px, calc(100svh - 430px)); }
   .trip-label { margin-bottom: var(--sc-3); }
   .trip-card { padding: 16px 16px 10px; }
   .trip-num { font-size: 3.4rem; }

@@ -26,7 +26,7 @@
       trip.removeAttribute('data-sc-span');
       trip.classList.add('is-static');
     } else {
-      if (window.innerWidth < 700) trip.setAttribute('data-sc-span', '3.4');
+      if (window.innerWidth < 700) trip.setAttribute('data-sc-span', '5.2');
       trip.classList.add('is-live');
     }
   }
@@ -38,13 +38,16 @@
   if (trip) (function () {
     var stage = trip.querySelector('[data-sc-stage]');
     var list = trip.querySelector('.trip-list');
+    var win = trip.querySelector('.trip-window');
     var numEl = trip.querySelector('[data-sc-trip-days-out]');
     var unitEl = trip.querySelector('.trip-unit');
     var stops = Array.prototype.map.call(trip.querySelectorAll('[data-sc-trip-stop]'), function (li) {
       return {
         el: li, dot: li.querySelector('.trip-dot'),
         at: parseFloat(li.getAttribute('data-sc-trip-stop')) || 0,
-        days: parseFloat(li.getAttribute('data-sc-trip-days')) || 0
+        days: parseFloat(li.getAttribute('data-sc-trip-days')) || 0,
+        // A stop with a word instead of a day count ("Wheels up", "Home").
+        show: li.getAttribute('data-sc-trip-show')
       };
     });
     if (!stage || !list || !numEl || !stops.length) return;
@@ -62,22 +65,32 @@
       list.style.setProperty('--line-top', c[0].toFixed(1) + 'px');
       list.style.setProperty('--line-h', len.toFixed(1) + 'px');
       frac = c.map(function (y) { return (y - c[0]) / len; });
-      last.p = -1;
+      dotY = c; lineLen = len;
+      // The list is taller than a phone screen, so it slides inside its
+      // window to keep the current step in view. Desktop usually fits whole.
+      winH = win ? win.clientHeight : 0;
+      maxShift = win ? Math.max(0, list.offsetHeight - winH) : 0;
+      last.p = -1; last.shift = -1;
     }
+    var dotY = [], lineLen = 1, winH = 0, maxShift = 0;
 
     function stateAt(p) {
       var idx = -1;
       for (var i = 0; i < N; i++) if (p >= stops[i].at) idx = i;
-      if (idx < 0) return { idx: -1, days: stops[0].days, x: 0 };
-      if (idx >= N - 1) return { idx: N - 1, days: 0, x: 1 };
+      if (idx < 0) return { idx: -1, days: stops[0].days, show: stops[0].show, x: 0 };
+      if (idx >= N - 1) return { idx: N - 1, show: stops[N - 1].show, days: stops[N - 1].days, x: 1 };
       var a = stops[idx], b = stops[idx + 1], gap = b.at - a.at;
       var t = smooth((p - (a.at + gap * HOLD)) / (gap * (1 - HOLD)));
-      var days = Math.ceil(a.days + (b.days - a.days) * t - 1e-6);
+      var x = frac[idx] + (frac[idx + 1] - frac[idx]) * t;
+      if (a.show) return { idx: idx, show: a.show, x: x };
+      // Count down toward the next stop (toward 0 when the next one is a word).
+      var to = b.show ? 0 : b.days;
+      var days = Math.ceil(a.days + (to - a.days) * t - 1e-6);
       if (days < 1) days = 1;   // never "0 days out"; the next stop is wheels up
-      return { idx: idx, days: days, x: frac[idx] + (frac[idx + 1] - frac[idx]) * t };
+      return { idx: idx, days: days, x: x };
     }
 
-    var last = { p: -1, idx: -2, days: -1, x: -1, sig: '' };
+    var last = { p: -1, idx: -2, days: -1, x: -1, shift: -1, sig: '' };
     function render(p) {
       if (p === last.p) return;
       last.p = p;
@@ -87,18 +100,29 @@
           stops[i].el.classList.toggle('is-done', i <= s.idx);
           stops[i].el.classList.toggle('is-now', i === s.idx);
         }
-        trip.classList.toggle('is-wheels', s.idx >= N - 1);
+        trip.classList.toggle('is-end', s.idx >= N - 1);
         last.idx = s.idx;
       }
-      if (s.idx >= N - 1) {
-        if (last.days !== 0) { numEl.textContent = 'Wheels up'; last.days = 0; }
-      } else if (s.days !== last.days) {
-        numEl.textContent = String(s.days);
-        unitEl.textContent = s.days === 1 ? 'day out' : 'days out';
-        last.days = s.days;
+      var shown = s.show || s.days;
+      if (shown !== last.days) {
+        trip.classList.toggle('is-label', !!s.show);
+        numEl.textContent = String(shown);
+        if (!s.show) unitEl.textContent = s.days === 1 ? 'day out' : 'days out';
+        last.days = shown;
       }
       var x = Math.round(s.x * 1000) / 1000;
       if (x !== last.x) { trip.style.setProperty('--trip-x', String(x)); last.x = x; }
+      // Slide the list so the playhead sits about 40% down the window.
+      if (win) {
+        var y = (dotY[0] || 0) + s.x * lineLen - winH * 0.4;
+        var shift = Math.round(Math.min(Math.max(y, 0), maxShift));
+        if (shift !== last.shift) {
+          list.style.transform = shift ? 'translate3d(0,' + (-shift) + 'px,0)' : '';
+          win.classList.toggle('at-top', shift <= 0);
+          win.classList.toggle('at-bottom', shift >= maxShift);
+          last.shift = shift;
+        }
+      }
       // For the verification harness: the rendered state, not raw progress.
       var sig = s.idx + '|' + last.days + '|' + Math.round(x * 100);
       if (sig !== last.sig) { stage.setAttribute('data-sc-verify-state', sig); last.sig = sig; }
