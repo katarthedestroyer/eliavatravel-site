@@ -50,13 +50,13 @@ document.documentElement.classList.add('js');
   var form = document.getElementById('apply-form'), yes = document.getElementById('apply-yes'),
       no = document.getElementById('apply-no'), err = document.getElementById('apply-err');
   var inner = dlg.querySelector('.apply-inner') || dlg;
-  var doorSel = form.elements['door'];
+  var doorSel = form.elements['door'], locFs = document.getElementById('a-location');
   var REQUIRED = { common: ['name','email','role','door','tools','slipping','tech','when'],
     keep: ['hours'], setup: ['build'], fix: ['fix','platform'], train: ['trainee'], unsure: [] };
   var LABELS = { door:'Needs', role:'Role', business:'Business', tools:'Tools', trips:'Active trips',
     triptypes:'Trip types', slipping:'What keeps slipping', tech:'Tech comfort (1-4)', when:'Start',
-    hours:'Hours/week', priorities:'Top tasks', level:'Plan', build:'Wants built', deadline:'Deadline',
-    audit:'Wants audit', fix:'Fix', platform:'Platform', due:'Due', trainee:'Who needs training',
+    hours:'Hours wanted', priorities:'Help first with', level:'Plan', build:'Wants set up', deadline:'Deadline',
+    audit:'Wants audit', fix:'Fix', platform:'Tool to fix', due:'Due', trainee:'Who needs training',
     location:'Where they are', traintool:'Tool/trip type', notes:'Notes' };
 
   function show(step) {
@@ -65,13 +65,15 @@ document.documentElement.classList.add('js');
     var h = step.querySelector('h2'); if (step !== form && h) h.focus();
   }
   // Only the chosen door's questions show. The others are hidden AND disabled,
-  // so they are never required and never sent.
+  // so they are never required and never sent. In Train your team, "Where are
+  // they based?" shows only when someone other than "Me" needs training.
   function syncDoor() {
     var d = doorSel.value;
     form.querySelectorAll('fieldset[data-door]').forEach(function (fs) {
       var off = fs.getAttribute('data-door') !== d;
       fs.hidden = off; fs.disabled = off;
     });
+    if (locFs) { var me = form.elements['trainee'] && form.elements['trainee'].value === 'Me'; locFs.hidden = me; locFs.disabled = me; }
   }
   // The .fld wrapper for a field name (radio and checkbox groups included).
   function wrapOf(name) {
@@ -102,6 +104,7 @@ document.documentElement.classList.add('js');
   });
   inner.addEventListener('scroll', function () { dlg.classList.toggle('is-scrolled', inner.scrollTop > 8); }, { passive: true });
   doorSel.addEventListener('change', syncDoor);
+  form.addEventListener('change', function (e) { if (e.target.name === 'trainee') syncDoor(); });
   syncDoor();
   function unmark(e) {
     err.classList.remove('show');
