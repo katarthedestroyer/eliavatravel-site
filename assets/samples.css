@@ -1,0 +1,85 @@
+/* ============================================================================
+   Eliava samples.css: the Sample work page only. Loads after site.css and uses
+   its Harbor tokens, type scale and buttons. Static: no scroll devices.
+
+   Contents
+     1. Page rhythm + intro
+     2. Sample cards
+     3. Closing application
+     4. Breakpoints
+   ========================================================================== */
+
+/* ------------------------------------------------- 1. rhythm + intro -- */
+.page-samples {
+  --sp-section: clamp(3.25rem, 1.75rem + 4.5vw, 6.25rem);
+  --sp-out: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5.5 3.5h7v7M12.5 3.5l-9 9' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.sp-intro { padding-block: clamp(2.25rem, 0.75rem + 5vw, 5.75rem) clamp(2rem, 1rem + 3vw, 4rem); }
+.sp-title { max-width: 15ch; font-size: var(--sc-t-3xl); line-height: 1.0; letter-spacing: var(--sc-track-tight); }
+.sp-intro .el-lede { margin-top: var(--sc-5); max-width: 42ch; }
+
+/* --------------------------------------------------- 2. sample cards -- */
+.sp-list { padding-bottom: var(--sp-section); }
+.sp-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sc-5);
+}
+.sp-card {
+  display: flex; flex-direction: column;
+  padding: clamp(1.5rem, 1.1rem + 1.1vw, 2.25rem);
+  border: 1px solid var(--sc-hairline); border-radius: var(--sc-r-lg);
+  background: var(--sc-surface); box-shadow: var(--sc-edge), var(--sc-e1);
+}
+.sp-offer {
+  align-self: flex-start; margin: 0; padding: 4px 12px;
+  border-radius: var(--sc-r-pill); background: var(--el-accent-tint);
+  font-size: var(--sc-t-sm); font-weight: 600; line-height: 1.4; color: var(--sc-accent);
+}
+.sp-name { margin-top: var(--sc-4); font-size: var(--sc-t-xl); }
+.sp-what { margin: var(--sc-3) 0 0; max-width: 40ch; color: var(--sc-ink-soft); text-wrap: pretty; }
+
+.sp-go {
+  margin: auto 0 0; padding-top: var(--sc-5);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sc-1) var(--sc-4);
+}
+.sp-go::before {
+  content: ""; flex: 0 0 100%; height: 1px; margin-bottom: var(--sc-2);
+  background: var(--sc-hairline);
+}
+.sp-link {
+  display: inline-flex; align-items: center; gap: 0.45em; min-height: var(--el-tap);
+  font-weight: 600; color: var(--sc-accent);
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em;
+}
+.sp-link:hover { text-decoration-thickness: 2px; }
+.sp-link::after {
+  content: ""; flex: none; width: 14px; height: 14px; background: currentColor;
+  -webkit-mask: var(--sp-out) center / contain no-repeat; mask: var(--sp-out) center / contain no-repeat;
+}
+.sp-pages { font-size: var(--sc-t-sm); color: var(--sc-ink-soft); white-space: nowrap; }
+
+.sp-more { margin: var(--sc-6) 0 0; color: var(--sc-ink-soft); text-wrap: pretty; }
+
+/* ---------------------------------------------- 3. closing application -- */
+.sp-close { padding-block: var(--sp-section); background: var(--sc-surface); border-top: 1px solid var(--sc-hairline); }
+.sp-close-in { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.sp-close-lede {
+  margin: var(--sc-4) 0 0; max-width: 44ch;
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem); line-height: 1.55;
+  color: var(--sc-ink-soft); text-wrap: pretty;
+}
+.sp-close .btn { margin-top: var(--sc-6); }
+.sp-nw { white-space: nowrap; }
+
+/* ----------------------------------------------------- 4. breakpoints -- */
+@media (max-width: 1099px) {
+  .sp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .sp-title { font-size: var(--sc-t-2xl); line-height: 1.04; }
+}
+@media (max-width: 640px) {
+  .sp-grid { grid-template-columns: 1fr; gap: var(--sc-4); }
+  .sp-close .btn { width: 100%; }
+}
