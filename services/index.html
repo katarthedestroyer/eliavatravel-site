@@ -240,7 +240,11 @@
           <li>One trip board</li>
           <li>One automation</li>
         </ul>
+        <p class="sv-fix-how">Apply, pay $225, then send me a Loom or book a quick call.</p>
         <p class="sv-note">Bigger than one fix? We'll quote it as a build, in writing.</p>
+        <!-- KADY CONFIRM: refund line -->
+        <p class="sv-note sv-fix-refund">If it turns out bigger than one fix, I'll tell you before I start and refund you in full.</p>
+        <!-- /KADY CONFIRM: refund line -->
         <a class="btn" href="https://cal.com/kady-dennis/discovery-call" data-apply="fix">Start your application</a>
       </div>
     </div>
@@ -574,6 +578,7 @@
         </div></fieldset>
 
         <div class="fld"><label class="q" for="a-notes">Anything else I should know? <span class="opt">(optional)</span></label><textarea class="in" id="a-notes" name="notes"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="a-website">Leave this empty</label><input id="a-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
       </div>
 
       <p class="apply-err" id="apply-err" role="alert" data-missing="A few answers are missing. Please fill them in so I can get ready for our call." data-email="That email address doesn't look right. Please check it and try again."></p>
@@ -585,10 +590,17 @@
 
     <div class="step" id="apply-yes" hidden>
       <h2 tabindex="-1">Thanks, <span data-first></span>!</h2>
-      <p class="apply-intro">Last step: pick a time for your Scoping Call. Your answers are already filled in.</p>
-      <div class="apply-actions"><a class="btn" id="apply-go" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener">Pick a time</a></div>
-      <p class="apply-alt">Not ready to pick a time?</p>
-      <a class="btn btn--quiet" id="apply-mail" href="mailto:kady@eliavatravel.com">Email me your answers instead</a>
+      <div data-yes="call">
+        <p class="apply-intro">Last step: pick a time for your Scoping Call. Your answers are already filled in.</p>
+        <div class="apply-actions"><a class="btn" id="apply-go" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener">Pick a time</a></div>
+        <p class="apply-alt">Not ready to pick a time?</p>
+        <a class="btn btn--quiet" id="apply-mail" href="mailto:kady@eliavatravel.com">Email me your answers instead</a>
+      </div>
+      <div data-yes="fix" hidden>
+        <p class="apply-intro">Next step: pay for your Single Fix. Then you'll show me the problem in a short Loom video or on a quick call.</p>
+        <div class="apply-actions"><a class="btn" id="apply-pay" href="https://cal.com/kady-dennis/discovery-call">Pay $225 and book your fix</a></div>
+        <p class="apply-alt">Questions first? <a id="apply-fix-call" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener">Book a free Scoping Call</a></p>
+      </div>
       <p class="apply-note">Either way, I'll reply the same business day.</p>
     </div>
 
