@@ -162,7 +162,7 @@
 
   <!-- A3 Trip countdown (the peak). Markup default = the static, fully checked timeline.
        home.js adds .is-live (pinned, scroll-driven) unless motion is reduced. -->
-  <section id="trip-run" class="trip el-deep" data-sc-act="pin" data-sc-span="4" data-sc-trip data-sc-folio="One sample trip" data-folio-tone="deep">
+  <section id="trip-run" class="trip el-deep" data-sc-act="pin" data-sc-span="6" data-sc-trip data-sc-folio="One sample trip" data-folio-tone="deep">
     <div class="trip-stage" data-sc-stage>
       <div class="trip-grid">
         <p class="trip-label">Sample trip. Names and dates are made up.</p>
@@ -172,53 +172,85 @@
             <p class="trip-line">Harper family, Amalfi Coast, 10 nights</p>
           </div>
           <p class="trip-count">
-            <span class="trip-live" aria-hidden="true"><span class="trip-num" data-sc-trip-days-out>120</span>
+            <span class="trip-live" aria-hidden="true"><span class="trip-num" data-sc-trip-days-out>300</span>
               <span class="trip-unit">days out</span></span>
-            <span class="trip-still">120 days to wheels up</span>
+            <span class="trip-still">First inquiry to welcome home</span>
           </p>
-          <h3 class="trip-card-title">What goes out, and when</h3>
+          <h3 class="trip-card-title">Every step, and when</h3>
+          <div class="trip-window">
           <ol class="trip-list">
-            <li class="trip-stop" data-sc-trip-stop="0.04" data-sc-trip-days="120">
+            <li class="trip-stop" data-sc-trip-stop="0.03" data-sc-trip-days="300">
               <span class="trip-dot" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></span>
-              <span class="trip-when">120 days</span>
-              <span class="trip-what"><strong>Deposit reminder</strong>
-                <span>Sent. Deposit paid on time.</span></span>
+              <span class="trip-when">300 days</span>
+              <span class="trip-what"><strong>New inquiry</strong>
+                <span>Answered the same day. Your call is booked.</span></span>
             </li>
-            <li class="trip-stop" data-sc-trip-stop="0.22" data-sc-trip-days="90">
+            <li class="trip-stop" data-sc-trip-stop="0.12" data-sc-trip-days="290">
+              <span class="trip-dot" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></span>
+              <span class="trip-when">290 days</span>
+              <span class="trip-what"><strong>Proposal</strong>
+                <span>Built in your tool. Sent once you approve it.</span></span>
+            </li>
+            <li class="trip-stop" data-sc-trip-stop="0.21" data-sc-trip-days="270">
+              <span class="trip-dot" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></span>
+              <span class="trip-when">270 days</span>
+              <span class="trip-what"><strong>Deposit day</strong>
+                <span>Client profiles, invoice and agreement set up that day.</span></span>
+            </li>
+            <li class="trip-stop" data-sc-trip-stop="0.30" data-sc-trip-days="180">
+              <span class="trip-dot" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></span>
+              <span class="trip-when">Weekly</span>
+              <span class="trip-what"><strong>Quiet months</strong>
+                <span>Payments, passports and supplier documents checked.</span></span>
+            </li>
+            <li class="trip-stop" data-sc-trip-stop="0.39" data-sc-trip-days="90">
               <span class="trip-dot" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></span>
               <span class="trip-when">90 days</span>
               <span class="trip-what"><strong>Final payment</strong>
                 <span>Reminder sent 14 days before. Paid.</span></span>
             </li>
-            <li class="trip-stop" data-sc-trip-stop="0.40" data-sc-trip-days="60">
+            <li class="trip-stop" data-sc-trip-stop="0.48" data-sc-trip-days="60">
               <span class="trip-dot" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></span>
               <span class="trip-when">60 days</span>
               <span class="trip-what"><strong>Supplier check</strong>
-                <span>Confirmations match the itinerary.</span></span>
+                <span>Hotels reconfirmed. Everything matches the itinerary.</span></span>
             </li>
-            <li class="trip-stop" data-sc-trip-stop="0.58" data-sc-trip-days="30">
+            <li class="trip-stop" data-sc-trip-stop="0.56" data-sc-trip-days="30">
               <span class="trip-dot" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></span>
               <span class="trip-when">30 days</span>
               <span class="trip-what"><strong>Final itinerary</strong>
                 <span>Built and checked before it reaches you.</span></span>
             </li>
-            <li class="trip-stop" data-sc-trip-stop="0.76" data-sc-trip-days="7">
+            <li class="trip-stop" data-sc-trip-stop="0.65" data-sc-trip-days="7">
               <span class="trip-dot" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></span>
               <span class="trip-when">7 days</span>
               <span class="trip-what"><strong>Final documents</strong>
                 <span>Sent. You approved the email.</span></span>
             </li>
-            <li class="trip-stop" data-sc-trip-stop="0.90" data-sc-trip-days="0">
+            <li class="trip-stop" data-sc-trip-stop="0.74" data-sc-trip-show="Wheels up">
               <span class="trip-dot" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></span>
               <span class="trip-when">Wheels up</span>
+              <span class="trip-what"><strong>On the trip</strong>
+                <span>Inbox watched. Anything urgent goes to you right away.</span></span>
+            </li>
+            <li class="trip-stop" data-sc-trip-stop="0.83" data-sc-trip-show="Home">
+              <span class="trip-dot" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></span>
+              <span class="trip-when">Home</span>
               <span class="trip-what"><strong>Welcome-home email</strong>
-                <span>Set for 2 days after they land.</span></span>
+                <span>Sent 2 days after they land. You approved it.</span></span>
+            </li>
+            <li class="trip-stop" data-sc-trip-stop="0.92" data-sc-trip-show="Next trip">
+              <span class="trip-dot" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></span>
+              <span class="trip-when">After</span>
+              <span class="trip-what"><strong>Follow-up</strong>
+                <span>Commission tracked. Review requested. Notes saved for next time.</span></span>
             </li>
           </ol>
+          </div>
         </div>
         <p class="trip-note">This is what Keep it running looks like. You approve every email before it goes out.</p>
         <p class="trip-end">Nothing slipped.</p>
-        <p class="el-sr">A sample trip from 120 days out to wheels up. Six steps, all on time, from the deposit reminder to the welcome-home email.</p>
+        <p class="el-sr">A sample trip from the first inquiry to the follow-up after they get home. Eleven steps, all on time: inquiry, proposal, deposit day, weekly checks, final payment, supplier check, final itinerary, final documents, the trip, the welcome-home email and the follow-up.</p>
       </div>
     </div>
   </section>
