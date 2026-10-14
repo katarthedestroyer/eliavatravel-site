@@ -1,0 +1,51 @@
+/* ============================================================================
+   packages.css: /services/ and the five package pages under it.
+   Built on get-started.css and home.css (same tokens, cards, steps, close).
+   Only what those files don't already cover lives here. Generated pages:
+   06-research/site-refresh-2026-10/tools/build-packages.py
+   ========================================================================= */
+
+.pk-crumb { margin: 0 0 18px; font-size: var(--sc-t-sm); }
+.pk-verb { margin: 0 0 10px; font-size: 0.78rem; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sc-accent); }
+.pk-cta { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 28px; }
+.pk-cta-note { margin: 0; max-width: 34rem; text-align: center; color: var(--sc-ink-soft); font-size: var(--sc-t-sm); line-height: 1.55; }
+
+/* section rhythm: the get-started page drops top padding on some sections */
+.page-package .gs-expect { padding-top: clamp(20px, 3vw, 36px); }
+.page-package .gs-call, .page-package .gs-who { padding-top: var(--el-pad); }
+.pk-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1000px) { .pk-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .pk-steps { grid-template-columns: minmax(0, 1fr); } }
+
+/* the sample table */
+.pk-sample-sec { background: var(--sc-surface); }
+.pk-sample { overflow-x: auto; border-radius: var(--el-r-card); background: var(--sc-canvas); box-shadow: inset 0 0 0 1px var(--sc-hairline); }
+.pk-sample table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 0.98rem; }
+.pk-sample th { text-align: left; padding: 14px 18px; font-size: var(--sc-t-sm); font-weight: 650; color: var(--sc-ink); border-bottom: 1px solid var(--sc-hairline); }
+.pk-sample td { padding: 14px 18px; vertical-align: top; color: var(--sc-ink-soft); border-bottom: 1px solid var(--sc-hairline); line-height: 1.5; }
+.pk-sample tr:last-child td { border-bottom: 0; }
+.pk-sample td:first-child { color: var(--sc-ink); font-weight: 600; }
+.pk-cap { margin: 14px 0 0; text-align: center; font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+.pk-tag { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 650; white-space: nowrap; box-shadow: inset 0 0 0 1.5px var(--sc-ink); color: var(--sc-ink); }
+.pk-tag--fill { background: var(--sc-ink); color: var(--sc-canvas); box-shadow: none; }
+.pk-tag--accent { background: var(--sc-accent); color: #fff; box-shadow: none; }
+
+/* fit / not a fit, and Why Eliava */
+.pk-fit { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.pk-fit-col { padding: clamp(22px, 2.6vw, 32px); border-radius: var(--el-r-card); background: var(--sc-surface); box-shadow: inset 0 0 0 1px var(--sc-hairline); }
+.pk-fit-col h3 { margin: 0 0 12px; font: 500 var(--sc-t-xl)/1.15 var(--sc-font-display); }
+.pk-fit-col ul { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; color: var(--sc-ink-soft); line-height: 1.55; }
+@media (max-width: 700px) { .pk-fit { grid-template-columns: minmax(0, 1fr); } }
+
+/* questions */
+.pk-faq { padding-top: 0; }
+.pk-faq-list { max-width: 820px; }
+.pk-q { border-bottom: 1px solid var(--sc-hairline); }
+.pk-q summary { cursor: pointer; padding: 18px 0; font-weight: 600; color: var(--sc-ink); list-style-position: outside; }
+.pk-q summary:focus-visible { outline: 2px solid var(--sc-accent); outline-offset: 4px; }
+.pk-q p { margin: 0 0 18px; color: var(--sc-ink-soft); line-height: 1.6; max-width: 62ch; }
+
+/* Services: the extras row sits on the page color, not the band */
+.pk-extras { background: var(--sc-canvas); padding-top: 0; }
+.page-services .ways { padding-top: var(--el-pad); }
+.page-services .pk-extras { padding-top: 0; }
