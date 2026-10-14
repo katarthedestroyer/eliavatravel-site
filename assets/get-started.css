@@ -48,3 +48,6 @@
   .gs-cards { grid-template-columns: minmax(0, 1fr); }
   .apply--page { border-radius: var(--el-r-card); }
 }
+
+/* Proof line above the form (CRO, Oct 14) */
+.page-get-started .gs-proof { max-width: 40rem; margin: 18px auto 0; text-align: center; color: var(--sc-ink-soft); line-height: 1.55; }
