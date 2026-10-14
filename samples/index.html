@@ -10,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Red+Hat+Text:ital,wght@0,400..700;1,400..700&family=Brygada+1918:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/scrollcraft.css">
-<link rel="stylesheet" href="/assets/site.css">
-<script src="/assets/site.js" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20261014">
+<script src="/assets/site.js?v=20261014" defer></script>
 <link rel="stylesheet" href="/assets/samples.css">
 <title>Sample work | Eliava</title>
 <meta name="description" content="Sample client emails, a trip checklist, steps for an assistant and a Tern setup. Real formats, with made-up clients and trips.">
@@ -39,7 +39,7 @@
         <li><a href="/working-agreement/">How we work</a></li>
         <li><a href="/#about">About</a></li>
       </ul>
-      <a class="btn btn--sm" href="https://cal.com/kady-dennis/discovery-call" data-apply>Get started</a>
+      <a class="btn btn--sm" href="/get-started/" data-apply>Get started</a>
     </nav>
   </div>
 </header>
@@ -101,7 +101,7 @@
     <div class="el-wrap sp-close-in">
       <h2 class="el-h2" id="close-title">Want this for your trips?</h2>
       <p class="sp-close-lede">Tell me about your business and what's piling up. It takes <span class="sp-nw">about 5 minutes.</span> Next, you pick a time for your free 25-minute call.</p>
-      <a class="btn" href="https://cal.com/kady-dennis/discovery-call" data-apply>Get a free call</a>
+      <a class="btn" href="/get-started/" data-apply>Get a free call</a>
     </div>
   </section>
 
@@ -116,7 +116,7 @@
     </div>
     <div class="foot-cta">
       <p class="foot-ready">Ready when you are.</p>
-      <a class="btn" href="https://cal.com/kady-dennis/discovery-call" data-apply>Get started</a>
+      <a class="btn" href="/get-started/" data-apply>Get started</a>
       <p class="foot-mail">Or email <a href="mailto:kady@eliavatravel.com">kady@eliavatravel.com</a></p>
     </div>
     <div class="foot-bar">
@@ -136,178 +136,5 @@
   </div>
 </footer>
 
-<dialog class="apply" id="apply" aria-labelledby="apply-title">
-  <button type="button" class="apply-x" data-close aria-label="Close"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
-  <div class="apply-inner">
-    <form class="step" id="apply-form" novalidate>
-      <h2 id="apply-title">Tell me about your business</h2>
-      <p class="apply-intro">It takes about 5 minutes. Then you'll pick a time for your free 25-minute call.</p>
-
-      <div class="apply-form-body">
-        <div class="fld-row">
-          <div class="fld"><label class="q" for="a-name">Your name</label><input class="in" id="a-name" name="name" autocomplete="name" required></div>
-          <div class="fld"><label class="q" for="a-email">Your email</label><input class="in" id="a-email" name="email" type="email" inputmode="email" autocomplete="email" required></div>
-        </div>
-        <div class="fld"><label class="q" for="a-business">Business name or website <span class="opt">(optional)</span></label><input class="in" id="a-business" name="business" autocomplete="organization"></div>
-
-        <fieldset class="fld"><legend>What best describes you?</legend><div class="choices">
-          <label class="chip"><input type="radio" name="role" value="Travel advisor" required><span>I'm a travel advisor</span></label>
-          <label class="chip"><input type="radio" name="role" value="Agency owner"><span>I own a travel agency</span></label>
-          <label class="chip"><input type="radio" name="role" value="Not in travel"><span>I'm not in travel</span></label>
-        </div></fieldset>
-
-        <div class="fld"><label class="q" for="a-door">What do you need?</label>
-          <select class="in" id="a-door" name="door" required>
-            <option value="">Choose one</option>
-            <option value="keep">Keep it running (ongoing help)</option>
-            <option value="setup">Set it up (workflow build, CRM setup or audit)</option>
-            <option value="library">Keep what you know (private library)</option>
-            <option value="train">Train your team</option>
-            <option value="unsure">Not sure yet</option>
-          </select>
-        </div>
-
-        <fieldset class="door" data-door="keep" hidden>
-          <legend class="door-legend">Keep it running (ongoing help)</legend>
-          <fieldset class="fld"><legend>How much do you want off your plate?</legend><div class="choices">
-            <label class="chip"><input type="radio" name="hours" value="A few things each week"><span>A few things each week</span></label>
-            <label class="chip"><input type="radio" name="hours" value="Most of the day-to-day"><span>Most of the day-to-day</span></label>
-            <label class="chip"><input type="radio" name="hours" value="Everything behind the scenes"><span>Everything behind the scenes</span></label>
-            <label class="chip"><input type="radio" name="hours" value="Not sure yet"><span>Not sure yet</span></label>
-          </div></fieldset>
-          <fieldset class="fld"><legend>What should I help with first? Pick any.</legend><div class="choices">
-            <label class="chip"><input type="checkbox" name="priorities" value="New inquiries and proposals"><span>New inquiries and proposals</span></label>
-            <label class="chip"><input type="checkbox" name="priorities" value="Booked trips and payments"><span>Booked trips and payments</span></label>
-            <label class="chip"><input type="checkbox" name="priorities" value="Itineraries and final documents"><span>Itineraries and final documents</span></label>
-            <label class="chip"><input type="checkbox" name="priorities" value="After the trip"><span>After the trip</span></label>
-            <label class="chip"><input type="checkbox" name="priorities" value="Inbox, tools and AI"><span>Inbox, tools and AI</span></label>
-          </div></fieldset>
-          <fieldset class="fld"><legend>Which plan sounds right?</legend><div class="choices">
-            <label class="chip"><input type="radio" name="level" value="Steady"><span>Steady</span></label>
-            <label class="chip"><input type="radio" name="level" value="Embedded (for a busier business)"><span>Embedded (for a busier business)</span></label>
-            <label class="chip"><input type="radio" name="level" value="Not sure yet"><span>Not sure yet</span></label>
-          </div></fieldset>
-        </fieldset>
-
-        <fieldset class="door" data-door="setup" hidden>
-          <legend class="door-legend">Set it up (workflow build, CRM setup or audit)</legend>
-          <div class="fld"><label class="q" for="a-build">What do you want set up?</label><textarea class="in" id="a-build" name="build" placeholder="For example: client emails for cruises, or moving trips into Tern."></textarea></div>
-          <div class="fld"><label class="q" for="a-deadline">Is there a date you need it by? <span class="opt">(optional)</span></label><input class="in" id="a-deadline" name="deadline"></div>
-          <fieldset class="fld"><legend>Do you want the $295 audit first?</legend><div class="choices">
-            <label class="chip"><input type="radio" name="audit" value="Yes"><span>Yes</span></label>
-            <label class="chip"><input type="radio" name="audit" value="No, I know what I need"><span>No, I know what I need</span></label>
-            <label class="chip"><input type="radio" name="audit" value="Not sure yet"><span>Not sure yet</span></label>
-          </div></fieldset>
-        </fieldset>
-
-        <fieldset class="door" data-door="library" hidden>
-          <legend class="door-legend">Keep what you know (private library)</legend>
-          <div class="fld"><label class="q" for="a-library">What do you want in it?</label><textarea class="in" id="a-library" name="library" placeholder="For example: supplier contacts, client email templates, notes on hotels."></textarea></div>
-          <div class="fld"><label class="q" for="a-libnow">Where does it live now? <span class="opt">(optional)</span></label><input class="in" id="a-libnow" name="libnow" placeholder="For example: my inbox, a spreadsheet, sticky notes."></div>
-        </fieldset>
-
-        <fieldset class="door" data-door="train" hidden>
-          <legend class="door-legend">Train your team</legend>
-          <fieldset class="fld"><legend>Who needs training?</legend><div class="choices">
-            <label class="chip"><input type="radio" name="trainee" value="Me"><span>Me</span></label>
-            <label class="chip"><input type="radio" name="trainee" value="My assistant or VA"><span>My assistant or VA</span></label>
-            <label class="chip"><input type="radio" name="trainee" value="My team (4 or more people)"><span>My team (4 or more people)</span></label>
-          </div></fieldset>
-          <fieldset class="fld" id="a-location"><legend>Where are they based?</legend><div class="choices">
-            <label class="chip"><input type="radio" name="location" value="In the US"><span>In the US</span></label>
-            <label class="chip"><input type="radio" name="location" value="Outside the US"><span>Outside the US</span></label>
-            <label class="chip"><input type="radio" name="location" value="Some of each"><span>Some of each</span></label>
-          </div></fieldset>
-          <fieldset class="fld"><legend>What should the training cover? <span class="opt">(optional)</span></legend><div class="choices">
-            <label class="chip"><input type="radio" name="trainwhat" value="A tool, like Travefy or Tern"><span>A tool, like Travefy or Tern</span></label>
-            <label class="chip"><input type="radio" name="trainwhat" value="Using AI (Claude)"><span>Using AI (Claude)</span></label>
-            <label class="chip"><input type="radio" name="trainwhat" value="Both"><span>Both</span></label>
-          </div></fieldset>
-          <div class="fld"><label class="q" for="a-traintool">Which tool, and which kind of trip?</label><input class="in" id="a-traintool" name="traintool" placeholder="For example: Travefy, cruises."></div>
-        </fieldset>
-
-        <fieldset class="fld"><legend>Which tools do you use? Pick all that apply.</legend><div class="choices">
-          <label class="chip"><input type="checkbox" name="tools" value="Tern"><span>Tern</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="TravelJoy"><span>TravelJoy</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="Travefy"><span>Travefy</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="VacationCRM"><span>VacationCRM</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="Tess"><span>Tess</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="CBO"><span>CBO</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="Trello"><span>Trello</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="Asana"><span>Asana</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="ClickUp"><span>ClickUp</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="Flodesk"><span>Flodesk</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="Gmail or Google Drive"><span>Gmail or Google Drive</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="Outlook"><span>Outlook</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="A spreadsheet"><span>A spreadsheet</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="Something else"><span>Something else</span></label>
-          <label class="chip"><input type="checkbox" name="tools" value="Nothing yet"><span>Nothing yet</span></label>
-        </div></fieldset>
-
-        <fieldset class="fld"><legend>About how many trips are active right now?</legend><div class="choices">
-          <label class="chip"><input type="radio" name="trips" value="None yet"><span>None yet, I'm just starting</span></label>
-          <label class="chip"><input type="radio" name="trips" value="1 to 10"><span>1 to 10</span></label>
-          <label class="chip"><input type="radio" name="trips" value="11 to 25"><span>11 to 25</span></label>
-          <label class="chip"><input type="radio" name="trips" value="26 to 50"><span>26 to 50</span></label>
-          <label class="chip"><input type="radio" name="trips" value="More than 50"><span>More than 50</span></label>
-        </div></fieldset>
-
-        <fieldset class="fld"><legend>What kinds of trips do you sell? Pick all that apply.</legend><div class="choices">
-          <label class="chip"><input type="checkbox" name="triptypes" value="Cruises"><span>Cruises</span></label>
-          <label class="chip"><input type="checkbox" name="triptypes" value="Multi-city or custom trips (FIT)"><span>Multi-city or custom trips (FIT)</span></label>
-          <label class="chip"><input type="checkbox" name="triptypes" value="Resorts and all-inclusives"><span>Resorts and all-inclusives</span></label>
-          <label class="chip"><input type="checkbox" name="triptypes" value="Disney and theme parks"><span>Disney and theme parks</span></label>
-          <label class="chip"><input type="checkbox" name="triptypes" value="Luxury hotels"><span>Luxury hotels</span></label>
-          <label class="chip"><input type="checkbox" name="triptypes" value="Groups"><span>Groups</span></label>
-          <label class="chip"><input type="checkbox" name="triptypes" value="Tours"><span>Tours</span></label>
-          <label class="chip"><input type="checkbox" name="triptypes" value="Something else"><span>Something else</span></label>
-        </div></fieldset>
-
-        <div class="fld"><label class="q" for="a-slipping">What keeps slipping right now?</label><textarea class="in" id="a-slipping" name="slipping" placeholder="For example: final documents, follow-ups, the inbox."></textarea></div>
-
-        <fieldset class="fld" aria-describedby="a-tech-hint"><legend>How do you feel about tech?</legend>
-          <p class="hint" id="a-tech-hint">There's no wrong answer.</p>
-          <div class="scale">
-            <label class="scale-opt"><input type="radio" name="tech" value="1 (I love tech)"><span><b>1</b>I love tech</span></label>
-            <label class="scale-opt"><input type="radio" name="tech" value="2 (I'm comfortable with it)"><span><b>2</b>I'm comfortable with it</span></label>
-            <label class="scale-opt"><input type="radio" name="tech" value="3 (I use it, but I'd rather not)"><span><b>3</b>I use it, but I'd rather not</span></label>
-            <label class="scale-opt"><input type="radio" name="tech" value="4 (I avoid it when I can)"><span><b>4</b>I avoid it when I can</span></label>
-          </div>
-        </fieldset>
-
-        <fieldset class="fld"><legend>When would you like to start?</legend><div class="choices">
-          <label class="chip"><input type="radio" name="when" value="Right away"><span>Right away</span></label>
-          <label class="chip"><input type="radio" name="when" value="In the next month"><span>In the next month</span></label>
-          <label class="chip"><input type="radio" name="when" value="In 2 to 3 months"><span>In 2 to 3 months</span></label>
-          <label class="chip"><input type="radio" name="when" value="Just looking for now"><span>Just looking for now</span></label>
-        </div></fieldset>
-
-        <div class="fld"><label class="q" for="a-notes">Anything else I should know? <span class="opt">(optional)</span></label><textarea class="in" id="a-notes" name="notes"></textarea></div>
-        <div class="hp" aria-hidden="true"><label for="a-website">Leave this empty</label><input id="a-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-      </div>
-
-      <p class="apply-err" id="apply-err" role="alert" data-missing="Fill in the answers marked below so I can get ready for our call." data-email="Check your email address. It should look like name@example.com."></p>
-      <div class="apply-actions">
-        <button type="submit" class="btn">Next: pick a time</button>
-        <p class="apply-privacy">Your answers stay private.</p>
-      </div>
-    </form>
-
-    <div class="step" id="apply-yes" hidden>
-      <h2 tabindex="-1">Thanks, <span data-first></span>!</h2>
-      <div data-yes="call">
-        <p class="apply-intro">Last step: pick a time for your free call. Your answers are already filled in.</p>
-        <div class="apply-cal" id="apply-cal"></div>
-        <p class="apply-cal-alt" data-cal-hide>Calendar not showing? <a id="apply-go" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener">Open it in a new tab</a></p>
-        <p class="apply-alt" data-cal-hide>Not ready to pick a time? That's fine. I already have your answers, and I'll email you the same business day.</p>
-      </div>
-    </div>
-
-    <div class="step" id="apply-no" hidden>
-      <h2 tabindex="-1">Thanks for reaching out!</h2>
-      <p class="apply-intro">My work is built for travel advisors and travel agencies. If you think I can still help, <a href="mailto:kady@eliavatravel.com">email me</a>.</p>
-    </div>
-  </div>
-</dialog>
 </body>
 </html>

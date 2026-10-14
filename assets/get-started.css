@@ -1,0 +1,50 @@
+/* ============================================================================
+   get-started.css: /get-started/, the one place every "Get started" button
+   leads. Modeled on conversionfactory.co/demo: the promise, the form and
+   calendar right away, what happens on the call, proof, who it's for, a close.
+   Live site tokens and card style (site.css, home.css) only.
+   ========================================================================= */
+
+.page-get-started .gs-top { padding-bottom: clamp(20px, 3vw, 36px); }
+.page-get-started h1.sec-title { font-size: var(--el-h1); }
+.page-get-started .gs-top .hero-micro { margin-top: 22px; }
+
+/* the form, on the page: the dialog's card, without the dialog */
+.gs-form-wrap { padding-bottom: var(--el-pad); }
+.apply--page {
+  position: relative; max-width: 760px; margin: 0 auto;
+  border-radius: var(--el-r-big); background: var(--sc-surface); box-shadow: var(--el-shadow-lift);
+  scroll-margin-top: calc(var(--el-mast-h) + 20px);
+}
+.apply--page .apply-inner { max-height: none; overflow: visible; padding: clamp(28px, 4vw, 48px); }
+.apply--page h2 { padding-right: 0; }
+/* the calendar step gets more room, like the dialog does */
+.apply--page.has-cal { max-width: 960px; }
+
+/* what happens on the call */
+.page-get-started .gs-call { padding-top: 0; }
+.gs-more { margin: 24px 0 0; text-align: center; color: var(--sc-ink-soft); }
+
+/* what you can expect / who this is for: the live pastel cards */
+.gs-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.gs-card {
+  display: grid; gap: 8px; align-content: start; padding: clamp(22px, 2.6vw, 32px);
+  border-radius: var(--el-r-card); background: var(--sc-surface); box-shadow: var(--el-shadow);
+}
+.gs-card strong { font: 400 clamp(1.6rem, 1.3rem + 0.9vw, 2.1rem)/1 var(--sc-font-display); color: var(--sc-ink); }
+.gs-card span { color: var(--sc-ink-soft); line-height: 1.55; }
+.gs-card--sea { background: var(--el-sea); }
+.gs-card--foam { background: var(--el-foam); }
+.gs-card--mist { background: var(--el-mist); }
+.gs-card--sand { background: var(--el-sand); }
+.gs-cards--who .gs-card { box-shadow: inset 0 0 0 1px var(--sc-hairline); background: var(--sc-surface); }
+.gs-not { max-width: 44rem; margin: 26px auto 0; text-align: center; color: var(--sc-ink-soft); line-height: 1.55; }
+.gs-not b { color: var(--sc-ink); }
+.page-get-started .gs-who { padding-top: 0; }
+.page-get-started .ready { padding-top: 0; }
+.page-get-started .final { margin-top: 0; }
+
+@media (max-width: 700px) {
+  .gs-cards { grid-template-columns: minmax(0, 1fr); }
+  .apply--page { border-radius: var(--el-r-card); }
+}
