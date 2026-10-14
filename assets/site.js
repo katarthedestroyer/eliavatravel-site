@@ -71,7 +71,21 @@ function eliavaSend(pairs) {
 /* --------------------------------------------------- 2. the application -- */
 (function () {
   var CAL = "https://cal.com/kady-dennis/discovery-call";
-  var dlg = document.getElementById('apply'); if (!dlg || typeof dlg.showModal !== 'function') return;
+  var START = '/get-started/';
+  var dlg = document.getElementById('apply');
+  // Every page without the form: a data-apply link goes to the Get started page,
+  // carrying its door (data-apply="setup" -> /get-started/?door=setup).
+  if (!dlg) {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-apply]'); if (!a) return;
+      var pre = a.getAttribute('data-apply');
+      e.preventDefault(); location.href = START + (pre ? '?door=' + encodeURIComponent(pre) : '');
+    });
+    return;
+  }
+  // On /get-started/ the form sits on the page (a <section id="apply">), not in a dialog.
+  var onPage = dlg.tagName !== 'DIALOG';
+  if (!onPage && typeof dlg.showModal !== 'function') return;
   var form = document.getElementById('apply-form'), yes = document.getElementById('apply-yes'),
       no = document.getElementById('apply-no'), err = document.getElementById('apply-err');
   var inner = dlg.querySelector('.apply-inner') || dlg;
@@ -87,7 +101,8 @@ function eliavaSend(pairs) {
 
   function show(step) {
     [form, yes, no].forEach(function (s) { s.hidden = (s !== step); });
-    inner.scrollTop = 0; dlg.classList.remove('is-scrolled');
+    if (onPage) { if (step !== form) dlg.scrollIntoView({ block: 'start' }); }
+    else { inner.scrollTop = 0; dlg.classList.remove('is-scrolled'); }
     if (step !== yes) dlg.classList.remove('has-cal');
     var h = step.querySelector('h2'); if (step !== form && h) h.focus();
   }
@@ -142,14 +157,24 @@ function eliavaSend(pairs) {
   document.addEventListener('click', function (e) {
     var a = e.target.closest('[data-apply]'); if (!a) return;
     e.preventDefault(); show(form); err.classList.remove('show'); clearMarks();
-    var pre = a.getAttribute('data-apply'); if (pre) { doorSel.value = pre; } syncDoor(); dlg.showModal();
-    setTimeout(function () { var f = document.getElementById('a-name'); if (f) f.focus(); }, 30);
+    var pre = a.getAttribute('data-apply'); if (pre) { doorSel.value = pre; } syncDoor();
+    if (onPage) dlg.scrollIntoView({ block: 'start' }); else dlg.showModal();
+    setTimeout(function () { var f = document.getElementById('a-name'); if (f) f.focus({ preventScroll: onPage }); }, 30);
   });
+  if (onPage) {
+    // Arriving from another page: pick the door it named, and carry over a
+    // 1-minute check result (quiz.js keeps it for this visit only).
+    var q = new URLSearchParams(location.search).get('door');
+    if (q && doorSel.querySelector('option[value="' + q.replace(/[^a-z]/g, '') + '"]')) doorSel.value = q;
+    var notes = form.elements['notes'], kept = '';
+    try { kept = sessionStorage.getItem('eliava-check') || ''; } catch (x) {}
+    if (notes && kept && !notes.value) notes.value = kept;
+  }
   dlg.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', function () { dlg.close(); }); });
   // Backdrop clicks close it. A click on the dialog box itself (its own padding or
   // the strip behind the X) does not.
   dlg.addEventListener('click', function (e) {
-    if (e.target !== dlg) return;
+    if (onPage || e.target !== dlg) return;
     var r = dlg.getBoundingClientRect();
     if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dlg.close();
   });
@@ -184,7 +209,10 @@ function eliavaSend(pairs) {
       // Bring the first missing answer into view, just under the strip behind
       // the X, and put focus on it, so nobody has to hunt for the red question.
       var first = form.querySelector('.fld.is-missing');
-      if (first) {
+      if (first && onPage) {
+        first.scrollIntoView({ block: 'center' });
+        var f1 = first.querySelector('input, select, textarea'); if (f1) f1.focus({ preventScroll: true });
+      } else if (first) {
         inner.scrollTop += first.getBoundingClientRect().top - inner.getBoundingClientRect().top - 84;
         var field = first.querySelector('input, select, textarea');
         if (field) field.focus({ preventScroll: true });

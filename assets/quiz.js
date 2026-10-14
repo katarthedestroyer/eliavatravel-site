@@ -107,6 +107,8 @@
   document.getElementById('quiz-go').addEventListener('click', function () {
     var notes = document.getElementById('a-notes');
     if (notes && summary && (!notes.value || notes.value.indexOf('1-minute check:') === 0)) notes.value = summary;
+    // The form lives on /get-started/ now: keep the result for that page, this visit only.
+    try { if (summary) sessionStorage.setItem('eliava-check', summary); } catch (x) {}
   });
   go(0);
 })();
