@@ -111,7 +111,7 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
   border-radius: 20px 20px 0 0; box-shadow: var(--el-shadow-lift); text-align: left;
 }
 /* hero video (Oct 14): replaces the static sample-trip panel; same slot, same top corners */
-.hero-video { width: min(880px, 100%); overflow: hidden; background: #E3EFF1; }
+.hero-video { width: min(1100px, 100%); overflow: hidden; background: #E3EFF1; }
 .hero-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
 .app-body { padding: 18px 22px 26px; }
 .app-trip-name { margin: 0; font: 500 1.35rem/1.15 var(--sc-font-display); letter-spacing: -0.01em; }
@@ -134,6 +134,8 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
   .hero-micro span { display: none; } .hero-micro b { display: block; line-height: 1.9; }
   .app-chip { right: 10px; top: -16px; }
   .app-body { padding: 14px 16px 20px; }
+  /* phones: the video runs edge to edge so its small text stays readable */
+  .hero-video { width: calc(100% + 2 * var(--sc-gutter)); max-width: none; margin-inline: calc(-1 * var(--sc-gutter)); border-radius: 0; }
 }
 @media (max-width: 767px) { .page-home .mast .btn--sm { display: none; } }
 
