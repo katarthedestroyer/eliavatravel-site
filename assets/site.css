@@ -470,7 +470,7 @@ select.in {
   min-height: var(--el-tap); padding: 9px 16px;
   border: 1px solid var(--el-field-line); border-radius: var(--sc-r-pill);
   background: var(--sc-surface); color: var(--sc-ink);
-  font-size: 0.95rem; line-height: 1.25; cursor: pointer; user-select: none;
+  font-size: 0.95rem; line-height: 1.35; cursor: pointer; user-select: none;
   transition: background-color 120ms var(--sc-ease-out), border-color 120ms var(--sc-ease-out), color 120ms var(--sc-ease-out);
 }
 .chip:hover span { border-color: var(--sc-ink-soft); }
