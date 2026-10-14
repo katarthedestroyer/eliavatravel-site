@@ -33,7 +33,7 @@
     qs.forEach(function (q, n) { q.hidden = n !== i; });
     back.hidden = i === 0;
     next.hidden = !qs[i].querySelector('input:checked');
-    fill.style.width = Math.round(i / qs.length * 100) + '%';
+    fill.style.transform = 'scaleX(' + (i / qs.length) + ')';
     var first = qs[i].querySelector('input:checked') || qs[i].querySelector('input');
     if (focus && first) first.focus({ preventScroll: true });
   }
@@ -73,7 +73,7 @@
     more.querySelector('.el-sr') || more.insertAdjacentHTML('beforeend', '<span class="el-sr"></span>');
     more.querySelector('.el-sr').textContent = ': ' + pick.name;
     summary = '1-minute check: ' + total + ' out of 16. ' + lines.join('. ') + '. Suggested start: ' + pick.name + '.';
-    fill.style.width = '100%';
+    fill.style.transform = 'scaleX(1)';
     form.hidden = true; result.hidden = false; result.focus({ preventScroll: true });
     result.scrollIntoView({ block: 'nearest' });
   }

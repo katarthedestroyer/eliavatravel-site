@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="/assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Instrument+Sans:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Red+Hat+Text:ital,wght@0,400..700;1,400..700&family=Brygada+1918:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/scrollcraft.css">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/site.js" defer></script>
@@ -54,7 +54,6 @@
     <div class="hero-card">
       <div class="hero-art" aria-hidden="true"></div>
       <div class="hero-copy">
-        <p class="el-kicker">For travel advisors</p>
         <h1 class="hero-title">I handle the <em class="nowrap">behind-the-scenes</em> of your travel business.</h1>
         <p class="hero-sub">US-based, travel-trained help with client emails, payment reminders and final documents. Done on time, inside the tools you already use.</p>
         <div class="hero-actions">
@@ -66,6 +65,7 @@
 
       <figure class="hero-app hero-video">
         <video data-hero-video autoplay muted loop playsinline preload="metadata" poster="/assets/hero-poster.jpg" width="1280" height="720" aria-label="Short video, no sound. A sample trip in a trip tool: the final payment reminder is marked paid, the advisor clicks OK and the final documents are sent, then the welcome-home email is scheduled.">
+          <source src="/assets/hero-loop-mobile.mp4" type="video/mp4" media="(max-width: 700px)">
           <source src="/assets/hero-loop.mp4" type="video/mp4">
         </video>
       </figure>
@@ -85,19 +85,21 @@
   <!-- 3. Sound familiar? The pains, then the research under them (sources stay visible) -->
   <section id="familiar" class="sec familiar" data-sc-act="flow" data-sc-folio="Sound familiar?">
     <div class="el-wrap sec-head">
-      <p class="el-kicker">The hard part</p>
       <h2 class="sec-title">Sound <em>familiar?</em></h2>
       <p class="sec-sub">You plan the trips, chase the payments and answer the inbox. Something usually gives.</p>
     </div>
     <div class="el-wrap">
-      <ul class="pains" data-sc-in data-sc-stagger="80">
-        <li class="pain pain--a"><span class="pain-tag">Your head</span><strong>What happens next only lives in your head.</strong></li>
-        <li class="pain pain--b"><span class="pain-tag">Your inbox</span><strong>A supplier change is buried in there somewhere.</strong></li>
-        <li class="pain pain--c"><span class="pain-tag">Deadlines</span><strong>Final payment dates on sticky notes.</strong></li>
-        <li class="pain pain--c"><span class="pain-tag">Passports</span><strong>Is anyone checking when their passports expire?</strong></li>
-        <li class="pain pain--a"><span class="pain-tag">Client questions</span><strong>The same pre-trip questions, answered by hand, again.</strong></li>
-        <li class="pain pain--b"><span class="pain-tag">Your tool</span><strong>Booked, but half the details never made it into Tern.</strong></li>
-      </ul>
+      <div class="inbox">
+        <div class="app-bar"><span class="app-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="app-name">Your week</span><span class="app-tag">6 unread</span></div>
+        <ul class="inbox-list" data-sc-in data-sc-stagger="60">
+          <li class="inbox-row"><span class="inbox-dot" aria-hidden="true"></span><span class="inbox-from">Your head</span><span class="inbox-line">What happens next only lives in your head.</span></li>
+          <li class="inbox-row"><span class="inbox-dot" aria-hidden="true"></span><span class="inbox-from">Your inbox</span><span class="inbox-line">A supplier change is buried in there somewhere.</span></li>
+          <li class="inbox-row"><span class="inbox-dot" aria-hidden="true"></span><span class="inbox-from">Deadlines</span><span class="inbox-line">Final payment dates on sticky notes.</span></li>
+          <li class="inbox-row"><span class="inbox-dot" aria-hidden="true"></span><span class="inbox-from">Passports</span><span class="inbox-line">Is anyone checking when their passports expire?</span></li>
+          <li class="inbox-row"><span class="inbox-dot" aria-hidden="true"></span><span class="inbox-from">Client questions</span><span class="inbox-line">The same pre-trip questions, answered by hand, again.</span></li>
+          <li class="inbox-row"><span class="inbox-dot" aria-hidden="true"></span><span class="inbox-from">Your tool</span><span class="inbox-line">Booked, but half the details never made it into Tern.</span></li>
+        </ul>
+      </div>
       <ul class="facts facts--under" data-sc-in data-sc-stagger="80">
         <li class="fact fact--a"><b>46</b><span class="fact-label">hours a week at $100K+</span><span class="fact-src">Travel Weekly 2024</span></li>
         <li class="fact fact--b"><b>1 in 3</b><span class="fact-label">advisors report burnout</span><span class="fact-src">TravelAge West</span></li>
@@ -114,7 +116,6 @@
           <img src="/assets/kady.webp" width="804" height="804" loading="lazy" decoding="async" alt="Kady Dennis in a white shirt on a sailboat, with water behind her.">
         </div>
         <div class="about-text">
-          <p class="el-kicker">Who you'd work with</p>
           <h2 class="about-title">Hi, I'm <em>Kady!</em></h2>
           <p>I'm the one doing your work. No team you've never met, and no handoffs.</p>
           <p>I spent 15 years in operations before travel. Now I build the systems that keep trips on track.</p>
@@ -131,69 +132,9 @@
     </div>
   </section>
 
-  <!-- 6. Five ways I help -->
-  <section id="ways" class="sec ways" data-sc-act="flow" data-sc-folio="Five ways I help">
-    <div class="el-wrap sec-head">
-      <p class="el-kicker">Services and prices</p>
-      <h2 class="sec-title"><em>Five</em> ways I help</h2>
-      <p class="sec-sub">Most advisors start with one of the first two. You'll know the cost before I start. <span class="quiz-link">Not sure which? <a class="el-inline-link" href="#quiz">Take the 1-minute check</a>.</span></p>
-    </div>
-    <div class="el-wrap">
-      <div class="ways-list" data-sc-in data-sc-stagger="60">
-        <article class="way">
-          <p class="way-tag">Most asked</p>
-          <h3 class="way-name">Workflow build</h3>
-          <p class="way-what">A one-time build. Every email, reminder and checklist a trip needs, from first inquiry to welcome home, set up in the tool you already use.</p>
-          <p class="way-price"><span>From</span> $1,175</p>
-          <p class="way-note">Not sure where to start? An optional $295 audit maps one trip first.</p>
-          <a class="el-link way-link" href="/services/#setup">See what's included<span class="el-sr">: Workflow build</span></a>
-        </article>
-        <article class="way">
-          <p class="way-tag">New tool, or new to it?</p>
-          <h3 class="way-name">CRM setup and training</h3>
-          <p class="way-what">Tern, TravelJoy or Travefy, set up the right way. Then I teach you and your assistant to use it.</p>
-          <p class="way-price"><span>Priced after your free call</span></p>
-          <p class="way-note">Moving to Tern? I move your trips and clients for you.</p>
-          <a class="el-link way-link" href="/services/#setup">See what's included<span class="el-sr">: CRM setup and training</span></a>
-        </article>
-        <article class="way way--main">
-          <div class="way-main-text">
-            <p class="way-tag">Ongoing help</p>
-            <h3 class="way-name">Keep it running</h3>
-            <p class="way-what">Weekly help with every step of your trips, from new inquiries to welcome-home emails.</p>
-            <div class="way-acts">
-              <a class="btn" href="https://cal.com/kady-dennis/discovery-call" data-apply="keep">Get a free call</a>
-              <a class="el-link way-link" href="/services/#keep">See what's included<span class="el-sr">: Keep it running</span></a>
-            </div>
-          </div>
-          <div class="way-main-price">
-            <p class="way-price"><span>From</span> $990 <span>a month</span></p>
-            <p class="way-note">Help that follows your busy season. Month 1 is a no-commitment trial.</p>
-          </div>
-        </article>
-        <article class="way way--new">
-          <p class="way-tag">New</p>
-          <h3 class="way-name">Keep what you know</h3>
-          <p class="way-what">Your templates, supplier contacts, step-by-step guides and trip notes, in one private place.</p>
-          <p class="way-price"><span>From</span> $1,495</p>
-          <p class="way-note">Built in an account you own, and it stays yours.</p>
-          <a class="el-link way-link" href="/services/#library">See what's included<span class="el-sr">: Keep what you know</span></a>
-        </article>
-        <article class="way">
-          <h3 class="way-name">Train your team</h3>
-          <p class="way-what">I teach you or your assistant inside your own tools, including how to use AI.</p>
-          <p class="way-price"><span>From</span> $95</p>
-          <p class="way-note">Untangle one thing, $95. Assistant training from $495.</p>
-          <a class="el-link way-link" href="/services/#train">See what's included<span class="el-sr">: Train your team</span></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- 6b. The quiz: 8 questions, a score per area, one next step -->
   <section id="quiz" class="sec quiz" data-sc-act="flow" data-sc-folio="The 1-minute check">
     <div class="el-wrap sec-head">
-      <p class="el-kicker">Not sure which one you need?</p>
       <h2 class="sec-title">What would slip if you took <em>a week off?</em></h2>
       <p class="sec-sub">Answer 8 quick questions. You'll see what would hold and what would slip, and where I'd start. About a minute. No email needed.</p>
     </div>
@@ -270,7 +211,6 @@
         </div>
       </form>
       <div class="quiz-card quiz-result" id="quiz-result" hidden tabindex="-1" aria-live="polite">
-        <p class="el-kicker">Your result</p>
         <p class="quiz-score"><b id="quiz-total"></b> out of 16</p>
         <h3 class="quiz-tier" id="quiz-tier"></h3>
         <ul class="quiz-cats" id="quiz-cats"></ul>
@@ -289,10 +229,68 @@
     </div>
   </section>
 
+  <!-- 6. Five ways I help -->
+  <section id="ways" class="sec ways" data-sc-act="flow" data-sc-folio="Services and prices">
+    <div class="el-wrap sec-head">
+      <h2 class="sec-title">What I take off <em>your plate</em></h2>
+      <p class="sec-sub">Most advisors start with a workflow build or a CRM setup. You'll know the cost before I start.</p>
+    </div>
+    <div class="el-wrap">
+      <div class="ways-list" data-sc-in data-sc-stagger="60">
+        <article class="way way--main">
+          <div class="way-main-text">
+            <p class="way-tag">Most asked</p>
+            <h3 class="way-name">Workflow build</h3>
+            <p class="way-what">A one-time build. Every email, reminder and checklist a trip needs, from first inquiry to welcome home, set up in the tool you already use.</p>
+            <div class="way-acts">
+              <a class="btn" href="https://cal.com/kady-dennis/discovery-call" data-apply="setup">Get a free call</a>
+              <a class="el-link way-link" href="/services/#setup">See what's included<span class="el-sr">: Workflow build</span></a>
+            </div>
+          </div>
+          <div class="way-main-price">
+            <p class="way-price"><span>From</span> $1,175</p>
+            <p class="way-note">Not sure where to start? An optional $295 audit maps one trip first.</p>
+          </div>
+        </article>
+        <article class="way">
+          <p class="way-tag">New tool, or new to it?</p>
+          <h3 class="way-name">CRM setup and training</h3>
+          <p class="way-what">Tern, TravelJoy or Travefy, set up the right way. Then I teach you and your assistant to use it.</p>
+          <p class="way-price"><span>Priced after your free call</span></p>
+          <p class="way-note">Moving to Tern? I move your trips and clients for you.</p>
+          <a class="el-link way-link" href="/services/#setup">See what's included<span class="el-sr">: CRM setup and training</span></a>
+        </article>
+        <article class="way">
+          <p class="way-tag">Ongoing help</p>
+          <h3 class="way-name">Keep it running</h3>
+          <p class="way-what">Weekly help with every step of your trips, from new inquiries to welcome-home emails.</p>
+          <p class="way-price"><span>From</span> $990 <span>a month</span></p>
+          <p class="way-note">Help that follows your busy season. Month 1 is a no-commitment trial.</p>
+          <a class="el-link way-link" href="/services/#keep">See what's included<span class="el-sr">: Keep it running</span></a>
+        </article>
+        <article class="way way--new">
+          <p class="way-tag">New</p>
+          <h3 class="way-name">Keep what you know</h3>
+          <p class="way-what">Your templates, supplier contacts, step-by-step guides and trip notes, in one private place.</p>
+          <p class="way-price"><span>From</span> $1,495</p>
+          <p class="way-note">Built in an account you own, and it stays yours.</p>
+          <a class="el-link way-link" href="/services/#library">See what's included<span class="el-sr">: Keep what you know</span></a>
+        </article>
+        <article class="way">
+          <h3 class="way-name">Train your team</h3>
+          <p class="way-what">I teach you or your assistant inside your own tools, including how to use AI.</p>
+          <p class="way-price"><span>From</span> $95</p>
+          <p class="way-note">Untangle one thing, $95. Assistant training from $495.</p>
+          <a class="el-link way-link" href="/services/#train">See what's included<span class="el-sr">: Train your team</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
   <!-- 6. Why US-based: four plain reasons, then the offshore line -->
   <section id="why" class="sec why" data-sc-act="flow" data-sc-folio="Why US-based">
     <div class="el-wrap sec-head">
-      <p class="el-kicker">Why US-based</p>
       <h2 class="sec-title">A cheaper assistant often costs <em>more</em></h2>
       <p class="sec-sub">Offshore assistants cost less per hour, and plenty of advisors use them well. When the work needs judgment, though, you pay for the gap in hours spent training, checking and explaining.</p>
     </div>
@@ -310,32 +308,27 @@
   <!-- 7. How it works: three steps -->
   <section id="start" class="sec start" data-sc-act="flow" data-sc-folio="How we start">
     <div class="el-wrap sec-head">
-      <p class="el-kicker">How it works</p>
       <h2 class="sec-title">Getting started is <em>simple</em></h2>
       <p class="sec-sub">You'll know what I'll do and what it costs before you pay anything.</p>
     </div>
     <div class="el-wrap">
       <ol class="steps" data-sc-in data-sc-stagger="80">
         <li class="step-card">
-          <div class="step-art step-art--1" aria-hidden="true"><span class="step-ui">About 5 minutes</span></div>
-          <div class="step-text"><span class="step-n">01</span><strong>Tell me about your business</strong><span>Your trips, your tools and what keeps slipping.</span></div>
+          <div class="step-text"><span class="step-n">01 <span class="step-meta">About 5 minutes</span></span><strong>Tell me about your business</strong><span>Your trips, your tools and what keeps slipping.</span></div>
         </li>
         <li class="step-card">
-          <div class="step-art step-art--2" aria-hidden="true"><span class="step-ui">25 minutes on Zoom</span></div>
-          <div class="step-text"><span class="step-n">02</span><strong>Free 25-minute call</strong><span>We look at what's piling up and pick what to hand off first.</span></div>
+          <div class="step-text"><span class="step-n">02 <span class="step-meta">25 minutes on Zoom</span></span><strong>Free 25-minute call</strong><span>We look at what's piling up and pick what to hand off first.</span></div>
         </li>
         <li class="step-card">
-          <div class="step-art step-art--3" aria-hidden="true"><span class="step-ui">In writing</span></div>
-          <div class="step-text"><span class="step-n">03</span><strong>Your plan and price</strong><span>I send both in writing. If it looks right, we pick a start date.</span></div>
+          <div class="step-text"><span class="step-n">03 <span class="step-meta">In writing</span></span><strong>Your plan and price</strong><span>I send both in writing. If it looks right, we pick a start date.</span></div>
         </li>
       </ol>
     </div>
   </section>
 
   <!-- 8. Questions advisors ask first -->
-  <section id="faq" class="sec faq" data-sc-act="flow" data-sc-folio="Questions">
+  <section id="faq" class="sec faq faq--split" data-sc-act="flow" data-sc-folio="Questions">
     <div class="el-wrap sec-head">
-      <p class="el-kicker">Questions</p>
       <h2 class="sec-title">Questions advisors ask <em>first</em></h2>
     </div>
     <div class="el-wrap">
@@ -362,7 +355,7 @@
     <div class="final">
       <div class="final-art" aria-hidden="true"></div>
       <div class="final-in apply-now" id="apply-now">
-        <p class="el-kicker">Your next step</p>
+        <img class="final-photo" src="/assets/kady.webp" width="804" height="804" loading="lazy" decoding="async" alt="Kady Dennis">
         <p class="final-title">Get your hours <em>back.</em></p>
         <p class="apply-now-for" aria-live="polite"></p>
         <a class="btn btn--lg" href="https://cal.com/kady-dennis/discovery-call" data-apply>Get a free call</a>
