@@ -1,0 +1,40 @@
+/* ============================================================================
+   copy-v2.css (Oct 14, 2026): the COPY-MASTER-v2 words on the live design.
+   1. Fonts from the v2 preview: Alumni Sans for headings and numbers,
+      Albert Sans for text. Colors and layout stay as they are live.
+   2. Small styles for the few lines the copy master adds to live sections.
+   ========================================================================= */
+
+/* 1. fonts */
+:root {
+  --sc-font-display: "Alumni Sans", "Albert Sans", "Avenir Next", Arial, sans-serif;
+  --sc-font-text: "Albert Sans", "Avenir Next", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --sc-font-mono: var(--sc-font-text);
+  /* Alumni Sans is narrow: headings run a step larger, with no negative tracking */
+  --el-h1: clamp(3.4rem, 2rem + 6.2vw, 7rem);
+  --el-h2: clamp(2.8rem, 1.7rem + 3.6vw, 5rem);
+  --sc-track-tight: 0;
+  --sc-track-snug: 0;
+}
+h1, h2, h3 { font-weight: 400; }
+h1 em, h2 em, h3 em, .final-title em { font-weight: 300; }
+.hero-title { line-height: 0.92; letter-spacing: 0; }
+.sec-title, .about-title, .final-title { line-height: 0.95; font-weight: 400; }
+.inbox-line { font-weight: 400; font-size: clamp(1.45rem, 1.2rem + 0.7vw, 1.8rem); line-height: 1.1; }
+.quiz-tier { font-weight: 400; font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem); line-height: 1; }
+.quiz-pick-name { font-weight: 400; font-size: clamp(1.9rem, 1.5rem + 1.2vw, 2.6rem); line-height: 1; }
+.way-name { font-weight: 400; }
+
+/* 2. the copy master's additions */
+/* "With Eliava" under each pain line in the inbox */
+.inbox-fix { grid-column: 3; font-size: 0.98rem; line-height: 1.5; color: var(--sc-ink-soft); text-wrap: pretty; }
+.inbox-fix b { color: var(--sc-accent); font-weight: 650; }
+@media (max-width: 640px) { .inbox-fix { grid-column: 2; margin-top: 4px; } }
+
+/* the 151 line and the button to the check, where the outside stats were */
+.fam-proof { max-width: 44rem; margin: clamp(32px, 4vw, 48px) auto 0; text-align: center; font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem); line-height: 1.55; color: var(--sc-ink-soft); text-wrap: pretty; }
+.fam-proof b { color: var(--sc-ink); font-weight: 650; }
+.fam-go { margin: 24px 0 0; text-align: center; }
+
+/* the catch-up line under every check result */
+.quiz-pick-pile { margin: 16px 0 0; font-size: 0.95rem; color: var(--sc-ink-soft); }
