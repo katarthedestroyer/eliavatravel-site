@@ -201,7 +201,7 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
 .faq-item + .faq-item { border-top: 1px solid var(--sc-hairline); }
 .faq-item summary {
   position: relative; display: block; list-style: none; cursor: pointer;
-  padding: 22px 60px 22px 26px; font: 500 1.2rem/1.3 var(--sc-font-display); color: var(--sc-ink);
+  padding: 22px 60px 22px 26px; font: 500 1.2rem/1.38 var(--sc-font-display); color: var(--sc-ink);
 }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after {
@@ -655,9 +655,9 @@ html:not(.js) .quiz, html:not(.js) .quiz-link { display: none; }
   background: var(--sc-surface); box-shadow: inset 0 0 0 1px var(--sc-hairline), var(--el-shadow);
 }
 .quiz-bar { height: 4px; border-radius: 4px; background: var(--el-sea); overflow: hidden; margin-bottom: 26px; }
-.quiz-bar span { display: block; height: 100%; width: 0; background: var(--sc-accent); transition: width .3s ease; }
+.quiz-bar span { display: block; height: 100%; width: 100%; background: var(--sc-accent); transform: scaleX(0); transform-origin: left center; transition: transform .3s cubic-bezier(.16, 1, .3, 1); }
 .quiz-q { border: 0; margin: 0; padding: 0; min-width: 0; }
-.quiz-q legend { padding: 0; min-height: 3.4em; font-family: var(--sc-font-display); font-size: clamp(1.3rem, 1.1rem + .8vw, 1.7rem); line-height: 1.25; color: var(--sc-ink); text-wrap: balance; }
+.quiz-q legend { padding: 0; min-height: 3.4em; font-family: var(--sc-font-display); font-size: clamp(1.3rem, 1.1rem + .8vw, 1.7rem); line-height: 1.32; color: var(--sc-ink); text-wrap: balance; }
 .quiz-n { display: block; margin-bottom: 10px; font: 650 0.72rem/1 var(--sc-font-text); letter-spacing: 0.1em; text-transform: uppercase; color: var(--sc-accent); }
 .quiz-opts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 22px; }
 .quiz-opts label { position: relative; display: block; cursor: pointer; }
@@ -766,3 +766,6 @@ html:not(.js) .quiz, html:not(.js) .quiz-link { display: none; }
 .folio-title { font-size: 0.78rem; }
 /* phones get the 4:5 cut of the hero video, with the trip window filling the width */
 @media (max-width: 700px) { .hero-video video { aspect-ratio: 4 / 5; object-fit: cover; } }
+/* hero credentials: sentence case, not tracked caps (Impeccable: all-caps body text) */
+.hero-micro { font-size: 0.92rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.quiz-n { line-height: 1.3; }
