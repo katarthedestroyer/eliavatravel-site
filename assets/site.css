@@ -25,10 +25,10 @@
   --sc-accent:     #0B5F70;   /* deep sea teal */
   --sc-accent-ink: #FFFFFF;
 
-  /* two families: Newsreader for display, Instrument Sans for everything else.
+  /* two families: Brygada 1918 for display, Red Hat Text for everything else (Oct 14, Kady).
      The engine's mono label face maps to the text face (no third family). */
-  --sc-font-display: "Newsreader", Georgia, "Times New Roman", serif;
-  --sc-font-text:    "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sc-font-display: "Brygada 1918", Georgia, "Times New Roman", serif;
+  --sc-font-text:    "Red Hat Text", system-ui, -apple-system, "Segoe UI", sans-serif;
   --sc-font-mono:    var(--sc-font-text);
 
   /* a serif needs less negative tracking and a touch more leading than the
