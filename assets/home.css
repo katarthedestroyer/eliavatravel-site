@@ -151,7 +151,7 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
 .familiar { background: var(--sc-surface); }
 .pains { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .pain {
-  display: flex; flex-direction: column; gap: 14px; min-height: 220px; justify-content: space-between;
+  display: flex; flex-direction: column; gap: 14px; min-height: 190px; justify-content: space-between;
   padding: 28px; border-radius: var(--el-r-card);
 }
 .pain--a { background: linear-gradient(170deg, #E7F3F4 0%, var(--el-sea) 100%); }
