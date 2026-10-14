@@ -1,5 +1,5 @@
 // The Google Apps Script web app URL (ends in /exec). Empty = answers are not saved anywhere.
-var APPLY_ENDPOINT = "";
+var APPLY_ENDPOINT = "https://script.google.com/macros/s/AKfycbxsy0quKPu7pNr78Y1DU9whTruGuCNx-Hqa8Uau9qE_9Mwqx5WjtgkOX6Kc0HsLqoVZDQ/exec";
 // The Stripe Payment Link for the $225 Single Fix. Empty = Single Fix gets the usual "pick a time" step.
 var FIX_PAYMENT_LINK = "https://buy.stripe.com/9B69AUcoN8dlg8aeaa1gs02";
 
