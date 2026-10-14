@@ -232,25 +232,25 @@ a { color: inherit; }
   max-width: var(--sc-maxw); height: var(--el-mast-h); margin-inline: auto; padding-inline: var(--sc-gutter);
 }
 
-/* The logo is a brown PNG with real alpha. Where mask-image works it is
-   recoloured to the ink; the <img> stays in place for its alt text and size. */
+/* One logo for the bar and the footer; it takes its colour from the link
+   (ink on the light bar, light on the dark footer). */
 .mast-logo, .foot-logo {
   position: relative; display: inline-flex; align-items: center; flex: none;
   min-height: var(--el-tap); color: var(--sc-ink); text-decoration: none;
 }
 .mast-logo { gap: 10px; }
-.mast-mark { display: block; width: 40px; height: 24px; flex: none; color: var(--sc-ink); }
-.mast-mark svg { display: block; width: 100%; height: 100%; }
+/* the logo as live text: Italiana "Eliava" over spaced "TRAVEL OPS". Italiana has one
+   hairline weight, so it stays sharp by size alone (a text-stroke made the edges blur);
+   the sub-label uses the body sans so it reads at small sizes */
+.mast-lockup { display: flex; flex-direction: column; align-items: center; color: inherit; }
 .mast-word {
-  font: 500 1.75rem/1 var(--sc-font-display); letter-spacing: -0.015em; color: var(--sc-ink);
+  font: 400 3.375rem/0.9 "Italiana", Georgia, serif; letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;
 }
-@supports ((mask-image: url("x.png")) or (-webkit-mask-image: url("x.png"))) {
-  .foot-logo img { opacity: 0; }
-  .foot-logo::after {
-    content: ""; position: absolute; inset: 0; background: currentColor; pointer-events: none;
-    -webkit-mask: url("eliava-logo.png") left center / contain no-repeat;
-            mask: url("eliava-logo.png") left center / contain no-repeat;
-  }
+.mast-sub {
+  margin-top: 3px; padding-left: 0.3em;
+  font: 600 0.6875rem/1 var(--sc-font-text);
+  letter-spacing: 0.3em; text-transform: uppercase;
 }
 
 .mast-nav { display: flex; align-items: center; gap: 28px; }
@@ -272,8 +272,8 @@ a { color: inherit; }
 /* phone: links fold into a menu; the button stays in view */
 @media (max-width: 767px) {
   :root { --el-mast-h: 64px; }
-  .mast-word { font-size: 1.5rem; }
-  .mast-mark { width: 34px; height: 20px; }
+  .mast-word { font-size: 2.75rem; }
+  .mast-sub { margin-top: 2px; font-size: 0.625rem; }
   .mast-nav { gap: 8px; }
 
   /* without JS the links simply wrap onto their own row */
@@ -306,8 +306,7 @@ a { color: inherit; }
   .js .mast-links a { width: 100%; min-height: 52px; font-size: 1.05rem; }
 }
 @media (max-width: 359px) {
-  .mast-word { font-size: 1.35rem; }
-  .mast-mark { display: none; }
+  .mast-word { font-size: 2.375rem; }
   .mast .btn--sm { padding: 0 12px; font-size: 0.8125rem; }
 }
 
@@ -332,7 +331,6 @@ a { color: inherit; }
 }
 .foot-brand { grid-area: brand; }
 .foot-logo { color: var(--el-deep-ink); }
-.foot-logo img { height: 52px; width: auto; }
 .foot-brand p { margin: 0; max-width: 40ch; text-wrap: pretty; }
 .foot-brand .foot-what {
   margin: var(--sc-4) 0 var(--sc-2);
