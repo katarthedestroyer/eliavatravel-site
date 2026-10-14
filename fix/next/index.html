@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="/assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Newsreader:opsz,wght@6..72,400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/scrollcraft.css">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/site.js" defer></script>
@@ -20,12 +20,13 @@
 <header class="mast">
   <div class="mast-in">
     <a class="skip" href="#main">Skip to content</a>
-    <a class="mast-logo" href="/"><img src="/assets/eliava-logo.png" alt="Eliava Travel Ops" width="98" height="40"></a>
+    <a class="mast-logo" href="/" aria-label="Eliava Travel Ops, home"><span class="mast-mark" aria-hidden="true"><svg viewBox="205 335 615 360" focusable="false"><path fill="currentColor" d="M215 343H608L718 420H275Z"/><path fill="currentColor" d="M296 447H750L808 489L488 685L371 542H586L626 516H349Z"/></svg></span><span class="mast-word" aria-hidden="true">Eliava</span></a>
     <nav class="mast-nav" aria-label="Main">
       <button type="button" class="mast-toggle" aria-expanded="false" aria-controls="mast-links"><span class="el-sr">Menu</span><svg class="i-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="i-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
       <ul class="mast-links" id="mast-links">
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/#which">Which one are you?</a></li>
+        <li><a href="/#trip">How it works</a></li>
+        <li><a href="/services/">Services and prices</a></li>
+        <li><a href="/samples/">Sample work</a></li>
         <li><a href="/#about">About</a></li>
       </ul>
       <a class="btn btn--sm" href="https://cal.com/kady-dennis/discovery-call" data-apply>Start your application</a>
@@ -60,7 +61,7 @@
           <p class="apply-err" id="loom-err" role="alert" data-missing="A few answers are missing. Please fill them in." data-email="That email address doesn't look right. Please check it and try again." data-link="That link doesn't look right. Please paste the whole Loom link."></p>
           <div class="apply-actions">
             <button type="submit" class="btn">Send my Loom</button>
-            <p class="apply-privacy">Only I read your answers.</p>
+            <p class="apply-privacy">Your answers stay private.</p>
           </div>
         </form>
 
@@ -91,7 +92,7 @@
   <div class="foot-in">
     <div class="foot-brand">
       <a class="foot-logo" href="/"><img src="/assets/eliava-logo.png" alt="Eliava Travel Ops" width="83" height="34"></a>
-      <p class="foot-what">Back-office help for travel advisors.</p>
+      <p class="foot-what">Behind-the-scenes help for travel advisors.</p>
       <p>Client emails, payment reminders, documents and deadlines, done on time inside your tools.</p>
     </div>
     <div class="foot-cta">
@@ -109,7 +110,6 @@
       </nav>
       <div class="foot-legal">
         <p>&copy; 2026 Eliava Consulting, LLC</p>
-        <p>I don't sell travel, so I'm never your competition.</p>
       </div>
     </div>
   </div>
@@ -140,6 +140,7 @@
             <option value="">Choose one</option>
             <option value="keep">Keep it running (ongoing help)</option>
             <option value="setup">Set it up (audit or build)</option>
+            <option value="library">Keep what you know (private library)</option>
             <option value="fix">Single Fix</option>
             <option value="train">Train your team</option>
             <option value="unsure">Not sure yet</option>
@@ -177,6 +178,12 @@
             <label class="chip"><input type="radio" name="audit" value="No, I know what I need"><span>No, I know what I need</span></label>
             <label class="chip"><input type="radio" name="audit" value="Not sure yet"><span>Not sure yet</span></label>
           </div></fieldset>
+        </fieldset>
+
+        <fieldset class="door" data-door="library" hidden>
+          <legend class="door-legend">Keep what you know (private library)</legend>
+          <div class="fld"><label class="q" for="a-library">What do you want in it?</label><textarea class="in" id="a-library" name="library" placeholder="For example: supplier contacts, client email templates, notes on hotels."></textarea></div>
+          <div class="fld"><label class="q" for="a-libnow">Where does it live now? <span class="opt">(optional)</span></label><input class="in" id="a-libnow" name="libnow" placeholder="For example: my inbox, a spreadsheet, sticky notes."></div>
         </fieldset>
 
         <fieldset class="door" data-door="fix" hidden>
@@ -269,7 +276,7 @@
       <p class="apply-err" id="apply-err" role="alert" data-missing="A few answers are missing. Please fill them in so I can get ready for our call." data-email="That email address doesn't look right. Please check it and try again."></p>
       <div class="apply-actions">
         <button type="submit" class="btn">Next: pick a time</button>
-        <p class="apply-privacy">Only I read your answers.</p>
+        <p class="apply-privacy">Your answers stay private.</p>
       </div>
     </form>
 
