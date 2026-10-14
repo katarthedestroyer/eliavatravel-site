@@ -1,7 +1,5 @@
 // The Google Apps Script web app URL (ends in /exec). Empty = answers are not saved anywhere.
 var APPLY_ENDPOINT = "https://script.google.com/macros/s/AKfycbxsy0quKPu7pNr78Y1DU9whTruGuCNx-Hqa8Uau9qE_9Mwqx5WjtgkOX6Kc0HsLqoVZDQ/exec";
-// The Stripe Payment Link for the $225 Single Fix. Empty = Single Fix gets the usual "pick a time" step.
-var FIX_PAYMENT_LINK = "https://buy.stripe.com/9B69AUcoN8dlg8aeaa1gs02";
 
 /* ============================================================================
    Eliava site.js: shared by every page. Load with defer.
@@ -9,7 +7,8 @@ var FIX_PAYMENT_LINK = "https://buy.stripe.com/9B69AUcoN8dlg8aeaa1gs02";
      1. Header: sticky shadow (Services), phone menu
      2. The branched application (build plan Task 6, Step 2)
      3. Landing on an anchor from another page
-     4. Single Fix next steps: the Loom form on /fix/next/
+     4. Single Fix next steps: the Loom form on /fix/next/ (kept until the
+        Stripe link is off; Single Fix is no longer offered on the site)
    No dependencies. The ScrollCraft engine and home.js are separate files.
    ========================================================================== */
 
@@ -78,11 +77,11 @@ function eliavaSend(pairs) {
   var inner = dlg.querySelector('.apply-inner') || dlg;
   var doorSel = form.elements['door'], locFs = document.getElementById('a-location');
   var REQUIRED = { common: ['name','email','role','door','tools','slipping','tech','when'],
-    keep: ['hours'], setup: ['build'], library: ['library'], fix: ['fix','platform'], train: ['trainee'], unsure: [] };
+    keep: ['hours'], setup: ['build'], library: ['library'], train: ['trainee'], unsure: [] };
   var LABELS = { door:'Needs', role:'Role', business:'Business', tools:'Tools', trips:'Active trips',
     triptypes:'Trip types', slipping:'What keeps slipping', tech:'Tech comfort (1-4)', when:'Start',
-    hours:'Hours wanted', priorities:'Help first with', level:'Plan', build:'Wants set up', deadline:'Deadline',
-    audit:'Wants audit', fix:'Fix', platform:'Tool to fix', due:'Due', trainee:'Who needs training',
+    hours:'Help wanted', priorities:'Help first with', level:'Plan', build:'Wants set up', deadline:'Deadline',
+    audit:'Wants audit', trainee:'Who needs training',
     location:'Where they are', trainwhat:'Training topic', traintool:'Tool/trip type',
     library:'Wants in library', libnow:'Where it lives now', notes:'Notes' };
 
@@ -116,16 +115,6 @@ function eliavaSend(pairs) {
       yes.querySelectorAll('[data-cal-hide]').forEach(function (el) { el.hidden = true; });
     } });
   }
-  // Single Fix "Questions first?" swaps to the calendar instead of leaving the page.
-  var fixCall = document.getElementById('apply-fix-call');
-  if (fixCall) fixCall.addEventListener('click', function (e) {
-    if (!calData) return;
-    e.preventDefault();
-    yes.querySelector('[data-yes="fix"]').hidden = true;
-    yes.querySelector('[data-yes="call"]').hidden = false;
-    inner.scrollTop = 0;
-    showCal();
-  });
   // Only the chosen door's questions show. The others are hidden AND disabled,
   // so they are never required and never sent. In Train your team, "Where are
   // they based?" shows only when someone other than "Me" needs training.
@@ -148,7 +137,7 @@ function eliavaSend(pairs) {
     form.querySelectorAll('[aria-invalid]').forEach(function (f) { f.removeAttribute('aria-invalid'); });
   }
 
-  // Any link or button with data-apply opens the application. data-apply="keep|setup|fix|train|unsure"
+  // Any link or button with data-apply opens the application. data-apply="keep|setup|library|train|unsure"
   // picks that door first. The value is read on click, so a page can change it on the fly.
   document.addEventListener('click', function (e) {
     var a = e.target.closest('[data-apply]'); if (!a) return;
@@ -206,8 +195,6 @@ function eliavaSend(pairs) {
     // travel"), then show the next step. Saving never holds up the page.
     var name = d.get('name').toString().trim(), email = d.get('email').toString().trim();
     var doorText = doorSel.selectedIndex > 0 ? doorSel.options[doorSel.selectedIndex].text : door;
-    // A short id that ties a Single Fix payment back to this application.
-    var ref = door === 'fix' ? 'fix-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6) : '';
     var lines = ['Application from eliavatravel.com'];
     var pairs = [['type', 'application'], ['door', doorText], ['name', name], ['email', email],
       ['business', (d.get('business') || '').toString().trim()], ['page', location.pathname],
@@ -220,7 +207,6 @@ function eliavaSend(pairs) {
         if (k !== 'door' && k !== 'business') pairs.push([LABELS[k], v]);
       }
     });
-    if (ref) pairs.push(['Payment ref', ref]);
     eliavaSend(pairs);
 
     if (d.get('role') === 'Not in travel') { show(no); return; }
@@ -230,22 +216,8 @@ function eliavaSend(pairs) {
     calData = { name: name, email: email, notes: body };
     yes.querySelector('[data-first]').textContent = name.split(/\s+/)[0];
 
-    // Single Fix with a payment link: pay first (Stripe fills in the email and
-    // carries the ref), with a free Scoping Call as the quiet second choice.
-    // Without a payment link, Single Fix gets the usual "pick a time" step.
-    var payBase = door === 'fix' ? FIX_PAYMENT_LINK : '';
-    var yesCall = yes.querySelector('[data-yes="call"]'), yesFix = yes.querySelector('[data-yes="fix"]');
-    if (yesCall && yesFix) { yesCall.hidden = !!payBase; yesFix.hidden = !payBase; }
-    if (payBase) {
-      document.getElementById('apply-pay').href = payBase + (payBase.indexOf('?') < 0 ? '?' : '&') +
-        'prefilled_email=' + encodeURIComponent(email) + '&client_reference_id=' + encodeURIComponent(ref);
-      document.getElementById('apply-fix-call').href = calHref;
-      // Stripe brings them back to /fix/next/ in this tab, where the Loom form
-      // fills in their name and email from here.
-      try { sessionStorage.setItem('eliava-fix', JSON.stringify({ name: name, email: email, ref: ref })); } catch (e) {}
-    }
     show(yes);
-    if (!payBase) showCal();
+    showCal();
   });
 })();
 

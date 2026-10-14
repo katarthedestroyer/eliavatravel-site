@@ -158,9 +158,8 @@
           <select class="in" id="a-door" name="door" required>
             <option value="">Choose one</option>
             <option value="keep">Keep it running (ongoing help)</option>
-            <option value="setup">Set it up (audit or build)</option>
+            <option value="setup">Set it up (workflow build, CRM setup or audit)</option>
             <option value="library">Keep what you know (private library)</option>
-            <option value="fix">Single Fix</option>
             <option value="train">Train your team</option>
             <option value="unsure">Not sure yet</option>
           </select>
@@ -168,10 +167,10 @@
 
         <fieldset class="door" data-door="keep" hidden>
           <legend class="door-legend">Keep it running (ongoing help)</legend>
-          <fieldset class="fld"><legend>About how many hours a week do you want help?</legend><div class="choices">
-            <label class="chip"><input type="radio" name="hours" value="About 5 a week"><span>About 5 a week</span></label>
-            <label class="chip"><input type="radio" name="hours" value="About 10 a week"><span>About 10 a week</span></label>
-            <label class="chip"><input type="radio" name="hours" value="More than 10"><span>More than 10</span></label>
+          <fieldset class="fld"><legend>How much do you want off your plate?</legend><div class="choices">
+            <label class="chip"><input type="radio" name="hours" value="A few things each week"><span>A few things each week</span></label>
+            <label class="chip"><input type="radio" name="hours" value="Most of the day-to-day"><span>Most of the day-to-day</span></label>
+            <label class="chip"><input type="radio" name="hours" value="Everything behind the scenes"><span>Everything behind the scenes</span></label>
             <label class="chip"><input type="radio" name="hours" value="Not sure yet"><span>Not sure yet</span></label>
           </div></fieldset>
           <fieldset class="fld"><legend>What should I help with first? Pick any.</legend><div class="choices">
@@ -182,14 +181,14 @@
             <label class="chip"><input type="checkbox" name="priorities" value="Inbox, tools and AI"><span>Inbox, tools and AI</span></label>
           </div></fieldset>
           <fieldset class="fld"><legend>Which plan sounds right?</legend><div class="choices">
-            <label class="chip"><input type="radio" name="level" value="Steady (about 20 hours a month)"><span>Steady (about 20 hours a month)</span></label>
-            <label class="chip"><input type="radio" name="level" value="Embedded (about 40 hours a month)"><span>Embedded (about 40 hours a month)</span></label>
+            <label class="chip"><input type="radio" name="level" value="Steady"><span>Steady</span></label>
+            <label class="chip"><input type="radio" name="level" value="Embedded (for a busier business)"><span>Embedded (for a busier business)</span></label>
             <label class="chip"><input type="radio" name="level" value="Not sure yet"><span>Not sure yet</span></label>
           </div></fieldset>
         </fieldset>
 
         <fieldset class="door" data-door="setup" hidden>
-          <legend class="door-legend">Set it up (audit or build)</legend>
+          <legend class="door-legend">Set it up (workflow build, CRM setup or audit)</legend>
           <div class="fld"><label class="q" for="a-build">What do you want set up?</label><textarea class="in" id="a-build" name="build" placeholder="For example: client emails for cruises, or moving trips into Tern."></textarea></div>
           <div class="fld"><label class="q" for="a-deadline">Is there a date you need it by? <span class="opt">(optional)</span></label><input class="in" id="a-deadline" name="deadline"></div>
           <fieldset class="fld"><legend>Do you want the $295 audit first?</legend><div class="choices">
@@ -203,13 +202,6 @@
           <legend class="door-legend">Keep what you know (private library)</legend>
           <div class="fld"><label class="q" for="a-library">What do you want in it?</label><textarea class="in" id="a-library" name="library" placeholder="For example: supplier contacts, client email templates, notes on hotels."></textarea></div>
           <div class="fld"><label class="q" for="a-libnow">Where does it live now? <span class="opt">(optional)</span></label><input class="in" id="a-libnow" name="libnow" placeholder="For example: my inbox, a spreadsheet, sticky notes."></div>
-        </fieldset>
-
-        <fieldset class="door" data-door="fix" hidden>
-          <legend class="door-legend">Single Fix</legend>
-          <div class="fld"><label class="q" for="a-fix">What needs fixing?</label><textarea class="in" id="a-fix" name="fix" placeholder="For example: one Travefy booklet, or an automation that stopped working."></textarea></div>
-          <div class="fld"><label class="q" for="a-platform">Which tool is it in?</label><input class="in" id="a-platform" name="platform"></div>
-          <div class="fld"><label class="q" for="a-due">When do you need it done? <span class="opt">(optional)</span></label><input class="in" id="a-due" name="due"></div>
         </fieldset>
 
         <fieldset class="door" data-door="train" hidden>
@@ -306,12 +298,6 @@
         <div class="apply-cal" id="apply-cal"></div>
         <p class="apply-cal-alt" data-cal-hide>Calendar not showing? <a id="apply-go" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener">Open it in a new tab</a></p>
         <p class="apply-alt" data-cal-hide>Not ready to pick a time? That's fine. I already have your answers, and I'll email you the same business day.</p>
-      </div>
-      <div data-yes="fix" hidden>
-        <p class="apply-intro">Next step: pay for your Single Fix. Then you'll show me the problem in a short Loom video or on a quick call.</p>
-        <div class="apply-actions"><a class="btn" id="apply-pay" href="https://cal.com/kady-dennis/discovery-call">Pay $225 and start your fix</a></div>
-        <p class="apply-alt">Questions first? <a id="apply-fix-call" href="https://cal.com/kady-dennis/discovery-call" target="_blank" rel="noopener">Talk first on a free call</a></p>
-        <p class="apply-note">Either way, I'll reply the same business day.</p>
       </div>
     </div>
 
