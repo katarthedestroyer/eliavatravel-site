@@ -149,7 +149,7 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
 }
 .tools:hover .tools-track { animation-play-state: paused; }
 .tools-row { display: flex; gap: clamp(36px, 4vw, 64px); padding-right: clamp(36px, 4vw, 64px); }
-.tools-row span { font: 500 clamp(1.3rem, 1.1rem + 0.6vw, 1.7rem)/1 var(--sc-font-display); color: rgb(14 29 43 / 0.55); white-space: nowrap; }
+.tools-row span { font: 500 clamp(1.3rem, 1.1rem + 0.6vw, 1.7rem)/1 var(--sc-font-display); color: rgb(14 29 43 / 0.68); white-space: nowrap; }
 @keyframes el-marquee { to { transform: translateX(-50%); } }
 
 /* ------------------------------------------------------ 3. sound familiar -- */
@@ -202,7 +202,6 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
 .why-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
 .why-grid li { display: flex; flex-direction: column; gap: 8px; padding: 26px 24px; border-radius: var(--el-r-card); background: var(--sc-surface); box-shadow: var(--el-shadow); }
 .why-grid strong { font: 500 1.3rem/1.15 var(--sc-font-display); }
-.why-grid strong::before { content: ""; display: block; width: 30px; height: 30px; margin-bottom: 12px; border-radius: 50%; background: var(--el-sea); }
 .why-grid span { color: var(--sc-ink-soft); line-height: 1.5; text-wrap: pretty; }
 .why-line { margin: 28px auto 0; max-width: 40rem; text-align: center; color: var(--sc-ink); text-wrap: balance; }
 @media (max-width: 1000px) { .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -714,3 +713,55 @@ html:not(.js) .quiz, html:not(.js) .quiz-link { display: none; }
   .quiz-opts { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) { .quiz-bar span, .quiz-opts span { transition: none; } }
+
+/* ------------------------------------------- styling pass (Oct 14, Impeccable) -- */
+/* Sound familiar: one inbox window, in the same trip-tool material as the hero video */
+.inbox { max-width: 880px; margin: 0 auto; border-radius: 20px; background: var(--sc-surface); box-shadow: var(--el-shadow-lift); overflow: hidden; }
+.inbox .app-bar { padding: 14px 20px; }
+.inbox .app-tag { font-size: 0.72rem; }
+.inbox-list { list-style: none; margin: 0; padding: 0; }
+.inbox-row {
+  display: grid; grid-template-columns: 8px minmax(130px, 170px) minmax(0, 1fr); align-items: baseline; gap: 18px;
+  padding: 18px 24px; transition: background-color .2s ease-out;
+}
+.inbox-row + .inbox-row { border-top: 1px solid var(--sc-hairline); }
+.inbox-row:hover { background: var(--el-accent-tint); }
+.inbox-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sc-accent); align-self: center; }
+.inbox-from { font-size: 0.92rem; font-weight: 650; color: var(--sc-ink); }
+.inbox-line { font: 500 clamp(1.15rem, 1rem + 0.5vw, 1.42rem)/1.32 var(--sc-font-display); color: var(--sc-ink); text-wrap: pretty; }
+@media (max-width: 640px) {
+  .inbox-row { grid-template-columns: 8px minmax(0, 1fr); gap: 4px 12px; padding: 14px 18px; }
+  .inbox-line { grid-column: 2; }
+}
+
+/* the research under it: a quiet sourced row, not three more cards */
+.facts--under { max-width: 880px; margin: 28px auto 0; gap: 0; }
+.facts--under .fact { min-height: 0; padding: 6px 22px; border-radius: 0; background: none; gap: 4px; }
+.facts--under .fact + .fact { border-left: 1px solid rgb(14 29 43 / 0.14); }
+.facts--under .fact:first-child { padding-left: 0; }
+.facts--under .fact b { font-size: clamp(2rem, 1.6rem + 1.4vw, 2.8rem); }
+.facts--under .fact-label { margin-top: 2px; font-size: 0.95rem; }
+.facts--under .fact-src { font-size: 0.74rem; letter-spacing: 0.06em; color: var(--sc-ink-soft); }
+@media (max-width: 800px) {
+  .facts--under .fact { padding: 14px 0; }
+  .facts--under .fact + .fact { border-left: 0; border-top: 1px solid rgb(14 29 43 / 0.14); }
+}
+
+/* How it works: the time each step takes, beside its number */
+.step-meta { margin-left: 0.7em; font-weight: 600; letter-spacing: 0.02em; text-transform: none; color: var(--sc-ink-soft); }
+.step-text { padding-top: 26px; }
+
+/* the close: Kady's face, not an empty gradient */
+.final-photo { display: block; width: 92px; height: 92px; margin: 0 auto 18px; border-radius: 50%; object-fit: cover; box-shadow: var(--el-shadow); }
+
+/* FAQ: the one section that breaks the centered column */
+@media (min-width: 960px) {
+  .faq--split {
+    display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 720px); justify-content: center;
+    column-gap: clamp(40px, 5vw, 88px); align-items: start; padding-inline: var(--sc-gutter);
+  }
+  .faq--split > .el-wrap { margin: 0; padding: 0; max-width: none; }
+  .faq--split .sec-head { margin: 0; text-align: left; position: sticky; top: 110px; }
+  .faq--split .faq-list { margin: 0; max-width: none; }
+  .faq--split .faq-more { text-align: left; }
+}
