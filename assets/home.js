@@ -26,7 +26,7 @@
       trip.removeAttribute('data-sc-span');
       trip.classList.add('is-static');
     } else {
-      if (window.innerWidth < 700) trip.setAttribute('data-sc-span', '5.2');
+      if (window.innerWidth < 700) trip.setAttribute('data-sc-span', '3.5');
       trip.classList.add('is-live');
     }
   }

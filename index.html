@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="/assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Newsreader:opsz,wght@6..72,400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/scrollcraft.css">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/site.js" defer></script>
@@ -26,18 +26,20 @@
 <link rel="stylesheet" href="/assets/home.css">
 <script src="/assets/scrollcraft.js" defer></script>
 <script src="/assets/home.js" defer></script>
+<script src="/assets/home-work.js" defer></script>
 </head>
 <body class="page-home">
 
 <header class="mast">
   <div class="mast-in">
     <a class="skip" href="#main">Skip to content</a>
-    <a class="mast-logo" href="/"><img src="/assets/eliava-logo.png" alt="Eliava Travel Ops" width="98" height="40"></a>
+    <a class="mast-logo" href="/" aria-label="Eliava Travel Ops, home"><span class="mast-mark" aria-hidden="true"><svg viewBox="205 335 615 360" focusable="false"><path fill="currentColor" d="M215 343H608L718 420H275Z"/><path fill="currentColor" d="M296 447H750L808 489L488 685L371 542H586L626 516H349Z"/></svg></span><span class="mast-word" aria-hidden="true">Eliava</span></a>
     <nav class="mast-nav" aria-label="Main">
       <button type="button" class="mast-toggle" aria-expanded="false" aria-controls="mast-links"><span class="el-sr">Menu</span><svg class="i-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="i-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
       <ul class="mast-links" id="mast-links">
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/#which">Which one are you?</a></li>
+        <li><a href="/#trip">How it works</a></li>
+        <li><a href="/services/">Services and prices</a></li>
+        <li><a href="/samples/">Sample work</a></li>
         <li><a href="/#about">About</a></li>
       </ul>
       <a class="btn btn--sm" href="https://cal.com/kady-dennis/discovery-call" data-apply>Start your application</a>
@@ -47,124 +49,164 @@
 
 <main id="main">
 
-  <!-- A0 Title page: type left, layered sample-trip figure right (PLAN section 9) -->
+  <!-- 1. Hero: one painted card, centered type, the work underneath -->
   <section id="top" class="hero" data-sc-act="flow">
-    <div class="hero-in">
+    <div class="hero-card">
+      <div class="hero-art" aria-hidden="true"></div>
       <div class="hero-copy">
-        <h1 class="hero-title">I handle the <span class="nowrap">behind-the-scenes</span> of your travel business.</h1>
-        <p class="hero-sub">Client emails, payment reminders, documents and deadlines, all done inside the tools you use: Tern, TravelJoy, Travefy and more.</p>
+        <p class="el-kicker">For travel advisors</p>
+        <h1 class="hero-title">I handle the <em class="nowrap">behind-the-scenes</em> of your travel business.</h1>
+        <p class="hero-sub">Client emails, payment reminders, documents and deadlines, all done inside the tools you use.</p>
         <div class="hero-actions">
-          <a class="btn" href="https://cal.com/kady-dennis/discovery-call" data-apply>Start your application</a>
+          <a class="btn btn--lg" href="https://cal.com/kady-dennis/discovery-call" data-apply>Start your application</a>
           <a class="el-link" href="/services/">See what I handle</a>
         </div>
+        <p class="hero-micro"><b>Reply the same business day</b> <span aria-hidden="true">&middot;</span> <b>Free 25-minute call</b> <span aria-hidden="true">&middot;</span> <b>Price in writing first</b></p>
       </div>
 
-      <figure class="hero-fig" role="img" aria-label="Sample trip: final payment reminder sent, final documents waiting for your OK.">
-        <div class="hf-frame">
-          <div class="hf-far"></div>
-          <div class="hf-wash"></div>
-          <div class="hf-sheet">
-            <div class="hf-sheet-head">
-              <p class="hf-eyebrow">Sample trip</p>
-              <p class="hf-trip">Harper family, Amalfi Coast, 10 nights</p>
-              <p class="hf-out">90 days out</p>
-            </div>
-            <ol class="hf-days">
-              <li><b>Day 1</b>
-                <span>Private car to Positano</span></li>
-              <li><b>Day 2</b>
-                <span>Boat day along the coast</span></li>
-              <li><b>Day 3</b>
-                <span>Cooking class in Ravello</span></li>
-            </ol>
+      <figure class="hero-app" role="img" aria-label="Sample trip in a trip tool: final payment reminder sent and paid, final documents waiting for your OK, welcome-home email scheduled.">
+        <div class="app-bar"><span class="app-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="app-name">Your trip tool</span><span class="app-tag">Sample trip</span></div>
+        <div class="app-body">
+          <div class="app-trip">
+            <p class="app-trip-name">Harper family, Amalfi Coast</p>
+            <p class="app-trip-meta">10 nights &middot; 90 days out</p>
           </div>
+          <ul class="app-tasks">
+            <li class="is-done"><span class="tick" aria-hidden="true"></span><strong>Final payment reminder</strong><span>Sent 14 days before. Paid on time.</span></li>
+            <li class="is-next"><span class="tick" aria-hidden="true"></span><strong>Final documents</strong><span>Checked. Waiting for your OK.</span></li>
+            <li><span class="tick" aria-hidden="true"></span><strong>Welcome-home email</strong><span>Scheduled for 2 days after they land.</span></li>
+          </ul>
         </div>
-        <div class="hf-card hf-card--1">
-          <p class="hf-tag">Sample trip</p>
-          <span class="hf-chk hf-chk--done"><svg viewBox="0 0 12 12" focusable="false"><path d="M2.4 6.3l2.4 2.4 4.8-5.2"/></svg></span>
-          <div><strong>Final payment reminder</strong>
-            <span>Sent 14 days before. Paid on time.</span></div>
-        </div>
-        <div class="hf-card hf-card--2">
-          <span class="hf-chk hf-chk--open"></span>
-          <div><strong>Final documents</strong>
-            <span>Next up. Waiting for your OK.</span></div>
-        </div>
+        <p class="app-chip" aria-hidden="true">Written in your voice</p>
       </figure>
     </div>
   </section>
 
-  <!-- A1 Sound familiar?: three lines assemble one at a time, then the turn -->
-  <section id="familiar" class="familiar" data-sc-act="flow" data-sc-folio="Sound familiar?">
-    <div class="el-wrap familiar-in">
-      <h2 class="familiar-title">Sound familiar?</h2>
-      <ul class="familiar-lines">
-        <li data-sc-cue="0.2" data-sc-kinetic="lines">Final documents going out later than you planned.</li>
-        <li data-sc-cue="0.27" data-sc-kinetic="lines">An inbox you avoid opening.</li>
-        <li data-sc-cue="0.34" data-sc-kinetic="lines">Deadlines living only in your head.</li>
+  <!-- 2. The tools strip -->
+  <section class="tools" aria-label="Tools I work inside">
+    <p class="tools-label">Done inside the tools you already use</p>
+    <div class="tools-track" aria-hidden="true">
+      <div class="tools-row"><span>Tern</span><span>Travefy</span><span>TravelJoy</span><span>Tess</span><span>CBO</span><span>VacationCRM</span><span>Trello</span><span>Asana</span><span>ClickUp</span><span>Flodesk</span><span>Gmail</span><span>Outlook</span><span>Google Drive</span></div>
+      <div class="tools-row"><span>Tern</span><span>Travefy</span><span>TravelJoy</span><span>Tess</span><span>CBO</span><span>VacationCRM</span><span>Trello</span><span>Asana</span><span>ClickUp</span><span>Flodesk</span><span>Gmail</span><span>Outlook</span><span>Google Drive</span></div>
+    </div>
+    <p class="el-sr">Tern, Travefy, TravelJoy, Tess, CBO, VacationCRM, Trello, Asana, ClickUp, Flodesk, Gmail, Outlook and Google Drive.</p>
+  </section>
+
+  <!-- 3. Sound familiar? -->
+  <section id="familiar" class="sec familiar" data-sc-act="flow" data-sc-folio="Sound familiar?">
+    <div class="el-wrap sec-head">
+      <p class="el-kicker">The hard part</p>
+      <h2 class="sec-title">Sound <em>familiar?</em></h2>
+      <p class="sec-sub">You plan the trips, chase the payments and answer the inbox. Something usually gives.</p>
+    </div>
+    <div class="el-wrap">
+      <ul class="pains" data-sc-in data-sc-stagger="80">
+        <li class="pain pain--a"><span class="pain-tag">Final documents</span><strong>Still not sent, and they fly Friday.</strong></li>
+        <li class="pain pain--b"><span class="pain-tag">Your inbox</span><strong>A supplier change is buried in there somewhere.</strong></li>
+        <li class="pain pain--c"><span class="pain-tag">Deadlines</span><strong>Final payment dates on sticky notes.</strong></li>
       </ul>
-      <p class="familiar-turn" data-sc-cue="0.44">It's a lot for one person. Here's how I help.</p>
     </div>
   </section>
 
-  <!-- A2 Four ways I help: the quiet before the peak -->
-  <section id="ways" class="ways" data-sc-act="flow" data-sc-folio="Four ways I help">
+  <!-- 4. See the work: pick a tab, watch it land -->
+  <section id="work" class="sec work" data-sc-act="flow" data-sc-folio="See the work">
+    <div class="el-wrap sec-head">
+      <p class="el-kicker">See the work</p>
+      <h2 class="sec-title">What lands <em>in your tools</em></h2>
+      <p class="sec-sub">Pick one. The clients and trips are made up, but the formats are the real ones I use.</p>
+    </div>
     <div class="el-wrap">
-      <div class="ways-head">
-        <h2 class="ways-title">Four ways I help</h2>
-        <p class="ways-intro">Pick the one that fits. Bigger jobs get a written quote before any work starts.</p>
+      <div class="work-tabs" role="tablist" aria-label="Sample work">
+        <button type="button" role="tab" id="wt-email" aria-controls="wp-email" aria-selected="true">Client emails</button>
+        <button type="button" role="tab" id="wt-check" aria-controls="wp-check" aria-selected="false" tabindex="-1">Trip checklists</button>
+        <button type="button" role="tab" id="wt-steps" aria-controls="wp-steps" aria-selected="false" tabindex="-1">Assistant steps</button>
+        <button type="button" role="tab" id="wt-lib" aria-controls="wp-lib" aria-selected="false" tabindex="-1">Your library</button>
       </div>
-      <div class="ways-list" data-sc-in data-sc-stagger="60">
-        <article class="way">
-          <h3 class="way-name">Keep it running</h3>
-          <div class="way-body">
-            <p>Weekly help with every step of your trips, from new inquiries to welcome-home emails.</p>
-            <p class="way-price">From $990 a month</p>
-            <p class="way-note">20 hours a month. Month 1 is a no-commitment trial.</p>
+
+      <div class="work-stage">
+        <div class="work-art" aria-hidden="true"></div>
+
+        <div class="work-panel" role="tabpanel" id="wp-email" aria-labelledby="wt-email">
+          <p class="work-cap"><span>Part of Set it up</span>Every email for one kind of trip, written from emails you've already sent.</p>
+          <div class="win win--mail">
+            <div class="app-bar"><span class="app-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="app-name">New message</span><span class="app-tag">Sample</span></div>
+            <div class="mail-row"><b>To</b>Sarah Harper</div>
+            <div class="mail-row"><b>Subject</b>Your Amalfi Coast trip: final payment</div>
+            <p class="mail-body" data-type>Hi Sarah! Your final payment for the Amalfi Coast is due in 14 days. The secure link is below, and it takes about two minutes. Then I'll send your final documents. So close now!!</p>
+            <div class="mail-foot"><span class="mail-send">Send</span><span class="mail-note">Goes out on schedule, 14 days before</span></div>
           </div>
-          <a class="el-link way-link" href="/services/#keep">See what's included<span class="el-sr">: Keep it running</span></a>
-        </article>
-        <article class="way">
-          <h3 class="way-name">Set it up</h3>
-          <div class="way-body">
-            <p>Starting fresh or switching tools? I build your client emails, reminders and checklists.</p>
-            <p class="way-price">Builds from $1,175</p>
-            <p class="way-note">Not sure where to start? An optional $295 audit maps one trip first.</p>
+        </div>
+
+        <div class="work-panel" role="tabpanel" id="wp-check" aria-labelledby="wt-check" hidden>
+          <p class="work-cap"><span>Part of Set it up</span>Every task for one kind of trip, with who does it and when.</p>
+          <div class="win win--list">
+            <div class="app-bar"><span class="app-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="app-name">Trip checklist</span><span class="app-tag">Sample</span></div>
+            <ul class="check-list">
+              <li><span class="tick" aria-hidden="true"></span>Deposit received<em>Deposit day</em></li>
+              <li><span class="tick" aria-hidden="true"></span>Client profiles and agreement set up<em>Deposit day</em></li>
+              <li><span class="tick" aria-hidden="true"></span>Passports checked<em>Quiet months</em></li>
+              <li><span class="tick" aria-hidden="true"></span>Hotels reconfirmed<em>60 days</em></li>
+              <li><span class="tick" aria-hidden="true"></span>Final itinerary checked<em>30 days</em></li>
+              <li><span class="tick" aria-hidden="true"></span>Final documents sent<em>7 days</em></li>
+            </ul>
           </div>
-          <a class="el-link way-link" href="/services/#setup">See what's included<span class="el-sr">: Set it up</span></a>
-        </article>
-        <article class="way">
-          <h3 class="way-name">Single Fix</h3>
-          <div class="way-body">
-            <p>Need one thing fixed or made? One tool, one flat price.</p>
-            <p class="way-price">$225 flat</p>
+        </div>
+
+        <div class="work-panel" role="tabpanel" id="wp-steps" aria-labelledby="wt-steps" hidden>
+          <p class="work-cap"><span>Part of Train your team</span>Plain steps your assistant can follow without asking you.</p>
+          <div class="win win--doc">
+            <div class="app-bar"><span class="app-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="app-name">Steps for an assistant</span><span class="app-tag">Sample</span></div>
+            <h3 class="doc-title">When a deposit comes in</h3>
+            <ol class="doc-steps">
+              <li>Mark the deposit as paid in the trip.</li>
+              <li>Send the welcome email from the template.</li>
+              <li>Set the final payment reminder for 14 days before it's due.</li>
+              <li>Add the trip to the weekly check list.</li>
+            </ol>
+            <p class="doc-note">Not sure? Leave a note on the trip. Don't guess.</p>
           </div>
-          <a class="el-link way-link" href="/services/#fix">See what's included<span class="el-sr">: Single Fix</span></a>
-        </article>
-        <article class="way">
-          <h3 class="way-name">Train your team</h3>
-          <div class="way-body">
-            <p>I teach you or your assistant inside your own tools, including how to use AI.</p>
-            <p class="way-price">From $95</p>
-            <p class="way-note">Working session $95. Assistant training from $495.</p>
+        </div>
+
+        <div class="work-panel" role="tabpanel" id="wp-lib" aria-labelledby="wt-lib" hidden>
+          <p class="work-cap"><span>Keep what you know</span>Your private library. Only you and your team can see it.</p>
+          <div class="win win--lib">
+            <div class="app-bar"><span class="app-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="app-name">Your library</span><span class="app-tag">Sample</span></div>
+            <div class="lib">
+              <ul class="lib-side">
+                <li>Email templates</li>
+                <li class="is-on">Supplier contacts</li>
+                <li>Trip guides</li>
+                <li>Hotel and ship notes</li>
+                <li>Tools and access</li>
+              </ul>
+              <div class="lib-main">
+                <p class="lib-path">Supplier contacts &rsaquo; Italy</p>
+                <ul class="lib-rows">
+                  <li><strong>Sample hotel, Positano</strong><span>Sales manager. Ask about sea-view rooms.</span></li>
+                  <li><strong>Sample driver company</strong><span>Book 30 days out. Text, don't email.</span></li>
+                  <li><strong>Sample tour company</strong><span>Your rep. Pays commission in 30 days.</span></li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <a class="el-link way-link" href="/services/#train">See what's included<span class="el-sr">: Train your team</span></a>
-        </article>
+        </div>
       </div>
-      <p class="ways-more">Not sure, or it's complex? We'll work it out on your Scoping Call.</p>
+      <p class="work-more"><a class="el-link" href="/samples/">See more sample work</a></p>
     </div>
   </section>
 
   <!-- A3 opener: the hard cut to the dark spread. One line, nothing moves (authored silence) -->
   <section id="trip" class="trip-open el-deep" data-sc-act="flow" data-sc-folio="One sample trip" data-folio-tone="deep">
-    <div class="el-wrap">
-      <h2 class="trip-open-title">Here's one trip, start to finish.</h2>
+    <div class="el-wrap sec-head">
+      <p class="el-kicker">How it works</p>
+      <h2 class="sec-title">Here's one trip, <em>start to finish</em></h2>
+      <p class="sec-sub">Eleven steps from the first inquiry to the follow-up after they get home. Scroll and watch each one get done.</p>
     </div>
   </section>
 
   <!-- A3 Trip countdown (the peak). Markup default = the static, fully checked timeline.
        home.js adds .is-live (pinned, scroll-driven) unless motion is reduced. -->
-  <section id="trip-run" class="trip el-deep" data-sc-act="pin" data-sc-span="6" data-sc-trip data-sc-folio="One sample trip" data-folio-tone="deep">
+  <section id="trip-run" class="trip el-deep" data-sc-act="pin" data-sc-span="3.5" data-sc-trip data-sc-folio="One sample trip" data-folio-tone="deep">
     <div class="trip-stage" data-sc-stage>
       <div class="trip-grid">
         <p class="trip-label">Sample trip. Names and dates are made up.</p>
@@ -257,59 +299,161 @@
     </div>
   </section>
 
-  <!-- A4 Why work with me: facts on hairlines, deliberately still (authored silence) -->
-  <section id="why" class="why" data-sc-act="flow" data-sc-folio="Why work with me">
-    <div class="el-wrap why-in">
-      <div class="why-main">
-        <h2 class="why-title">Why work with me</h2>
-        <p class="why-lead"><strong>A cheaper assistant often costs more.</strong> You pay for it in hours spent training, checking work and explaining what clients need. I've worked inside travel agencies, so I already know how a trip runs. I start in week 1 and handle what each stage needs without being told.</p>
-        <ul class="why-facts">
-          <li>US-based in Georgia, with 15+ years in operations and 4+ years inside travel agencies.</li>
-          <li>Travefy Advanced Certified and Tern Workflow &amp; Automations Certified.</li>
-          <li>Show me your tools once. I take it from there, no hand-holding.</li>
-          <li>I write down what I do as simple steps, so your next hire never starts from zero.</li>
-          <li>Just me, every time. I never pass your work on.</li>
-          <li>I'll sign your agreement or NDA, and I carry errors and omissions (E&amp;O) insurance.</li>
-        </ul>
+  <!-- the one action after the trip -->
+  <section class="trip-cta el-deep" data-sc-act="flow" data-sc-folio="One sample trip" data-folio-tone="deep">
+    <div class="el-wrap trip-cta-in">
+      <p class="trip-cta-line">Want this for <em>your</em> trips?</p>
+      <a class="btn" href="https://cal.com/kady-dennis/discovery-call" data-apply="keep">Start your application</a>
+    </div>
+  </section>
+
+  <!-- 6. Five ways I help -->
+  <section id="ways" class="sec ways" data-sc-act="flow" data-sc-folio="Five ways I help">
+    <div class="el-wrap sec-head">
+      <p class="el-kicker">Services and prices</p>
+      <h2 class="sec-title"><em>Five</em> ways I help</h2>
+      <p class="sec-sub">Pick the one that fits. Bigger jobs get a written quote before any work starts.</p>
+    </div>
+    <div class="el-wrap">
+      <div class="ways-list" data-sc-in data-sc-stagger="60">
+        <article class="way way--main">
+          <div class="way-main-text">
+            <p class="way-tag">Most advisors start here</p>
+            <h3 class="way-name">Keep it running</h3>
+            <p class="way-what">Weekly help with every step of your trips, from new inquiries to welcome-home emails.</p>
+            <div class="way-acts">
+              <a class="btn" href="https://cal.com/kady-dennis/discovery-call" data-apply="keep">Start your application</a>
+              <a class="el-link way-link" href="/services/#keep">See what's included<span class="el-sr">: Keep it running</span></a>
+            </div>
+          </div>
+          <div class="way-main-price">
+            <p class="way-price"><span>From</span> $990 <span>a month</span></p>
+            <p class="way-note">20 hours a month. Month 1 is a no-commitment trial.</p>
+          </div>
+        </article>
+        <article class="way">
+          <h3 class="way-name">Set it up</h3>
+          <p class="way-what">Starting fresh or switching tools? I build your client emails, reminders and checklists.</p>
+          <p class="way-price"><span>Builds from</span> $1,175</p>
+          <p class="way-note">Not sure where to start? An optional $295 audit maps one trip first.</p>
+          <a class="el-link way-link" href="/services/#setup">See what's included<span class="el-sr">: Set it up</span></a>
+        </article>
+        <article class="way way--new">
+          <p class="way-tag">New</p>
+          <h3 class="way-name">Keep what you know</h3>
+          <p class="way-what">Your templates, supplier contacts, step-by-step guides and trip notes, in one private place.</p>
+          <p class="way-price"><span>From</span> $1,495</p>
+          <p class="way-note">Yours alone. Not a shared community or another app to pay for.</p>
+          <a class="el-link way-link" href="/services/#library">See what's included<span class="el-sr">: Keep what you know</span></a>
+        </article>
+        <article class="way">
+          <h3 class="way-name">Single Fix</h3>
+          <p class="way-what">Need one thing fixed or made? One tool, one flat price.</p>
+          <p class="way-price">$225 <span>flat</span></p>
+          <a class="el-link way-link" href="/services/#fix">See what's included<span class="el-sr">: Single Fix</span></a>
+        </article>
+        <article class="way">
+          <h3 class="way-name">Train your team</h3>
+          <p class="way-what">I teach you or your assistant inside your own tools, including how to use AI.</p>
+          <p class="way-price"><span>From</span> $95</p>
+          <p class="way-note">Working session $95. Assistant training from $495.</p>
+          <a class="el-link way-link" href="/services/#train">See what's included<span class="el-sr">: Train your team</span></a>
+        </article>
       </div>
-      <div class="why-side">
-        <div class="why-keep">
-          <h3 class="why-keep-title">Your clients stay yours</h3>
-          <ul>
-            <li>I sign an NDA, a privacy agreement, before seeing any names.</li>
-            <li>I send payment reminders. I never take or hold client payments.</li>
-            <li>You choose which tools I'm in, and can remove me anytime.</li>
-            <li>I don't sell travel, so I'm never your competition.</li>
-          </ul>
+    </div>
+  </section>
+
+  <!-- 7. How we start: three painted cards -->
+  <section id="start" class="sec start" data-sc-act="flow" data-sc-folio="How we start">
+    <div class="el-wrap sec-head">
+      <p class="el-kicker">How we start</p>
+      <h2 class="sec-title">Three steps, <em>no pressure</em></h2>
+      <p class="sec-sub">You see the plan and the price before any work starts.</p>
+    </div>
+    <div class="el-wrap">
+      <ol class="steps" data-sc-in data-sc-stagger="80">
+        <li class="step-card">
+          <div class="step-art step-art--1" aria-hidden="true"><span class="step-ui">About 5 minutes</span></div>
+          <div class="step-text"><span class="step-n">01 &middot; Apply</span><strong>Tell me about your business</strong><span>Your trips, your tools and what keeps slipping.</span></div>
+        </li>
+        <li class="step-card">
+          <div class="step-art step-art--2" aria-hidden="true"><span class="step-ui">25 minutes on Zoom</span></div>
+          <div class="step-text"><span class="step-n">02 &middot; Talk</span><strong>Free Scoping Call</strong><span>We talk through what's piling up and what would help most.</span></div>
+        </li>
+        <li class="step-card">
+          <div class="step-art step-art--3" aria-hidden="true"><span class="step-ui">Plan and price</span></div>
+          <div class="step-text"><span class="step-n">03 &middot; Decide</span><strong>Price in writing</strong><span>Then I start in week 1.</span></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 8. Why work with me: the dark stats band -->
+  <section id="why" class="sec why el-deep" data-sc-act="flow" data-sc-folio="Why work with me" data-folio-tone="deep">
+    <div class="el-wrap sec-head">
+      <p class="el-kicker">Why work with me</p>
+      <h2 class="sec-title">A cheaper assistant often costs <em>more</em></h2>
+      <p class="sec-sub">You pay for it in hours spent training and checking work. I've worked inside travel agencies, so I already know how a trip runs.</p>
+    </div>
+    <div class="el-wrap">
+      <ul class="stats" data-sc-in data-sc-stagger="80">
+        <li class="stat stat--a"><b>15+</b><span>years in operations</span></li>
+        <li class="stat stat--b"><b>4+</b><span>years inside travel agencies</span></li>
+        <li class="stat stat--c"><b>2</b><span>certifications: Travefy Advanced and Tern Workflow &amp; Automations</span></li>
+      </ul>
+      <ul class="why-chips">
+        <li>US-based in Georgia</li>
+        <li>I do the work myself</li>
+        <li>I start in week 1</li>
+        <li>I write down every step for your next hire</li>
+        <li>NDA and errors and omissions (E&amp;O) insurance</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 9. Your clients stay yours -->
+  <section id="trust" class="sec trust" data-sc-act="flow" data-sc-folio="Your clients stay yours">
+    <div class="el-wrap sec-head">
+      <p class="el-kicker">Discretion first</p>
+      <h2 class="sec-title">Your clients stay <em>yours</em></h2>
+      <p class="sec-sub">Your clients are often your friends. I treat their details that way.</p>
+    </div>
+    <div class="el-wrap">
+      <ul class="trust-grid" data-sc-in data-sc-stagger="60">
+        <li><strong>NDA first</strong><span>I sign a privacy agreement before I see a single name.</span></li>
+        <li><strong>No client money</strong><span>I send payment reminders. I never take or hold payments.</span></li>
+        <li><strong>You hold the keys</strong><span>You choose which tools I'm in, and can remove me anytime.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 10. About -->
+  <section id="about" class="sec about" data-sc-act="flow" data-sc-folio="About Kady">
+    <div class="el-wrap">
+      <div class="about-card">
+        <div class="about-photo">
+          <img src="/assets/kady.webp" width="804" height="804" loading="lazy" decoding="async" alt="Kady Dennis in a white shirt on a sailboat, with water behind her.">
         </div>
-        <p class="why-proof"><a class="el-inline-link" href="/samples/">See sample work</a>: emails, a checklist and a Tern setup. The clients and trips are made up.</p>
+        <div class="about-text">
+          <p class="el-kicker">About</p>
+          <h2 class="about-title">Hi, I'm <em>Kady!</em></h2>
+          <p>I worked in operations long before travel. I spent years planning large training events and executive travel. Then I brought that same care into travel agencies.</p>
+          <p>I get the small things right. The welcome email sounds like you wrote it. The wheelchair note makes it to the hotel.</p>
+          <p>That matters most for the clients who need extra care: first-time travelers, older clients and travelers with accessibility needs.</p>
+          <p class="about-sign">-Kady</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- A5 About: the only photo on the page, small, alt text only, no caption -->
-  <section id="about" class="about" data-sc-act="flow" data-sc-folio="About Kady">
-    <div class="el-wrap about-in">
-      <div class="about-photo">
-        <img src="/assets/kady.webp" width="804" height="804" loading="lazy" decoding="async" alt="Kady Dennis in a white shirt on a sailboat, with water behind her." data-sc-parallax="0.45">
-      </div>
-      <div class="about-text">
-        <h2 class="about-title">Hi, I'm Kady!</h2>
-        <p>I worked in operations long before travel. I spent years planning large training events and executive travel. Then I brought that same care into travel agencies.</p>
-        <p>I set things up so the details don't depend on your memory. I get the small things right. The welcome email sounds like you wrote it. The wheelchair note makes it to the hotel.</p>
-        <p>That matters for every client. It matters most for the ones who need extra care: first-time travelers, older clients and travelers with accessibility needs.</p>
-        <p class="about-sign">-Kady</p>
-      </div>
+  <!-- 11. Which one are you? + the final card -->
+  <section id="which" class="sec which" data-sc-act="flow">
+    <div class="el-wrap sec-head">
+      <p class="el-kicker">Still deciding?</p>
+      <h2 class="sec-title" id="which-title">Which one are <em>you?</em></h2>
+      <p class="sec-sub" id="which-hint">Pick the one that sounds like you. Your pick carries into the application.</p>
     </div>
-  </section>
-
-  <!-- A6 Which one are you? + apply: the index plate. The pick carries into the application. -->
-  <section id="which" class="which" data-sc-act="flow">
-    <div class="el-wrap which-in">
-      <div class="which-head">
-        <h2 class="which-title" id="which-title">Which one are you?</h2>
-        <p class="which-hint" id="which-hint">Pick the one that sounds like you.</p>
-      </div>
+    <div class="el-wrap">
       <div class="which-list" role="radiogroup" aria-labelledby="which-title" aria-describedby="which-hint" data-sc-in data-sc-stagger="50">
         <label class="which-row"><input type="radio" name="which" value="setup" data-echo="Set it up">
           <span class="which-sit">Just getting set up</span>
@@ -317,6 +461,9 @@
         <label class="which-row"><input type="radio" name="which" value="keep" data-echo="Keep it running">
           <span class="which-sit">Busy, and it's piling up</span>
           <span class="which-door">Keep it running</span></label>
+        <label class="which-row"><input type="radio" name="which" value="library" data-echo="Keep what you know">
+          <span class="which-sit">Everything I know lives in my inbox</span>
+          <span class="which-door">Keep what you know</span></label>
         <label class="which-row"><input type="radio" name="which" value="fix" data-echo="Single Fix">
           <span class="which-sit">One thing to fix or make</span>
           <span class="which-door">Single Fix</span></label>
@@ -327,11 +474,16 @@
           <span class="which-sit">Not sure, or it's complicated</span>
           <span class="which-door">I'll help you pick</span></label>
       </div>
-      <div class="apply-now" id="apply-now">
-        <p class="apply-now-line"><a class="apply-now-link" href="https://cal.com/kady-dennis/discovery-call" data-apply>Start your application.</a></p>
+    </div>
+
+    <div class="final">
+      <div class="final-art" aria-hidden="true"></div>
+      <div class="final-in apply-now" id="apply-now">
+        <p class="el-kicker">Ready when you are</p>
+        <p class="final-title">Start your <em>application.</em></p>
         <p class="apply-now-for" aria-live="polite"></p>
-        <p class="apply-now-support">About 5 minutes. It's not a test. Only I read it.</p>
-        <p class="apply-now-next">I reply the same business day. Next is a free <span class="nowrap">25-minute</span> Scoping Call, no pressure. Then you get the price in writing.</p>
+        <a class="btn btn--lg" href="https://cal.com/kady-dennis/discovery-call" data-apply>Start your application</a>
+        <p class="hero-micro final-micro"><b>About 5 minutes</b> <span aria-hidden="true">&middot;</span> <b>Free 25-minute call</b> <span aria-hidden="true">&middot;</span> <b>Reply the same business day</b></p>
       </div>
     </div>
   </section>
@@ -349,7 +501,7 @@
   <div class="foot-in">
     <div class="foot-brand">
       <a class="foot-logo" href="/"><img src="/assets/eliava-logo.png" alt="Eliava Travel Ops" width="83" height="34"></a>
-      <p class="foot-what">Back-office help for travel advisors.</p>
+      <p class="foot-what">Behind-the-scenes help for travel advisors.</p>
       <p>Client emails, payment reminders, documents and deadlines, done on time inside your tools.</p>
     </div>
     <div class="foot-cta">
@@ -367,7 +519,6 @@
       </nav>
       <div class="foot-legal">
         <p>&copy; 2026 Eliava Consulting, LLC</p>
-        <p>I don't sell travel, so I'm never your competition.</p>
       </div>
     </div>
   </div>
@@ -398,6 +549,7 @@
             <option value="">Choose one</option>
             <option value="keep">Keep it running (ongoing help)</option>
             <option value="setup">Set it up (audit or build)</option>
+            <option value="library">Keep what you know (private library)</option>
             <option value="fix">Single Fix</option>
             <option value="train">Train your team</option>
             <option value="unsure">Not sure yet</option>
@@ -435,6 +587,12 @@
             <label class="chip"><input type="radio" name="audit" value="No, I know what I need"><span>No, I know what I need</span></label>
             <label class="chip"><input type="radio" name="audit" value="Not sure yet"><span>Not sure yet</span></label>
           </div></fieldset>
+        </fieldset>
+
+        <fieldset class="door" data-door="library" hidden>
+          <legend class="door-legend">Keep what you know (private library)</legend>
+          <div class="fld"><label class="q" for="a-library">What do you want in it?</label><textarea class="in" id="a-library" name="library" placeholder="For example: supplier contacts, client email templates, notes on hotels."></textarea></div>
+          <div class="fld"><label class="q" for="a-libnow">Where does it live now? <span class="opt">(optional)</span></label><input class="in" id="a-libnow" name="libnow" placeholder="For example: my inbox, a spreadsheet, sticky notes."></div>
         </fieldset>
 
         <fieldset class="door" data-door="fix" hidden>
@@ -527,7 +685,7 @@
       <p class="apply-err" id="apply-err" role="alert" data-missing="A few answers are missing. Please fill them in so I can get ready for our call." data-email="That email address doesn't look right. Please check it and try again."></p>
       <div class="apply-actions">
         <button type="submit" class="btn">Next: pick a time</button>
-        <p class="apply-privacy">Only I read your answers.</p>
+        <p class="apply-privacy">Your answers stay private.</p>
       </div>
     </form>
 
