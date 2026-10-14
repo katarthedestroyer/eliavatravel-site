@@ -292,7 +292,7 @@ function eliavaSend(pairs) {
 // to Kady instead, so the Loom link is never lost.
 (function () {
   var form = document.getElementById('loom-form'); if (!form) return;
-  var MAIL = "kady@eliavatravel.com";
+  var MAIL = "hello@eliavatravel.com";
   var err = document.getElementById('loom-err'), done = document.getElementById('loom-done'),
       mail = document.getElementById('loom-mail'), intro = document.getElementById('loom-intro');
   var saved = {};
