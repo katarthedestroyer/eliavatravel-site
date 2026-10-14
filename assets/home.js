@@ -20,6 +20,8 @@
   // Reduced motion: show the poster frame and never autoplay.
   var heroVideo = document.querySelector('[data-hero-video]');
   if (heroVideo && reduce) { heroVideo.removeAttribute('autoplay'); heroVideo.pause(); }
+  // Phones get the 4:5 cut; give them its matching poster too.
+  if (heroVideo && window.matchMedia('(max-width: 700px)').matches) heroVideo.poster = '/assets/hero-poster-mobile.jpg';
 
   /* ------------------------------------------- 1. trip countdown setup -- */
   // The markup's default is the static, fully checked timeline. Reduced motion

@@ -25,10 +25,10 @@
   --sc-accent:     #0B5F70;   /* deep sea teal */
   --sc-accent-ink: #FFFFFF;
 
-  /* two families: Newsreader for display, Instrument Sans for everything else.
+  /* two families: Brygada 1918 for display, Red Hat Text for everything else (Oct 14, Kady).
      The engine's mono label face maps to the text face (no third family). */
-  --sc-font-display: "Newsreader", Georgia, "Times New Roman", serif;
-  --sc-font-text:    "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sc-font-display: "Brygada 1918", Georgia, "Times New Roman", serif;
+  --sc-font-text:    "Red Hat Text", system-ui, -apple-system, "Segoe UI", sans-serif;
   --sc-font-mono:    var(--sc-font-text);
 
   /* a serif needs less negative tracking and a touch more leading than the
@@ -470,7 +470,7 @@ select.in {
   min-height: var(--el-tap); padding: 9px 16px;
   border: 1px solid var(--el-field-line); border-radius: var(--sc-r-pill);
   background: var(--sc-surface); color: var(--sc-ink);
-  font-size: 0.95rem; line-height: 1.25; cursor: pointer; user-select: none;
+  font-size: 0.95rem; line-height: 1.35; cursor: pointer; user-select: none;
   transition: background-color 120ms var(--sc-ease-out), border-color 120ms var(--sc-ease-out), color 120ms var(--sc-ease-out);
 }
 .chip:hover span { border-color: var(--sc-ink-soft); }
