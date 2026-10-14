@@ -1,0 +1,29 @@
+/* ============================================================================
+   Eliava legal.css: Privacy and Terms pages. Loads after site.css.
+   One readable column, the site's type, a short jump list at the top.
+   ========================================================================== */
+.lg { padding: clamp(40px, 6vw, 88px) 0 var(--el-pad, 96px); }
+.lg-in { max-width: 760px; }
+.lg-title { font-size: var(--el-h2, 3.2rem); line-height: 1.04; letter-spacing: var(--sc-track-tight); }
+.lg-date { margin: 14px 0 0; font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+.lg-lede { margin: 22px 0 0; font-size: var(--sc-t-lg); line-height: 1.55; color: var(--sc-ink-soft); text-wrap: pretty; }
+.lg-short {
+  margin: 32px 0 0; padding: 24px 26px; border-radius: var(--el-r-card, 26px);
+  background: var(--el-sea, #DCEEF0);
+}
+.lg-short h2 { font-size: var(--sc-t-xl); margin-bottom: 10px; }
+.lg-short ul { margin: 0; padding-left: 1.2em; }
+.lg-short li { padding: 4px 0; line-height: 1.5; }
+.lg-toc { margin: 32px 0 0; padding: 0; list-style: none; columns: 2; column-gap: 32px; }
+.lg-toc li { padding: 4px 0; break-inside: avoid; }
+.lg-toc a { color: var(--sc-accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+.lg-body section { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--sc-hairline); scroll-margin-top: calc(var(--el-mast-h) + 16px); }
+.lg-body h2 { font-size: var(--sc-t-xl); line-height: 1.15; }
+.lg-body h3 { margin-top: 20px; font-family: var(--sc-font-text); font-size: 1rem; font-weight: 650; letter-spacing: 0; }
+.lg-body p, .lg-body li { color: var(--sc-ink-soft); line-height: 1.65; text-wrap: pretty; }
+.lg-body p { margin: 12px 0 0; }
+.lg-body ul { margin: 12px 0 0; padding-left: 1.2em; }
+.lg-body li { padding: 3px 0; }
+.lg-body strong { color: var(--sc-ink); font-weight: 650; }
+.lg-body a { color: var(--sc-accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+@media (max-width: 600px) { .lg-toc { columns: 1; } .lg-short { padding: 20px; } }
