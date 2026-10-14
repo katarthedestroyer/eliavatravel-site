@@ -78,12 +78,13 @@ function eliavaSend(pairs) {
   var inner = dlg.querySelector('.apply-inner') || dlg;
   var doorSel = form.elements['door'], locFs = document.getElementById('a-location');
   var REQUIRED = { common: ['name','email','role','door','tools','slipping','tech','when'],
-    keep: ['hours'], setup: ['build'], fix: ['fix','platform'], train: ['trainee'], unsure: [] };
+    keep: ['hours'], setup: ['build'], library: ['library'], fix: ['fix','platform'], train: ['trainee'], unsure: [] };
   var LABELS = { door:'Needs', role:'Role', business:'Business', tools:'Tools', trips:'Active trips',
     triptypes:'Trip types', slipping:'What keeps slipping', tech:'Tech comfort (1-4)', when:'Start',
     hours:'Hours wanted', priorities:'Help first with', level:'Plan', build:'Wants set up', deadline:'Deadline',
     audit:'Wants audit', fix:'Fix', platform:'Tool to fix', due:'Due', trainee:'Who needs training',
-    location:'Where they are', trainwhat:'Training topic', traintool:'Tool/trip type', notes:'Notes' };
+    location:'Where they are', trainwhat:'Training topic', traintool:'Tool/trip type',
+    library:'Wants in library', libnow:'Where it lives now', notes:'Notes' };
 
   function show(step) {
     [form, yes, no].forEach(function (s) { s.hidden = (s !== step); });
