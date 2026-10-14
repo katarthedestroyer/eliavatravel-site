@@ -16,6 +16,11 @@
   var clamp01 = function (x) { return x < 0 ? 0 : x > 1 ? 1 : x; };
   var smooth = function (x) { x = clamp01(x); return x * x * (3 - 2 * x); };
 
+  /* ----------------------------------------------------- 0. hero video -- */
+  // Reduced motion: show the poster frame and never autoplay.
+  var heroVideo = document.querySelector('[data-hero-video]');
+  if (heroVideo && reduce) { heroVideo.removeAttribute('autoplay'); heroVideo.pause(); }
+
   /* ------------------------------------------- 1. trip countdown setup -- */
   // The markup's default is the static, fully checked timeline. Reduced motion
   // keeps it that way and takes the pin (and its extra scroll) away entirely.
