@@ -312,6 +312,12 @@
 .sv-q p { margin: calc(var(--sc-2) * -1) 0 var(--sc-5); max-width: 62ch; padding-right: var(--sc-6); color: var(--sc-ink-soft); text-wrap: pretty; }
 
 /* ---------------------------------- 10. why work with me + application -- */
+.sv-why-lead { margin: var(--sc-5) 0 0; max-width: 56ch; font-size: var(--sc-t-lg); line-height: 1.5; color: var(--el-deep-soft); text-wrap: pretty; }
+.sv-why-lead strong {
+  display: block; margin-bottom: var(--sc-2);
+  font-family: var(--sc-font-display); font-weight: 500; font-size: var(--sc-t-xl); line-height: 1.15;
+  letter-spacing: var(--sc-track-snug); color: var(--el-accent-light);
+}
 .sv-why-list {
   list-style: none; margin: 0; padding: 0;
   columns: 3 17rem; column-gap: var(--sc-7);

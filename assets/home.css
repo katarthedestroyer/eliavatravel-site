@@ -252,17 +252,21 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
 .trip-grid {
   width: 100%; max-width: var(--sc-maxw); margin-inline: auto; padding-inline: var(--sc-gutter);
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
-  grid-template-rows: 1fr auto auto auto 1fr;
-  grid-template-areas: ". card" "label card" "note card" "end card" ". card";
+  /* desktop: the statement sits level with the top of the card, and
+     "Nothing slipped." lands level with its bottom when the trip ends */
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas: "label card" "note card" ". card" "end card";
   column-gap: clamp(32px, 6vw, 112px); align-items: start;
 }
 .trip-label { grid-area: label; margin: 0 0 var(--sc-4); font-size: var(--sc-t-sm); color: var(--el-deep-soft); }
 .trip-note {
-  grid-area: note; margin: 0; max-width: 30ch;
-  font-size: var(--sc-t-lg); line-height: 1.45; color: var(--el-deep-ink); text-wrap: pretty;
+  grid-area: note; margin: 0; max-width: 19ch;
+  font-family: var(--sc-font-display); font-weight: 500;
+  font-size: clamp(1.75rem, 1.1rem + 1.4vw, 2.5rem); line-height: 1.12;
+  letter-spacing: var(--sc-track-snug); color: var(--el-deep-ink); text-wrap: balance;
 }
 .trip-end {
-  grid-area: end; margin: var(--sc-6) 0 0;
+  grid-area: end; margin: var(--sc-6) 0 0; align-self: end;
   font-family: var(--sc-font-display); font-weight: 500; font-size: var(--sc-t-xl); line-height: 1.1;
   letter-spacing: var(--sc-track-snug); color: var(--el-accent-light);
 }
@@ -357,7 +361,7 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
     grid-template-rows: auto;
     grid-template-areas: "label" "card" "note" "end";
   }
-  .trip-note { margin-top: var(--sc-5); }
+  .trip-note { margin-top: var(--sc-5); max-width: 24ch; font-size: 1.6rem; }
 }
 @media (max-width: 760px) {
   .trip.is-live .trip-window { max-height: max(220px, calc(100svh - 430px)); }
@@ -365,7 +369,7 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
   .trip-card { padding: 16px 16px 10px; }
   .trip-num { font-size: 3.4rem; }
   .trip-stop { grid-template-columns: 22px 74px minmax(0, 1fr); column-gap: 10px; min-height: 44px; padding: 8px 0; }
-  .trip-note { margin-top: var(--sc-4); font-size: 1.06rem; max-width: none; }
+  .trip-note { margin-top: var(--sc-4); font-size: 1.3rem; line-height: 1.2; max-width: none; }
   .trip-end { margin-top: var(--sc-3); font-size: 1.5rem; }
 }
 /* compact phones: the whole card has to fit one screen. Detail lines go
@@ -377,7 +381,7 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
   .trip.is-live .trip-stop { padding: 6px 0; min-height: 40px; }
   .trip.is-live .trip-what span { display: none; }
   .trip.is-live .trip-label { margin-bottom: var(--sc-2); }
-  .trip.is-live .trip-note { margin-top: var(--sc-3); font-size: 1rem; }
+  .trip.is-live .trip-note { margin-top: var(--sc-3); font-size: 1.15rem; }
 }
 
 /* ------------------------------------------------- 5. why work with me -- */
@@ -393,7 +397,13 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
   padding: 14px 0; border-bottom: 1px solid var(--sc-hairline);
   font-size: var(--sc-t-base); line-height: 1.5; color: var(--sc-ink); text-wrap: pretty; max-width: 60ch;
 }
-.why-side { padding-top: calc(var(--sc-t-2xl) * 1.04 + var(--sc-6)); }
+.why-lead { margin: var(--sc-5) 0 0; max-width: 48ch; font-size: var(--sc-t-lg); line-height: 1.5; color: var(--sc-ink-soft); text-wrap: pretty; }
+.why-lead strong {
+  display: block; margin-bottom: var(--sc-2);
+  font-family: var(--sc-font-display); font-weight: 500; font-size: var(--sc-t-xl); line-height: 1.15;
+  letter-spacing: var(--sc-track-snug); color: var(--sc-ink);
+}
+.why-side { padding-top: calc(var(--sc-t-2xl) * 1.04 + var(--sc-5)); }
 .why-keep {
   padding: var(--sc-6) var(--sc-6) var(--sc-5);
   border-radius: var(--sc-r-lg); background: var(--sc-canvas);
