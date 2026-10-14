@@ -90,8 +90,8 @@ function eliavaSend(pairs) {
       no = document.getElementById('apply-no'), err = document.getElementById('apply-err');
   var inner = dlg.querySelector('.apply-inner') || dlg;
   var doorSel = form.elements['door'], locFs = document.getElementById('a-location');
-  var REQUIRED = { common: ['name','email','role','door','tools','slipping','tech','when'],
-    keep: ['hours'], setup: ['build'], library: ['library'], train: ['trainee'], unsure: [] };
+  var REQUIRED = { common: ['name','email','role','door','tools','slipping'],
+    setup: ['build'] };
   var LABELS = { door:'Needs', role:'Role', business:'Business', tools:'Tools', trips:'Active trips',
     triptypes:'Trip types', slipping:'What keeps slipping', tech:'Tech comfort (1-4)', when:'Start',
     hours:'Help wanted', priorities:'Help first with', level:'Plan', build:'Wants set up', deadline:'Deadline',

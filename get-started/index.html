@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Albert+Sans:ital,wght@0,400..800;1,400..700&family=Alumni+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/scrollcraft.css">
 <link rel="stylesheet" href="/assets/site.css?v=20261014">
-<script src="/assets/site.js?v=20261014" defer></script>
+<script src="/assets/site.js?v=20261014b" defer></script>
 <title>Get started | Eliava Travel Ops</title>
 <meta name="description" content="Tell us about your business, then pick a time for a free 25-minute call. You'll know what Eliava will do and what it costs before you pay anything.">
 <link rel="canonical" href="https://eliavatravel.com/get-started/">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/home.css">
 <link rel="stylesheet" href="/assets/copy-v2.css?v=20261014">
-<link rel="stylesheet" href="/assets/get-started.css?v=20261014">
+<link rel="stylesheet" href="/assets/get-started.css?v=20261014b">
 </head>
 <body class="page-get-started">
 
@@ -33,17 +33,6 @@
   <div class="mast-in">
     <a class="skip" href="#main">Skip to content</a>
     <a class="mast-logo" href="/" aria-label="Eliava Travel Ops, home"><span class="mast-lockup" aria-hidden="true"><span class="mast-word">Eliava</span><span class="mast-sub">Travel Ops</span></span></a>
-    <nav class="mast-nav" aria-label="Main">
-      <button type="button" class="mast-toggle" aria-expanded="false" aria-controls="mast-links"><span class="el-sr">Menu</span><svg class="i-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="i-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-      <ul class="mast-links" id="mast-links">
-        <li><a href="/#start">How it works</a></li>
-        <li><a href="/services/">Services and prices</a></li>
-        <li><a href="/samples/">Sample work</a></li>
-        <li><a href="/working-agreement/">How we work</a></li>
-        <li><a href="/#about">About</a></li>
-      </ul>
-      <a class="btn btn--sm" href="/get-started/" data-apply>Get started</a>
-    </nav>
   </div>
 </header>
 
@@ -52,9 +41,10 @@
   <!-- 1. The promise of the call -->
   <section class="sec gs-top" aria-labelledby="gs-title">
     <div class="el-wrap sec-head">
-      <h1 class="sec-title" id="gs-title">Let's see if we're a good <em>fit.</em></h1>
-      <p class="sec-sub">Tell us about your business, then pick a time for a free 25-minute call. We'll look at what's slipping and tell you where we'd start, whether or not you work with us.</p>
-      <p class="hero-micro"><b>About 5 minutes</b> <span aria-hidden="true">&middot;</span> <b>Free 25-minute call</b> <span aria-hidden="true">&middot;</span> <b>Plan and price in writing</b></p>
+      <h1 class="sec-title" id="gs-title">Tell us what's slipping. We'll tell you where we'd <em>start.</em></h1>
+      <p class="sec-sub">Answer a few questions, then pick a time for a free 25-minute call. You get plain next steps, whether or not you work with us.</p>
+      <p class="hero-micro"><b>About 5 minutes</b> <span aria-hidden="true">&middot;</span> <b>Free 25-minute call</b> <span aria-hidden="true">&middot;</span> <b>You see the price before you pay</b></p>
+      <p class="gs-proof">For established advisors, solo or a small agency, in Tern, TravelJoy or Travefy. On one account, our checks stopped 151 duplicate emails.</p>
     </div>
   </section>
 
@@ -82,17 +72,20 @@
         <div class="fld"><label class="q" for="a-door">What do you need?</label>
           <select class="in" id="a-door" name="door" required>
             <option value="">Choose one</option>
-            <option value="keep">Keep it running (ongoing help)</option>
-            <option value="setup">Set it up (workflow build, CRM setup or audit)</option>
-            <option value="library">Keep what you know (private library)</option>
+            <option value="map">Map it: automation plan</option>
+            <option value="setup">Set it up: Tern, TravelJoy or Travefy setup</option>
+            <option value="catchup">Catch up: backlog catch-up</option>
+            <option value="keep">Keep it running: weekly back-office help</option>
+            <option value="handoff">Hand it off: assistant hand-off kit</option>
+            <option value="library">Keep what you know: private library</option>
             <option value="train">Train your team</option>
             <option value="unsure">Not sure yet</option>
           </select>
         </div>
 
         <fieldset class="door" data-door="keep" hidden>
-          <legend class="door-legend">Keep it running (ongoing help)</legend>
-          <fieldset class="fld"><legend>How much do you want off your plate?</legend><div class="choices">
+          <legend class="door-legend">Keep it running: weekly back-office help</legend>
+          <fieldset class="fld"><legend>How much do you want off your plate? <span class="opt">(optional)</span></legend><div class="choices">
             <label class="chip"><input type="radio" name="hours" value="A few things each week"><span>A few things each week</span></label>
             <label class="chip"><input type="radio" name="hours" value="Most of the day-to-day"><span>Most of the day-to-day</span></label>
             <label class="chip"><input type="radio" name="hours" value="Everything behind the scenes"><span>Everything behind the scenes</span></label>
@@ -113,10 +106,10 @@
         </fieldset>
 
         <fieldset class="door" data-door="setup" hidden>
-          <legend class="door-legend">Set it up (workflow build, CRM setup or audit)</legend>
+          <legend class="door-legend">Set it up: Tern, TravelJoy or Travefy setup</legend>
           <div class="fld"><label class="q" for="a-build">What do you want set up?</label><textarea class="in" id="a-build" name="build" placeholder="For example: client emails for cruises, or moving trips into Tern."></textarea></div>
           <div class="fld"><label class="q" for="a-deadline">Is there a date you need it by? <span class="opt">(optional)</span></label><input class="in" id="a-deadline" name="deadline"></div>
-          <fieldset class="fld"><legend>Do you want the $295 audit first?</legend><div class="choices">
+          <fieldset class="fld"><legend>Do you want the $295 automation plan first?</legend><div class="choices">
             <label class="chip"><input type="radio" name="audit" value="Yes"><span>Yes</span></label>
             <label class="chip"><input type="radio" name="audit" value="No, I know what I need"><span>No, I know what I need</span></label>
             <label class="chip"><input type="radio" name="audit" value="Not sure yet"><span>Not sure yet</span></label>
@@ -125,13 +118,13 @@
 
         <fieldset class="door" data-door="library" hidden>
           <legend class="door-legend">Keep what you know (private library)</legend>
-          <div class="fld"><label class="q" for="a-library">What do you want in it?</label><textarea class="in" id="a-library" name="library" placeholder="For example: supplier contacts, client email templates, notes on hotels."></textarea></div>
+          <div class="fld"><label class="q" for="a-library">What do you want in it? <span class="opt">(optional)</span></label><textarea class="in" id="a-library" name="library" placeholder="For example: supplier contacts, client email templates, notes on hotels."></textarea></div>
           <div class="fld"><label class="q" for="a-libnow">Where does it live now? <span class="opt">(optional)</span></label><input class="in" id="a-libnow" name="libnow" placeholder="For example: my inbox, a spreadsheet, sticky notes."></div>
         </fieldset>
 
         <fieldset class="door" data-door="train" hidden>
           <legend class="door-legend">Train your team</legend>
-          <fieldset class="fld"><legend>Who needs training?</legend><div class="choices">
+          <fieldset class="fld"><legend>Who needs training? <span class="opt">(optional)</span></legend><div class="choices">
             <label class="chip"><input type="radio" name="trainee" value="Me"><span>Me</span></label>
             <label class="chip"><input type="radio" name="trainee" value="My assistant or VA"><span>My assistant or VA</span></label>
             <label class="chip"><input type="radio" name="trainee" value="My team (4 or more people)"><span>My team (4 or more people)</span></label>
@@ -167,7 +160,7 @@
           <label class="chip"><input type="checkbox" name="tools" value="Nothing yet"><span>Nothing yet</span></label>
         </div></fieldset>
 
-        <fieldset class="fld"><legend>About how many trips are active right now?</legend><div class="choices">
+        <fieldset class="fld"><legend>About how many trips are active right now? <span class="opt">(optional)</span></legend><div class="choices">
           <label class="chip"><input type="radio" name="trips" value="None yet"><span>None yet, I'm just starting</span></label>
           <label class="chip"><input type="radio" name="trips" value="1 to 10"><span>1 to 10</span></label>
           <label class="chip"><input type="radio" name="trips" value="11 to 25"><span>11 to 25</span></label>
@@ -188,7 +181,7 @@
 
         <div class="fld"><label class="q" for="a-slipping">What keeps slipping right now?</label><textarea class="in" id="a-slipping" name="slipping" placeholder="For example: final documents, follow-ups, the inbox."></textarea></div>
 
-        <fieldset class="fld" aria-describedby="a-tech-hint"><legend>How do you feel about tech?</legend>
+        <fieldset class="fld" aria-describedby="a-tech-hint"><legend>How do you feel about tech? <span class="opt">(optional)</span></legend>
           <p class="hint" id="a-tech-hint">There's no wrong answer.</p>
           <div class="scale">
             <label class="scale-opt"><input type="radio" name="tech" value="1 (I love tech)"><span><b>1</b>I love tech</span></label>
@@ -198,7 +191,7 @@
           </div>
         </fieldset>
 
-        <fieldset class="fld"><legend>When would you like to start?</legend><div class="choices">
+        <fieldset class="fld"><legend>When would you like to start? <span class="opt">(optional)</span></legend><div class="choices">
           <label class="chip"><input type="radio" name="when" value="Right away"><span>Right away</span></label>
           <label class="chip"><input type="radio" name="when" value="In the next month"><span>In the next month</span></label>
           <label class="chip"><input type="radio" name="when" value="In 2 to 3 months"><span>In 2 to 3 months</span></label>
@@ -288,7 +281,7 @@
       <div class="final-art" aria-hidden="true"></div>
       <div class="final-in">
         <p class="final-title">You made it this far. Let's <em>talk.</em></p>
-        <a class="btn btn--lg" href="#apply" data-apply>Start the form</a>
+        <a class="btn btn--lg" href="#apply" data-apply>Tell us about your business</a>
         <p class="final-note">You'll know what Eliava will do and what it costs before you pay anything.</p>
       </div>
     </div>
