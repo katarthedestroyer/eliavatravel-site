@@ -168,7 +168,11 @@ function eliavaSend(pairs) {
     if (q && doorSel.querySelector('option[value="' + q.replace(/[^a-z]/g, '') + '"]')) doorSel.value = q;
     var notes = form.elements['notes'], kept = '';
     try { kept = sessionStorage.getItem('eliava-check') || ''; } catch (x) {}
-    if (notes && kept && !notes.value) notes.value = kept;
+    if (notes && kept && !notes.value) {
+      notes.value = kept;
+      // The notes sit under "Add more detail": open it so the carried-over answers show.
+      var more = notes.closest('details'); if (more) more.open = true;
+    }
   }
   dlg.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', function () { dlg.close(); }); });
   // Backdrop clicks close it. A click on the dialog box itself (its own padding or

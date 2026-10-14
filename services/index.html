@@ -11,22 +11,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Albert+Sans:ital,wght@0,400..800;1,400..700&family=Alumni+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/scrollcraft.css">
 <link rel="stylesheet" href="/assets/site.css?v=20261014">
-<script src="/assets/site.js?v=20261014b" defer></script>
+<script src="/assets/site.js?v=20261014c" defer></script>
 <title>Services and prices | Eliava Travel Ops</title>
-<meta name="description" content="Five ways to start, each with its own page: Automation plan $295, setup from $1,175, Backlog catch-up from $495, Weekly back-office help $990 a month, Assistant hand-off kit from $495.">
+<meta name="description" content="Clear prices for travel advisors: Automation plan $295, setup from $1,175, Backlog catch-up from $495, Weekly back-office help $990 a month, Assistant hand-off kit from $495. Answer 3 questions to see your top 3.">
 <link rel="canonical" href="https://eliavatravel.com/services/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://eliavatravel.com/services/">
 <meta property="og:title" content="Services and prices | Eliava Travel Ops">
-<meta property="og:description" content="Five ways to start, each with its own page: Automation plan $295, setup from $1,175, Backlog catch-up from $495, Weekly back-office help $990 a month, Assistant hand-off kit from $495.">
+<meta property="og:description" content="Clear prices for travel advisors: Automation plan $295, setup from $1,175, Backlog catch-up from $495, Weekly back-office help $990 a month, Assistant hand-off kit from $495. Answer 3 questions to see your top 3.">
 <meta property="og:image" content="https://eliavatravel.com/assets/share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/home.css">
 <link rel="stylesheet" href="/assets/copy-v2.css?v=20261014">
-<link rel="stylesheet" href="/assets/get-started.css?v=20261014b">
-<link rel="stylesheet" href="/assets/packages.css?v=20261014b">
+<link rel="stylesheet" href="/assets/get-started.css?v=20261014c">
+<link rel="stylesheet" href="/assets/packages.css?v=20261014c">
 </head>
 <body class="page-get-started page-package page-services">
 
@@ -50,134 +50,179 @@
 
 <main id="main">
 
-  <section class="sec gs-top" aria-labelledby="sv-title">
+  <section class="sec fd-sec" aria-labelledby="sv-title">
     <div class="el-wrap sec-head">
-      <h1 class="sec-title" id="sv-title">Services and <em>prices.</em></h1>
-      <p class="sec-sub">Five ways to start. Each one has its own page: what you get, how it goes, the price and the questions advisors ask.</p>
-      <p class="hero-micro"><b>You see the price before you pay</b> <span aria-hidden="true">&middot;</span> <b>Free 25-minute call to start</b> <span aria-hidden="true">&middot;</span> <b>Updates by email</b></p>
+      <h1 class="sec-title" id="sv-title">Clear prices for every stage of your <em>business.</em></h1>
+      <p class="sec-sub">Answer 3 quick questions and see the three packages that fit you best. No hourly billing. You see the price before you pay.</p>
     </div>
-  </section>
-
-  <section id="ways" class="sec ways" aria-labelledby="sv-five">
-    <div class="el-wrap sec-head">
-      <h2 class="sec-title" id="sv-five">Five ways to <em>start.</em></h2>
-      <p class="sec-sub">The workflow build is where most advisors start: set up your Tern, TravelJoy or Travefy.</p>
-    </div>
-    <div class="el-wrap">
-      <div class="ways-list">
-        <article class="way way--main">
-          <div class="way-main-text">
-            <p class="way-tag">Set it up</p>
-            <h3 class="way-name">Set up your Tern, TravelJoy or Travefy</h3>
-            <p class="way-what">My software could send reminders. I still do it all by hand.</p>
-            <div class="way-acts">
-              <a class="btn" href="/get-started/" data-apply="setup">Get started</a>
-              <a class="el-link way-link" href="/services/setup/">See details<span class="el-sr">: Set up your Tern, TravelJoy or Travefy</span></a>
-            </div>
+    <div class="el-wrap fd-grid">
+      <div class="fd" id="finder" hidden>
+        <form class="fd-form" novalidate>
+          <p class="fd-count" aria-live="polite"></p>
+        <fieldset class="fd-step" hidden>
+          <legend class="fd-q">What's slipping right now?</legend>
+          <p class="fd-hint">Pick all that apply.</p>
+          <div class="choices">
+            <label class="chip"><input type="checkbox" name="slip" value="What happens next lives in my head" data-say="lives in my head" data-pts="setup:3 map:2 handoff:1 library:1"><span>What happens next lives in my head</span></label>
+            <label class="chip"><input type="checkbox" name="slip" value="My tool could do more, but I do it by hand" data-say="tool does too little" data-pts="setup:3 map:2"><span>My tool could do more, but I do it by hand</span></label>
+            <label class="chip"><input type="checkbox" name="slip" value="I'm behind, and it's piling up" data-say="behind" data-pts="catchup:4 keep:1"><span>I'm behind, and it's piling up</span></label>
+            <label class="chip"><input type="checkbox" name="slip" value="There's too much week to week" data-say="too much week to week" data-pts="keep:3 embedded:1"><span>There's too much week to week</span></label>
+            <label class="chip"><input type="checkbox" name="slip" value="I'm hiring, or my new hire keeps asking me" data-say="hiring" data-pts="handoff:4 library:1"><span>I'm hiring, or my new hire keeps asking me</span></label>
+            <label class="chip"><input type="checkbox" name="slip" value="I'm moving to Tern or another tool" data-say="moving tools" data-pts="crm:4 setup:1"><span>I'm moving to Tern or another tool</span></label>
+            <label class="chip"><input type="checkbox" name="slip" value="My team or I need training, or help with AI" data-say="training or AI" data-pts="ai:3 untangle:1"><span>My team or I need training, or help with AI</span></label>
+            <label class="chip"><input type="checkbox" name="slip" value="One thing is stuck" data-say="one thing stuck" data-pts="untangle:3 map:1"><span>One thing is stuck</span></label>
           </div>
-          <div class="way-main-price">
-            <p class="way-price"><span>From</span> $1,175</p>
+        </fieldset>
+        <fieldset class="fd-step" hidden>
+          <legend class="fd-q">About how many trips are active right now?</legend>
+          <p class="fd-hint">A rough guess is fine.</p>
+          <div class="choices">
+            <label class="chip"><input type="radio" name="size" value="Under 10" data-say="under 10 trips" data-pts="map:1 untangle:1"><span>Under 10</span></label>
+            <label class="chip"><input type="radio" name="size" value="10 to 25" data-say="10 to 25 trips" data-pts="setup:1"><span>10 to 25</span></label>
+            <label class="chip"><input type="radio" name="size" value="26 to 50" data-say="26 to 50 trips" data-pts="keep:1 setup:1"><span>26 to 50</span></label>
+            <label class="chip"><input type="radio" name="size" value="More than 50, or I have a team" data-say="50+ trips or a team" data-pts="embedded:3 keep:1"><span>More than 50, or I have a team</span></label>
           </div>
-        </article>
-        <article class="way">
-          <p class="way-tag">Map it</p>
-          <h3 class="way-name">Automation plan</h3>
-          <p class="way-what">It all lives in my head.</p>
-          <p class="way-price">$295</p>
-          <a class="el-link way-link" href="/services/automation-plan/">See details<span class="el-sr">: Automation plan</span></a>
-        </article>
-        <article class="way">
-          <p class="way-tag">Catch up</p>
-          <h3 class="way-name">Backlog catch-up</h3>
-          <p class="way-what">Wave season left a pile.</p>
-          <p class="way-price"><span>From</span> $495</p>
-          <a class="el-link way-link" href="/services/backlog-catch-up/">See details<span class="el-sr">: Backlog catch-up</span></a>
-        </article>
-        <article class="way">
-          <p class="way-tag">Keep it running</p>
-          <h3 class="way-name">Weekly back-office help</h3>
-          <p class="way-what">More trips than hands, and I don't want to hire.</p>
-          <p class="way-price">$990 <span>a month</span></p>
-          <a class="el-link way-link" href="/services/weekly-help/">See details<span class="el-sr">: Weekly back-office help</span></a>
-        </article>
-        <article class="way">
-          <p class="way-tag">Hand it off</p>
-          <h3 class="way-name">Assistant hand-off kit</h3>
-          <p class="way-what">I'm hiring, or my new hire keeps asking me everything.</p>
-          <p class="way-price"><span>From</span> $495</p>
-          <a class="el-link way-link" href="/services/hand-off-kit/">See details<span class="el-sr">: Assistant hand-off kit</span></a>
-        </article>
+        </fieldset>
+        <fieldset class="fd-step" hidden>
+          <legend class="fd-q">How do you want the help?</legend>
+          <p class="fd-hint">Pick the one closest to you.</p>
+          <div class="choices">
+            <label class="chip"><input type="radio" name="how" value="Done for me, every week" data-say="done for me weekly" data-pts="keep:3 embedded:2 catchup:1"><span>Done for me, every week</span></label>
+            <label class="chip"><input type="radio" name="how" value="Built once, then I run it" data-say="built once" data-pts="setup:2 handoff:2 crm:1 library:1"><span>Built once, then I run it</span></label>
+            <label class="chip"><input type="radio" name="how" value="Show me a plan first" data-say="plan first" data-pts="map:3"><span>Show me a plan first</span></label>
+            <label class="chip"><input type="radio" name="how" value="Teach me or my team" data-say="teach us" data-pts="ai:2 handoff:1 untangle:1"><span>Teach me or my team</span></label>
+          </div>
+        </fieldset>
+          <div class="fd-nav">
+            <button type="button" class="el-link fd-back" hidden>Back</button>
+            <button type="button" class="btn fd-next" disabled>Next</button>
+          </div>
+        </form>
+        <div class="fd-result" tabindex="-1" hidden>
+          <p class="fd-count">Your top 3</p>
+          <h2 class="fd-q">Here's where we'd start.</h2>
+          <ol class="fd-picks"></ol>
+          <p class="fd-fine">Your answers stay on this page. When you book, they're added to the form, so you don't have to explain it twice. <button type="button" class="el-link fd-again">Start over</button></p>
+        </div>
       </div>
+      <aside class="fd-side" aria-labelledby="sv-unsure">
+        <p class="fd-side-kicker">Not sure where to start?</p>
+        <h2 class="fd-side-name" id="sv-unsure">Automation plan</h2>
+        <p class="fd-side-price">$295</p>
+        <p>Skip the questions. Get one kind of trip mapped in full, with a plan for what to fix first.</p>
+        <ul>
+          <li>Every email, payment date and deadline</li>
+          <li>What to automate, and what to keep by hand</li>
+          <li>Video walkthroughs you can rewatch</li>
+        </ul>
+        <p class="fd-side-note">Book a setup within 30 days and the $295 comes off.</p>
+        <div class="fd-side-acts">
+          <a class="btn" href="/get-started/" data-apply="map" aria-label="Book a free call about the Automation plan">Book a free call</a>
+          <a class="el-link" href="/services/automation-plan/">See details</a>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <section id="more" class="sec ways pk-extras" aria-labelledby="sv-more">
+  <section class="sec cat-sec" id="catalog" aria-labelledby="sv-cat">
     <div class="el-wrap sec-head">
-      <h2 class="sec-title" id="sv-more">Also <em>available.</em></h2>
-      <p class="sec-sub">For a move to a new tool, a bigger team, or one thing that's stuck.</p>
+      <p class="pk-verb">Browse every package</p>
+      <h2 class="sec-title" id="sv-cat">Every way to work <em>with us.</em></h2>
+      <p class="sec-sub">Grouped by what you need: a finished project, steady weekly help, or training.</p>
     </div>
     <div class="el-wrap">
-      <div class="ways-list">
-        <article class="way" id="crm">
-          <p class="way-tag">Set it up</p>
-          <h3 class="way-name">CRM setup and training</h3>
-          <p class="way-what">Moving to Tern or another tool? Your trips and clients moved, your settings and templates set up for how you work, then live training and short videos.</p>
-          <p class="way-price">Priced after your free call</p>
-          <a class="el-link way-link" href="/get-started/" data-apply="setup">Get started<span class="el-sr">: CRM setup and training</span></a>
+      <div class="cat-group" id="fixed">
+        <div class="cat-head"><h3 class="cat-title">Fixed projects <span class="cat-n">7</span></h3><p>A clear finish, a set price and a date. You know what you get and when it's done.</p></div>
+        <div class="cat-grid">
+        <article class="cat-card">
+          <p class="cat-kicker">2 weeks</p>
+          <h3 class="cat-name">Automation plan</h3>
+          <p class="cat-line">One kind of trip, mapped in full, with a plan for what to fix first.</p>
+          <p class="cat-price">$295</p>
+          <a class="el-link" href="/services/automation-plan/" aria-label="See details: Automation plan">See details</a>
         </article>
-        <article class="way" id="embedded">
-          <p class="way-tag">Keep it running</p>
-          <h3 class="way-name">Embedded weekly help</h3>
-          <p class="way-what">For a busier business or an advisor with a team. Everything in weekly help, plus a weekly video recap and one new build each quarter. $2,200 month to month. One client at a time.</p>
-          <p class="way-price">$1,980 <span>a month</span></p>
-          <a class="el-link way-link" href="/get-started/" data-apply="keep">Get started<span class="el-sr">: Embedded weekly help</span></a>
+        <article class="cat-card">
+          <p class="cat-kicker">Most advisors start here</p>
+          <h3 class="cat-name">Set up your Tern, TravelJoy or Travefy</h3>
+          <p class="cat-line">The workflow build: client emails in your voice, every payment date and deadline, and checklists for one kind of trip. About 3 weeks.</p>
+          <p class="cat-price">From $1,175</p>
+          <a class="el-link" href="/services/setup/" aria-label="See details: Set up your Tern, TravelJoy or Travefy">See details</a>
         </article>
-        <article class="way" id="library">
-          <p class="way-tag">Keep what you know</p>
-          <h3 class="way-name">Your private library</h3>
-          <p class="way-what">Your templates, supplier contacts, trip steps and hotel notes in one place. We pull it from what you already have and sort it so you find things fast. Built wherever you want it, with a sample to start from. Only you and your team can see it.</p>
-          <p class="way-price"><span>From</span> $1,495</p>
-          <a class="el-link way-link" href="/get-started/" data-apply="library">Get started<span class="el-sr">: Your private library</span></a>
+        <article class="cat-card">
+          <p class="cat-kicker">2 weeks</p>
+          <h3 class="cat-name">Backlog catch-up</h3>
+          <p class="cat-line">A fixed list of overdue work, agreed before we start.</p>
+          <p class="cat-price">From $495</p>
+          <a class="el-link" href="/services/backlog-catch-up/" aria-label="See details: Backlog catch-up">See details</a>
         </article>
-        <article class="way" id="ai">
-          <p class="way-tag">Train your team</p>
-          <h3 class="way-name">AI setup and training</h3>
-          <p class="way-what">We set up Claude with your voice, your steps and your templates. Then we teach you and your assistant to use it on real trips. Card and passport numbers never go into AI.</p>
-          <p class="way-price">Priced after your free call</p>
-          <a class="el-link way-link" href="/get-started/" data-apply="train">Get started<span class="el-sr">: AI setup and training</span></a>
+        <article class="cat-card">
+          <p class="cat-kicker">2 weeks</p>
+          <h3 class="cat-name">Assistant hand-off kit</h3>
+          <p class="cat-line">Written steps, templates and supplier notes, then two live sessions with the person you hire.</p>
+          <p class="cat-price">From $495</p>
+          <a class="el-link" href="/services/hand-off-kit/" aria-label="See details: Assistant hand-off kit">See details</a>
         </article>
-        <article class="way" id="team">
-          <p class="way-tag">Train your team</p>
-          <h3 class="way-name">Team training</h3>
-          <p class="way-what">For 4 or more people, planned around your trips and tools.</p>
-          <p class="way-price">Priced after your free call</p>
-          <a class="el-link way-link" href="/get-started/" data-apply="train">Get started<span class="el-sr">: Team training</span></a>
+        <article class="cat-card">
+          <p class="cat-kicker">Moving tools</p>
+          <h3 class="cat-name">CRM setup and training</h3>
+          <p class="cat-line">Your trips and clients moved to Tern or another tool, set up for how you work, then live training.</p>
+          <p class="cat-price">Priced after your free call</p>
+          <a class="el-link" href="/get-started/" data-apply="setup" aria-label="Book a free call about CRM setup and training">Book a free call</a>
         </article>
-        <article class="way" id="untangle">
-          <p class="way-tag">Train your team</p>
-          <h3 class="way-name">Untangle one thing, together</h3>
-          <p class="way-what">Bring one thing that's stuck. We fix it live on Zoom, inside your own account, and you learn how as we go.</p>
-          <p class="way-price">$95</p>
-          <a class="el-link way-link" href="/get-started/" data-apply="train">Get started<span class="el-sr">: Untangle one thing, together</span></a>
+        <article class="cat-card">
+          <p class="cat-kicker">Built for you</p>
+          <h3 class="cat-name">Your private library</h3>
+          <p class="cat-line">Templates, supplier contacts, trip steps and hotel notes in one private place, built wherever you want it.</p>
+          <p class="cat-price">From $1,495</p>
+          <a class="el-link" href="/get-started/" data-apply="library" aria-label="Book a free call about Your private library">Book a free call</a>
         </article>
+        <article class="cat-card">
+          <p class="cat-kicker">One session</p>
+          <h3 class="cat-name">Untangle one thing, together</h3>
+          <p class="cat-line">Bring one thing that's stuck. We fix it live on Zoom, inside your own account.</p>
+          <p class="cat-price">$95</p>
+          <a class="el-link" href="/get-started/" data-apply="train" aria-label="Book a free call about Untangle one thing, together">Book a free call</a>
+        </article>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section class="sec gs-expect" aria-labelledby="sv-handle">
-    <div class="el-wrap sec-head">
-      <h2 class="sec-title" id="sv-handle">What we <em>handle.</em></h2>
-      <p class="sec-sub">You keep the client work you love. Send us the rest, from the first inquiry to after they're home.</p>
-    </div>
-    <div class="el-wrap">
-      <ul class="gs-cards gs-cards--who">
-        <li class="gs-card"><strong>New inquiries and proposals</strong><span>We answer new inquiries and set up client profiles. Hotel proposals and follow-ups, too.</span></li>
-        <li class="gs-card"><strong>Booked trips and payments</strong><span>Payment reminders, invoices and agreements. Supplier confirmations. Every deadline, tracked.</span></li>
-        <li class="gs-card"><strong>Itineraries and final documents</strong><span>Final itineraries and Travefy booklets. Travel documents gathered. A last check on every trip.</span></li>
-        <li class="gs-card"><strong>After the trip</strong><span>Welcome-home emails and review requests. Commission tracking. Notes saved for next time.</span></li>
-        <li class="gs-card"><strong>Inbox, tools and AI</strong><span>Inbox cleanup and emails in your voice. Newsletters sent on time. Tern and TravelJoy setup, and AI setup with Claude.</span></li>
-      </ul>
-      <p class="gs-more">Our experts work inside Tern, TravelJoy, Travefy, Tess, CBO and VacationCRM. Also Trello, Asana, ClickUp, Flodesk, Canva, Calendly and Zapier. And Gmail, Outlook and Google Drive. Even a spreadsheet works.</p>
+      <div class="cat-group" id="ongoing">
+        <div class="cat-head"><h3 class="cat-title">Ongoing help <span class="cat-n">2</span></h3><p>Weekly help inside your own tools. Month 1 has no commitment.</p></div>
+        <div class="cat-grid">
+        <article class="cat-card">
+          <p class="cat-kicker">Monthly</p>
+          <h3 class="cat-name">Weekly back-office help</h3>
+          <p class="cat-line">New inquiries, payments, documents and welcome-home emails, every week. $1,100 month to month.</p>
+          <p class="cat-price">$990 a month</p>
+          <a class="el-link" href="/services/weekly-help/" aria-label="See details: Weekly back-office help">See details</a>
+        </article>
+        <article class="cat-card">
+          <p class="cat-kicker">Monthly</p>
+          <h3 class="cat-name">Embedded weekly help</h3>
+          <p class="cat-line">For a busier business or a team. Adds a weekly video recap and one new build each quarter. $2,200 month to month.</p>
+          <p class="cat-price">$1,980 a month</p>
+          <a class="el-link" href="/services/weekly-help/" aria-label="See details: Embedded weekly help">See details</a>
+        </article>
+        </div>
+      </div>
+      <div class="cat-group" id="training">
+        <div class="cat-head"><h3 class="cat-title">Training <span class="cat-n">2</span></h3><p>For you, your assistant or your team, on your own trips and tools.</p></div>
+        <div class="cat-grid">
+        <article class="cat-card">
+          <p class="cat-kicker">Live training</p>
+          <h3 class="cat-name">AI setup and training</h3>
+          <p class="cat-line">We set up Claude with your voice, your steps and your templates. Then we teach you and your assistant.</p>
+          <p class="cat-price">Priced after your free call</p>
+          <a class="el-link" href="/get-started/" data-apply="train" aria-label="Book a free call about AI setup and training">Book a free call</a>
+        </article>
+        <article class="cat-card">
+          <p class="cat-kicker">4 or more people</p>
+          <h3 class="cat-name">Team training</h3>
+          <p class="cat-line">Planned around your trips and tools.</p>
+          <p class="cat-price">Priced after your free call</p>
+          <a class="el-link" href="/get-started/" data-apply="train" aria-label="Book a free call about Team training">Book a free call</a>
+        </article>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -221,13 +266,20 @@
     <div class="final">
       <div class="final-art" aria-hidden="true"></div>
       <div class="final-in">
-        <p class="final-title">Ready when you <em>are.</em></p>
-        <a class="btn btn--lg" href="/get-started/" data-apply>Get started</a>
-        <p class="final-note">Tell us about your business, then pick a time for a free 25-minute call. After that, updates come by email.</p>
+        <p class="final-title">Not sure Eliava is the right <em>fit?</em></p>
+        <p class="final-note fd-close-lede">Let's talk. We'll answer your questions and tell you honestly if we can help.</p>
+        <ul class="fd-close-list">
+          <li>No hourly billing</li>
+          <li>Month 1 of weekly help has no commitment</li>
+          <li>You see the price before you pay</li>
+        </ul>
+        <div class="fd-close-acts">
+          <a class="btn btn--lg" href="/get-started/" data-apply>Book a free call</a>
+          <a class="el-link" href="mailto:kady@eliavatravel.com">Send an email</a>
+        </div>
       </div>
     </div>
   </section>
-
 </main>
 
 <footer class="foot">
@@ -259,5 +311,6 @@
   </div>
 </footer>
 
+<script src="/assets/finder.js?v=20261014c" defer></script>
 </body>
 </html>
