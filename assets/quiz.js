@@ -15,15 +15,16 @@
     tool:  { label: 'Your trip tool', max: 6 },
     head:  { label: 'What only you know', max: 4 }
   };
+  // Words from COPY-MASTER-v2 (Oct 14, 2026). door = the form's "What do you need?" value.
   var PICKS = {
-    steps: { name: 'Workflow build', door: 'setup', href: '/services/#setup',
-      why: "Your trip steps live in your head and your inbox. A workflow build puts them in your tool, so emails and reminders go out on time without you starting each one." },
-    tool: { name: 'CRM setup and training', door: 'setup', href: '/services/#setup',
-      why: "Your tool could be doing more of the work. I set it up the right way, then teach you and your assistant to use it." },
-    head: { name: 'Keep what you know', door: 'library', href: '/services/#library',
-      why: "What you know lives in your inbox and your head. I pull it into one private place, with step-by-step guides, so you and anyone you hire can find it." },
-    keep: { name: 'Keep it running', door: 'keep', href: '/services/#keep',
-      why: "Your systems are in good shape. If you want a steady second pair of hands for the day-to-day, start here. Have just one thing that's stuck? \"Untangle one thing, together\" covers it for $95." }
+    steps: { name: 'Set up your Tern, TravelJoy or Travefy', door: 'setup', href: '/services/#setup',
+      why: "From $1,175. One kind of trip. More trip types, or a move from another tool, are priced after your free call. Your trip steps live in your head and your inbox. A setup puts them in your tool, so emails and reminders go out on time without you starting each one. You OK every email first." },
+    tool: { name: 'Automation plan', door: 'setup', href: '/services/',
+      why: "$295. Book a setup within 30 days and the $295 comes off. Your tool could be doing more of the work. The plan shows what to automate, what to keep personal, and when each email goes out. One kind of trip, mapped in full. No logins needed." },
+    head: { name: 'Assistant hand-off kit', door: 'train', href: '/services/',
+      why: "From $495. One kind of trip. What you know lives in your inbox and your head. The kit pulls it into written steps, templates and supplier notes in one place, so you and anyone you hire can find it." },
+    keep: { name: 'Weekly back-office help', door: 'keep', href: '/services/#keep',
+      why: "$990 a month. Quarter plan. $1,100 month to month. Month 1 has no commitment. Your systems are in good shape. If you want a steady second pair of hands for the day-to-day, start here. Every week: inquiries, payments, documents and welcome-home emails, plus a monthly commission check." }
   };
   var next = document.getElementById('quiz-next');
   var cur = 0, summary = '', timer = 0, lastPointer = 0;
