@@ -72,7 +72,6 @@ function eliavaSend(pairs) {
 /* --------------------------------------------------- 2. the application -- */
 (function () {
   var CAL = "https://cal.com/kady-dennis/discovery-call";
-  var MAIL = "kady@eliavatravel.com";
   var dlg = document.getElementById('apply'); if (!dlg || typeof dlg.showModal !== 'function') return;
   var form = document.getElementById('apply-form'), yes = document.getElementById('apply-yes'),
       no = document.getElementById('apply-no'), err = document.getElementById('apply-err');
@@ -89,8 +88,43 @@ function eliavaSend(pairs) {
   function show(step) {
     [form, yes, no].forEach(function (s) { s.hidden = (s !== step); });
     inner.scrollTop = 0; dlg.classList.remove('is-scrolled');
+    if (step !== yes) dlg.classList.remove('has-cal');
     var h = step.querySelector('h2'); if (step !== form && h) h.focus();
   }
+
+  // The Scoping Call calendar (cal.com) opens right inside the application, so
+  // nobody leaves the page to book. Its script loads only at this step. If it
+  // never loads, "Open it in a new tab" still works.
+  var calCount = 0, calData = null;
+  function showCal() {
+    var box = document.getElementById('apply-cal'); if (!box || !calData) return;
+    dlg.classList.add('has-cal');
+    yes.querySelectorAll('[data-cal-hide]').forEach(function (el) { el.hidden = false; });
+    // A fresh spot and namespace each time, so a second application gets its own answers filled in.
+    var ns = 'scoping' + (++calCount), spot = document.createElement('div');
+    box.replaceChildren(spot);
+    // cal.com's own loader: queues calls until embed.js arrives.
+    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
+    Cal('init', ns, { origin: 'https://cal.com' });
+    Cal.ns[ns]('inline', { elementOrSelector: spot, calLink: 'kady-dennis/discovery-call',
+      config: { name: calData.name, email: calData.email, notes: calData.notes, layout: 'month_view', theme: 'light' } });
+    Cal.ns[ns]('ui', { theme: 'light', hideEventTypeDetails: true, layout: 'month_view',
+      cssVarsPerTheme: { light: { 'cal-brand': '#0B5F70' } } });
+    // Once they book, the "not ready" lines under the calendar have done their job.
+    Cal.ns[ns]('on', { action: 'bookingSuccessfulV2', callback: function () {
+      yes.querySelectorAll('[data-cal-hide]').forEach(function (el) { el.hidden = true; });
+    } });
+  }
+  // Single Fix "Questions first?" swaps to the calendar instead of leaving the page.
+  var fixCall = document.getElementById('apply-fix-call');
+  if (fixCall) fixCall.addEventListener('click', function (e) {
+    if (!calData) return;
+    e.preventDefault();
+    yes.querySelector('[data-yes="fix"]').hidden = true;
+    yes.querySelector('[data-yes="call"]').hidden = false;
+    inner.scrollTop = 0;
+    showCal();
+  });
   // Only the chosen door's questions show. The others are hidden AND disabled,
   // so they are never required and never sent. In Train your team, "Where are
   // they based?" shows only when someone other than "Me" needs training.
@@ -192,7 +226,7 @@ function eliavaSend(pairs) {
     var body = lines.join('\n');
     var calHref = CAL + '?name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&notes=' + encodeURIComponent(body);
     document.getElementById('apply-go').href = calHref;
-    document.getElementById('apply-mail').href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Application: ' + name) + '&body=' + encodeURIComponent(body + '\n\nEmail: ' + email);
+    calData = { name: name, email: email, notes: body };
     yes.querySelector('[data-first]').textContent = name.split(/\s+/)[0];
 
     // Single Fix with a payment link: pay first (Stripe fills in the email and
@@ -210,6 +244,7 @@ function eliavaSend(pairs) {
       try { sessionStorage.setItem('eliava-fix', JSON.stringify({ name: name, email: email, ref: ref })); } catch (e) {}
     }
     show(yes);
+    if (!payBase) showCal();
   });
 })();
 

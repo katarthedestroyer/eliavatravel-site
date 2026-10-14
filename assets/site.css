@@ -511,6 +511,15 @@ select.in {
 }
 .apply-alt a:hover { text-decoration-thickness: 2px; }
 
+/* the cal.com calendar inside the yes step: the box widens so the month and
+   the times fit side by side; cal.com sets the frame's height itself */
+dialog.apply.has-cal { width: min(860px, calc(100vw - 16px)); }
+.apply-cal { margin-top: var(--sc-5); }
+.apply-cal:not(:empty) { min-height: 460px; }
+.apply-cal iframe { display: block; }
+.apply-cal-alt { margin: var(--sc-3) 0 0; font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+.apply-cal-alt a { color: var(--sc-accent); text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+
 /* the honeypot: a field only bots fill in. Off screen, out of the tab order
    and hidden from screen readers (aria-hidden in the markup) */
 .hp { position: absolute !important; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
@@ -523,7 +532,8 @@ select.in {
   .scale { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .scale-opt span { min-height: 76px; }
   .apply .door { padding: var(--sc-4); }
-  .apply-actions .btn, #apply-mail { width: 100%; }
+  .apply-actions .btn { width: 100%; }
+  .apply-cal { margin-inline: -12px; }
   dialog.apply::before { height: 64px; }
 }
 
