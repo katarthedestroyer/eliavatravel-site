@@ -67,15 +67,11 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
 /* the painted washes: soft gradients plus grain (Kady chose these over paintings, Oct 14) */
 .hero-art, .work-art, .final-art {
   background-color: #DDEBEE;
-  background-image:
-    radial-gradient(120% 70% at 50% 0%, rgb(255 255 255 / 0.95), transparent 60%),
-    radial-gradient(90% 60% at 15% 100%, #BFDDE1 0%, transparent 70%),
-    radial-gradient(80% 60% at 90% 95%, #E9E1D2 0%, transparent 70%),
-    linear-gradient(180deg, #F3F7F8 0%, #DCEBEE 55%, #C9E1E4 100%);
+  background-image: linear-gradient(180deg, #F3F7F8 0%, #DCEBEE 55%, #C9E1E4 100%);
 }
-.hero-art  { background-image: radial-gradient(120% 70% at 50% 0%, rgb(255 255 255 / 0.95), transparent 60%), linear-gradient(180deg, #F3F7F8 0%, #DCEBEE 55%, #C9E1E4 100%); background-size: cover; background-position: center 70%; }
+.hero-art  { background-image: linear-gradient(180deg, #F8FBFB 0%, #EAF3F4 30%, #DCEBEE 62%, #C9E1E4 100%); background-size: cover; background-position: center 70%; }
 .work-art  { background-image: linear-gradient(160deg, #EEF5F6 0%, #D6E9EC 60%, #EDE6DA 100%); background-size: cover; background-position: center; }
-.final-art { background-image: radial-gradient(120% 70% at 50% 0%, rgb(255 255 255 / 0.95), transparent 60%), linear-gradient(180deg, #F3F7F8 0%, #DCEBEE 60%, #E7DFCF 100%); background-size: cover; background-position: center 65%; }
+.final-art { background-image: linear-gradient(180deg, #F8FBFB 0%, #E3EEF0 45%, #E7DFCF 100%); background-size: cover; background-position: center 65%; }
 .hero-art, .final-art { animation: el-zoom 24s ease-in-out infinite alternate; }
 @keyframes el-zoom { to { transform: scale(1.06); } }
 .hero-art::after, .final-art::after, .work-art::after {
@@ -769,3 +765,7 @@ html:not(.js) .quiz, html:not(.js) .quiz-link { display: none; }
 /* hero credentials: sentence case, not tracked caps (Impeccable: all-caps body text) */
 .hero-micro { font-size: 0.92rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
 .quiz-n { line-height: 1.3; }
+/* tools strip: a still, centered list (Impeccable: no auto-scrolling marquee) */
+.tools-track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; -webkit-mask-image: none; mask-image: none; }
+.tools-row + .tools-row { display: none; }
+.tools-row { flex-wrap: wrap; justify-content: center; gap: 14px clamp(24px, 3vw, 44px); padding: 0 var(--sc-gutter); }
