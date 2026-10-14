@@ -110,6 +110,9 @@ html:not(.sc-ready) [data-sc-stagger] > * { opacity: 1; transform: none; }
   background: rgb(255 255 255 / 0.94); backdrop-filter: blur(6px);
   border-radius: 20px 20px 0 0; box-shadow: var(--el-shadow-lift); text-align: left;
 }
+/* hero video (Oct 14): replaces the static sample-trip panel; same slot, same top corners */
+.hero-video { width: min(880px, 100%); overflow: hidden; background: #E3EFF1; }
+.hero-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
 .app-body { padding: 18px 22px 26px; }
 .app-trip-name { margin: 0; font: 500 1.35rem/1.15 var(--sc-font-display); letter-spacing: -0.01em; }
 .app-trip-meta { margin: 4px 0 0; font-size: 0.84rem; color: var(--sc-ink-soft); }
