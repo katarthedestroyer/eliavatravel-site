@@ -6,97 +6,157 @@
 <title>Eliava Travel Ops | Back soon</title>
 <meta name="description" content="Eliava Travel Ops is building a new site. We are still working. Email hello@eliavatravel.com.">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
 <link rel="icon" type="image/png" href="/assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..700&display=swap" rel="stylesheet">
 <style>
+  /* New-build tokens (06-research/competitors/daqconsulting-2026-10-15/brand-sheet.html, section 09) */
   :root {
-    --canvas: #F5F8F9; --surface: #FFFFFF; --ink: #0E1D2B; --ink-soft: #465A6B;
-    --accent: #0B5F70; --accent-hover: #094F5D; --sea: #DCEEF0; --sand: #F1ECE2; --brown: #43301F;
+    --bg: #000; --ink: #fff;
+    --prose: rgba(255,255,255,.72); --secondary: rgba(255,255,255,.58);
+    --outline: rgba(255,255,255,.28); --rule: rgba(255,255,255,.2); --line: rgba(255,255,255,.1);
+    --tint-deep: #050508; --tint-mid: #141F26; --tint-high: #668099; --tint-edge: #334D66;
+    --sans: Inter, system-ui, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --ease-glide: cubic-bezier(.19,1,.22,1);
   }
-  * { box-sizing: border-box; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; }
   body {
-    min-height: 100%; display: grid; place-items: center; padding: 32px 16px;
-    background: var(--canvas); color: var(--ink);
-    font: 400 1.125rem/1.6 "Albert Sans", system-ui, sans-serif;
+    min-height: 100%; display: grid; place-items: center; padding: 40px 16px;
+    background: var(--bg); color: var(--ink); overflow-x: hidden;
+    font: 400 15px/1.625 var(--sans); -webkit-font-smoothing: antialiased;
   }
-  main { width: 100%; max-width: 560px; text-align: center; }
-  .lockup { display: inline-flex; flex-direction: column; align-items: center; color: var(--brown); text-decoration: none; }
-  .word { font: 400 clamp(3.4rem, 12vw, 5rem)/0.9 "Italiana", Georgia, serif; letter-spacing: 0.01em; }
-  .sub { margin-top: 10px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.42em; text-transform: uppercase; padding-left: 0.42em; }
+  ::selection { background: #fff; color: #080808; }
+  :focus-visible { outline: 1px solid #fff; outline-offset: 5px; }
 
-  .scene { width: 100%; max-width: 340px; margin: 28px auto 8px; display: block; }
-  .rope { stroke: var(--ink-soft); stroke-width: 1.5; }
-  .load { animation: lower 5.5s ease-in-out infinite; transform-box: view-box; }
+  /* background: the cool tint drifting slowly, fading to black at the bottom, plus film grain */
+  .tint, .grain { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .tint::before {
+    content: ""; position: absolute; inset: -30%;
+    background:
+      radial-gradient(40% 35% at 30% 30%, rgba(102,128,153,.35), transparent 70%),
+      radial-gradient(45% 40% at 70% 40%, rgba(51,77,102,.45), transparent 70%),
+      radial-gradient(60% 50% at 50% 20%, var(--tint-mid), transparent 75%),
+      var(--tint-deep);
+    filter: blur(40px);
+    animation: drift 28s ease-in-out infinite alternate;
+  }
+  .tint::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 35%, #000 92%); }
+  @keyframes drift {
+    0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+    50%  { transform: translate(4%, 3%) rotate(8deg) scale(1.08); }
+    100% { transform: translate(-3%, 5%) rotate(-6deg) scale(1.04); }
+  }
+  .grain {
+    opacity: .12; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  main { position: relative; z-index: 1; width: 100%; max-width: 640px; text-align: center; }
+
+  /* wordmark: spaced Inter word over a mono descriptor that inks in on hover */
+  .lockup { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; color: var(--ink); text-decoration: none; }
+  .word { font: 600 15px/12px var(--sans); letter-spacing: .3em; padding-left: .3em; text-transform: uppercase; }
+  .sub { position: relative; font: 400 9px/1 var(--mono); letter-spacing: .34em; padding-left: .34em; text-transform: uppercase; color: var(--secondary); }
+  .sub::after {
+    content: attr(data-text); position: absolute; inset: 0; padding-left: .34em; color: #fff;
+    clip-path: inset(0 100% 0 0); transition: clip-path .45s cubic-bezier(.65,0,.35,1);
+  }
+  .lockup:hover .sub::after { clip-path: inset(0 0 0 0); transition: clip-path 1s cubic-bezier(.65,0,.35,1) .2s; }
+
+  .eyebrow { margin-top: 40px; font: 400 11px/1 var(--mono); letter-spacing: .34em; text-transform: uppercase; color: var(--prose); }
+
+  .scene { width: 100%; max-width: 340px; margin: 22px auto 0; display: block; }
+  .load { animation: lower 5.5s var(--ease-glide) infinite; transform-box: view-box; }
   .flag { animation: wave 1.6s ease-in-out infinite; transform-origin: 236px 34px; transform-box: view-box; }
   @keyframes lower {
     0%, 12%   { transform: translateY(0); }
     45%, 62%  { transform: translateY(54px); }
     92%, 100% { transform: translateY(0); }
   }
-  @keyframes wave { 50% { transform: skewY(-8deg) scaleX(0.9); } }
+  @keyframes wave { 50% { transform: skewY(-8deg) scaleX(.9); } }
 
-  h1 { font: 400 clamp(2.2rem, 7vw, 3rem)/1.1 "Italiana", Georgia, serif; margin-top: 8px; }
-  p.lead { color: var(--ink-soft); margin-top: 12px; }
-  .btn {
-    display: inline-block; margin-top: 24px; padding: 14px 26px; border-radius: 999px;
-    background: var(--accent); color: #fff; text-decoration: none; font-weight: 600;
+  h1 {
+    margin-top: 28px; font: 100 clamp(3rem, 11vw, 6.5rem)/.85 var(--sans);
+    letter-spacing: -0.05em; text-transform: uppercase;
   }
-  .btn:hover { background: var(--accent-hover); }
-  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-  footer { margin-top: 36px; font-size: 0.875rem; color: var(--ink-soft); }
-  footer a { color: var(--ink-soft); }
-  @media (prefers-reduced-motion: reduce) { .load, .flag { animation: none; } }
+  h1 b { font-weight: 700; display: block; }
+  p.lede { margin: 26px auto 0; max-width: 46ch; font: 400 12px/1.625 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--secondary); }
+  p.prose { margin: 18px auto 0; max-width: 52ch; color: var(--prose); }
+  @media (min-width: 768px) { p.lede { font-size: 13px; } body { padding: 56px 32px; } }
+
+  /* square outline button: white fills in from the left on hover */
+  .btn {
+    position: relative; display: inline-flex; align-items: center; gap: 10px; margin-top: 32px;
+    padding: 16px 32px; border: 1px solid var(--rule); color: #fff; text-decoration: none; overflow: hidden;
+    font: 700 10px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase;
+    transition: border-color .8s var(--ease-glide), color .8s var(--ease-glide);
+  }
+  .btn::before { content: ""; position: absolute; inset: 0; background: #fff; transform: scaleX(0); transform-origin: left; transition: transform .8s var(--ease-glide); z-index: -1; }
+  .btn:hover { border-color: rgba(255,255,255,.6); color: #080808; }
+  .btn:hover::before { transform: scaleX(1); }
+  .btn:active { transform: scale(.97); }
+  .btn svg { width: 14px; height: 14px; }
+
+  footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line); font: 400 10px/2 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--secondary); }
+  footer a { color: var(--prose); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer a:hover { color: #fff; border-color: #fff; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .load, .flag, .tint::before { animation: none; }
+    .btn, .btn::before, .sub::after { transition: none; }
+  }
 </style>
 </head>
 <body>
+<div class="tint" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 <main>
   <a class="lockup" href="/" aria-label="Eliava Travel Ops">
-    <span class="word">Eliava</span><span class="sub">Travel Ops</span>
+    <span class="word">Eliava</span><span class="sub" data-text="Travel Ops">Travel Ops</span>
   </a>
 
+  <p class="eyebrow">01 / New site in progress</p>
+
   <svg class="scene" viewBox="0 0 340 190" role="img" aria-label="A small crane lowering a suitcase onto a stack of blocks">
-    <!-- ground -->
-    <line x1="10" y1="178" x2="330" y2="178" stroke="#C9D6DC" stroke-width="2"/>
-    <!-- crane mast -->
-    <g fill="none" stroke="#0E1D2B" stroke-width="2.5" stroke-linejoin="round">
+    <line x1="10" y1="178" x2="330" y2="178" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+    <g fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round">
       <path d="M60 178 V40 M76 178 V40"/>
-      <path d="M60 170 L76 150 L60 130 L76 110 L60 90 L76 70 L60 50"/>
+      <path d="M60 170 L76 150 L60 130 L76 110 L60 90 L76 70 L60 50" stroke="rgba(255,255,255,.58)"/>
       <path d="M40 40 H260 M68 40 L68 22 L250 40"/>
       <path d="M40 40 v10 h18 v-10"/>
     </g>
-    <rect x="34" y="48" width="26" height="14" rx="2" fill="#0E1D2B"/>
-    <!-- little flag -->
-    <path class="flag" d="M236 34 v-20 l18 6 l-18 6" fill="#0B5F70"/>
-    <line x1="236" y1="40" x2="236" y2="14" stroke="#0E1D2B" stroke-width="2"/>
-    <!-- trolley -->
-    <rect x="182" y="40" width="16" height="6" rx="1" fill="#465A6B"/>
-    <!-- moving load: rope + hook + suitcase -->
+    <rect x="34" y="48" width="26" height="14" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <line x1="236" y1="40" x2="236" y2="14" stroke="#fff" stroke-width="1.5"/>
+    <path class="flag" d="M236 14 l18 6 l-18 6 z" fill="#fff"/>
+    <rect x="182" y="40" width="16" height="6" fill="rgba(255,255,255,.58)"/>
     <g class="load">
-      <line class="rope" x1="190" y1="46" x2="190" y2="64"/>
-      <path d="M186 64 h8 M190 64 v4 a4 4 0 1 1 -4 4" fill="none" stroke="#0E1D2B" stroke-width="2"/>
-      <line class="rope" x1="190" y1="72" x2="176" y2="82"/>
-      <line class="rope" x1="190" y1="72" x2="204" y2="82"/>
-      <rect x="183" y="78" width="14" height="6" rx="2" fill="none" stroke="#43301F" stroke-width="2"/>
-      <rect x="168" y="82" width="44" height="30" rx="5" fill="#0B5F70"/>
-      <rect x="168" y="94" width="44" height="4" fill="#094F5D"/>
-      <circle cx="176" cy="113" r="2.5" fill="#0E1D2B"/><circle cx="204" cy="113" r="2.5" fill="#0E1D2B"/>
+      <line x1="190" y1="46" x2="190" y2="64" stroke="rgba(255,255,255,.58)" stroke-width="1"/>
+      <path d="M186 64 h8 M190 64 v4 a4 4 0 1 1 -4 4" fill="none" stroke="#fff" stroke-width="1.5"/>
+      <line x1="190" y1="72" x2="176" y2="82" stroke="rgba(255,255,255,.58)" stroke-width="1"/>
+      <line x1="190" y1="72" x2="204" y2="82" stroke="rgba(255,255,255,.58)" stroke-width="1"/>
+      <rect x="183" y="78" width="14" height="6" fill="none" stroke="#fff" stroke-width="1.5"/>
+      <rect x="168" y="82" width="44" height="30" fill="#fff"/>
+      <rect x="168" y="94" width="44" height="3" fill="#000"/>
+      <circle cx="176" cy="113" r="2.5" fill="#fff"/><circle cx="204" cy="113" r="2.5" fill="#fff"/>
     </g>
-    <!-- stack of blocks (the new site) -->
-    <rect x="148" y="150" width="84" height="28" rx="3" fill="#F1ECE2" stroke="#43301F" stroke-width="1.5"/>
-    <rect x="248" y="150" width="60" height="28" rx="3" fill="#DCEEF0" stroke="#0B5F70" stroke-width="1.5"/>
-    <rect x="258" y="122" width="40" height="28" rx="3" fill="#F1ECE2" stroke="#43301F" stroke-width="1.5"/>
-    <!-- cone -->
-    <path d="M110 178 l9 -26 l9 26 z" fill="#0B5F70"/>
-    <rect x="106" y="175" width="26" height="4" rx="1" fill="#0E1D2B"/>
-    <path d="M114 166 h10" stroke="#fff" stroke-width="3"/>
+    <rect x="148" y="150" width="84" height="28" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.58)" stroke-width="1"/>
+    <rect x="248" y="150" width="60" height="28" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.58)" stroke-width="1"/>
+    <rect x="258" y="122" width="40" height="28" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+    <path d="M110 178 l9 -26 l9 26 z" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <path d="M113.5 166 h11" stroke="#fff" stroke-width="1.5"/>
   </svg>
 
-  <h1>Excuse our dust.</h1>
-  <p class="lead">We are building a new home for Eliava Travel Ops. The site is down for a short while. The work is not. We are still helping travel advisors every day.</p>
-  <a class="btn" href="mailto:hello@eliavatravel.com">Email hello@eliavatravel.com</a>
+  <h1>Excuse our <b>dust.</b></h1>
+  <p class="lede">We are building a new home for Eliava Travel Ops.</p>
+  <p class="prose">The site is down for a short while. The work is not. We are still helping travel advisors every day.</p>
+
+  <a class="btn" href="mailto:hello@eliavatravel.com">Email hello@eliavatravel.com
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+  </a>
 
   <footer>
     Current client? <a href="https://billing.stripe.com/p/login/eVq3cw1K91OXcVY1no1gs00">Client billing portal</a>
