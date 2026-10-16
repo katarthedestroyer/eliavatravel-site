@@ -1,0 +1,111 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Weekly back-office help",
+      "description": "Weekly help with every step of your trips, from new inquiries to welcome-home emails, inside your own tools. Month 1 has no commitment.",
+      "serviceType": "Travel advisor back-office operations",
+      "provider": {
+        "@id": "https://eliavatravel.com/#organization"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Travel advisors and travel agencies"
+      },
+      "@id": "https://eliavatravel.com/services/weekly-help/#service",
+      "url": "https://eliavatravel.com/services/weekly-help/",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Quarter plan",
+          "priceCurrency": "USD",
+          "price": 990,
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": 990,
+            "priceCurrency": "USD",
+            "referenceQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitCode": "MON"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Month to month",
+          "priceCurrency": "USD",
+          "price": 1100,
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": 1100,
+            "priceCurrency": "USD",
+            "referenceQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitCode": "MON"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://eliavatravel.com/services/weekly-help/#faq",
+      "url": "https://eliavatravel.com/services/weekly-help/",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What if I want to stop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Month 1 has no commitment. You choose what's next around day 25. Month-to-month plans can stop at the end of any month."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the quarter plan work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pick it by day 25 and the extra $110 you paid comes off month 2. Month 1 counts as the first month of your quarter."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I have a slow month?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On the quarter plan, we do more when it's busy and less when it's slow. Your bill stays the same each month."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My commissions come in months later. How does billing work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You pay the same amount each month, never one big bill up front. The cost stays steady while your commissions catch up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I have a team. Is there a bigger plan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Embedded is for a busier business or an advisor with a team. You get everything here, plus a weekly video recap and one new build each quarter. It's $1,980 a month on the quarter plan, or $2,200 month to month. We take one Embedded client at a time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will you talk to my clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only in your name, and only after your OK."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Set up your Tern, TravelJoy or Travefy",
+      "description": "Client emails in your voice, payment dates, deadlines and checklists for one kind of trip, set up in your Tern, TravelJoy or Travefy. You OK each email. About 3 weeks to live.",
+      "serviceType": "Travel advisor back-office operations",
+      "provider": {
+        "@id": "https://eliavatravel.com/#organization"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Travel advisors and travel agencies"
+      },
+      "@id": "https://eliavatravel.com/services/setup/#service",
+      "url": "https://eliavatravel.com/services/setup/",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 1175,
+          "priceCurrency": "USD"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://eliavatravel.com/services/setup/#faq",
+      "url": "https://eliavatravel.com/services/setup/",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "I bought the automation plan. Does it count?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Book your setup within 30 days and the $295 comes off."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I'm moving to Tern, or my team needs training.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That's CRM setup and training. We move your trips and clients, and set up your templates for how you work. Then you get live training and short videos. It's priced after your free call."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I don't like an email?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nothing goes live until you OK it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the software included?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your Tern, TravelJoy or Travefy plan stays yours. We don't add fees on top of it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will you talk to my clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Anything that goes to a client goes out in your name, after your OK."
+          }
+        }
+      ]
+    }
+  ]
+}

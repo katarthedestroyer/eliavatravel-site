@@ -1,0 +1,368 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://eliavatravel.com/#organization",
+      "hasOfferCatalog": {
+        "@id": "https://eliavatravel.com/services/#catalog"
+      }
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://eliavatravel.com/services/#catalog",
+      "name": "Eliava Travel Ops services and prices",
+      "url": "https://eliavatravel.com/services/",
+      "itemListElement": [
+        {
+          "@type": "Service",
+          "name": "Automation plan",
+          "description": "A full map of one kind of trip: what to automate in your Tern, TravelJoy or Travefy, what to keep by hand, and when each email goes out. With video walkthroughs. Delivered in 2 weeks.",
+          "serviceType": "Travel advisor back-office operations",
+          "provider": {
+            "@id": "https://eliavatravel.com/#organization"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Travel advisors and travel agencies"
+          },
+          "@id": "https://eliavatravel.com/services/automation-plan/#service",
+          "url": "https://eliavatravel.com/services/automation-plan/",
+          "offers": {
+            "@type": "Offer",
+            "price": 295,
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "Set up your Tern, TravelJoy or Travefy",
+          "description": "Client emails in your voice, payment dates, deadlines and checklists for one kind of trip, set up in your Tern, TravelJoy or Travefy. You OK each email. About 3 weeks to live.",
+          "serviceType": "Travel advisor back-office operations",
+          "provider": {
+            "@id": "https://eliavatravel.com/#organization"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Travel advisors and travel agencies"
+          },
+          "@id": "https://eliavatravel.com/services/setup/#service",
+          "url": "https://eliavatravel.com/services/setup/",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 1175,
+              "priceCurrency": "USD"
+            }
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "Backlog catch-up",
+          "description": "A fixed list of overdue work in your Tern, TravelJoy or Travefy, agreed before we start, then done in two weeks.",
+          "serviceType": "Travel advisor back-office operations",
+          "provider": {
+            "@id": "https://eliavatravel.com/#organization"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Travel advisors and travel agencies"
+          },
+          "@id": "https://eliavatravel.com/services/backlog-catch-up/#service",
+          "url": "https://eliavatravel.com/services/backlog-catch-up/",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 495,
+              "priceCurrency": "USD"
+            }
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "Weekly back-office help",
+          "description": "Weekly help with every step of your trips, from new inquiries to welcome-home emails, inside your own tools. Month 1 has no commitment.",
+          "serviceType": "Travel advisor back-office operations",
+          "provider": {
+            "@id": "https://eliavatravel.com/#organization"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Travel advisors and travel agencies"
+          },
+          "@id": "https://eliavatravel.com/services/weekly-help/#service",
+          "url": "https://eliavatravel.com/services/weekly-help/",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Quarter plan",
+              "priceCurrency": "USD",
+              "price": 990,
+              "availability": "https://schema.org/InStock",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": 990,
+                "priceCurrency": "USD",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "MON"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Month to month",
+              "priceCurrency": "USD",
+              "price": 1100,
+              "availability": "https://schema.org/InStock",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": 1100,
+                "priceCurrency": "USD",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "MON"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Service",
+          "name": "Assistant hand-off kit",
+          "description": "Written steps for one kind of trip, your templates and supplier notes in one place, and two live training sessions for your new hire. 2 weeks to hand-off.",
+          "serviceType": "Travel advisor back-office operations",
+          "provider": {
+            "@id": "https://eliavatravel.com/#organization"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Travel advisors and travel agencies"
+          },
+          "@id": "https://eliavatravel.com/services/hand-off-kit/#service",
+          "url": "https://eliavatravel.com/services/hand-off-kit/",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 495,
+              "priceCurrency": "USD"
+            }
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "CRM setup and training",
+          "description": "Your trips and clients moved to Tern or another tool, set up for how you work, then live training. Priced after your free call.",
+          "serviceType": "Travel advisor back-office operations",
+          "provider": {
+            "@id": "https://eliavatravel.com/#organization"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Travel advisors and travel agencies"
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "Your private library",
+          "description": "Templates, supplier contacts, trip steps and hotel notes in one private place, built wherever you want it.",
+          "serviceType": "Travel advisor back-office operations",
+          "provider": {
+            "@id": "https://eliavatravel.com/#organization"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Travel advisors and travel agencies"
+          },
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 1495,
+              "priceCurrency": "USD"
+            }
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "Untangle one thing, together",
+          "description": "Bring one thing that's stuck. We fix it live on Zoom, inside your own account.",
+          "serviceType": "Travel advisor back-office operations",
+          "provider": {
+            "@id": "https://eliavatravel.com/#organization"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Travel advisors and travel agencies"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": 95,
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "Embedded weekly help",
+          "description": "For a busier business or a team. Adds a weekly video recap and one new build each quarter.",
+          "serviceType": "Travel advisor back-office operations",
+          "provider": {
+            "@id": "https://eliavatravel.com/#organization"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Travel advisors and travel agencies"
+          },
+          "url": "https://eliavatravel.com/services/weekly-help/",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Quarter plan",
+              "priceCurrency": "USD",
+              "price": 1980,
+              "availability": "https://schema.org/InStock",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": 1980,
+                "priceCurrency": "USD",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "MON"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Month to month",
+              "priceCurrency": "USD",
+              "price": 2200,
+              "availability": "https://schema.org/InStock",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": 2200,
+                "priceCurrency": "USD",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "MON"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Service",
+          "name": "AI setup and training",
+          "description": "We set up Claude with your voice, your steps and your templates. Then we teach you and your assistant. Priced after your free call.",
+          "serviceType": "Travel advisor back-office operations",
+          "provider": {
+            "@id": "https://eliavatravel.com/#organization"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Travel advisors and travel agencies"
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "Team training",
+          "description": "For 4 or more people, planned around your trips and tools. Priced after your free call.",
+          "serviceType": "Travel advisor back-office operations",
+          "provider": {
+            "@id": "https://eliavatravel.com/#organization"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Travel advisors and travel agencies"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://eliavatravel.com/services/#faq",
+      "url": "https://eliavatravel.com/services/",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which package should I start with?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Take the 1-minute check. Or pick Not sure yet on the form, and our experts will help you choose on your free call."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work in my tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tern, TravelJoy, Travefy, Trello, or even a spreadsheet. If you have no system yet, we'll help you pick one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you get into my tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You add us as a user in your tool, and you can remove us anytime. Your host login is never needed. Passwords go through a password manager, never email."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who talks to my clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You do. Eliava never contacts your clients on its own, markets to them or books them. Anything that goes to a client goes out in your name, after your OK."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens on the free call?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We talk through what's piling up and what you need. It's free and takes 25 minutes on Zoom. After that, your plan and price come in writing, and updates come by email."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel weekly help?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Month-to-month plans can stop at the end of any month. On the quarter plan, you agree to those first 3 months. Month 1 is $1,100 with no commitment, and if you pick the quarter plan by day 25, $110 comes off month 2. On Embedded, that's $220."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are you US-based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Eliava is based in Georgia and works US business hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My business is complex. Can you still help?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We plan it together on your free call, and you get a written quote first."
+          }
+        }
+      ]
+    }
+  ]
+}

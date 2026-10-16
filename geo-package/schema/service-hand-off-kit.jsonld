@@ -1,0 +1,77 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Assistant hand-off kit",
+      "description": "Written steps for one kind of trip, your templates and supplier notes in one place, and two live training sessions for your new hire. 2 weeks to hand-off.",
+      "serviceType": "Travel advisor back-office operations",
+      "provider": {
+        "@id": "https://eliavatravel.com/#organization"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Travel advisors and travel agencies"
+      },
+      "@id": "https://eliavatravel.com/services/hand-off-kit/#service",
+      "url": "https://eliavatravel.com/services/hand-off-kit/",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 495,
+          "priceCurrency": "USD"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://eliavatravel.com/services/hand-off-kit/#faq",
+      "url": "https://eliavatravel.com/services/hand-off-kit/",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What if I haven't hired anyone yet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That's fine. The steps are ready now, and we book training once you hire."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I already have an assistant, maybe overseas.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The kit works the same way. We write the steps, then train them live on your trips."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work for my software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tern, TravelJoy, Travefy, or even a spreadsheet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "More than one kind of trip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with one. More are priced after your free call."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will you talk to my clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. This is for you and the person you hire."
+          }
+        }
+      ]
+    }
+  ]
+}

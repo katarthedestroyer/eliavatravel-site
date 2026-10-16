@@ -1,0 +1,33 @@
+# Eliava Travel Ops
+
+> Eliava Travel Ops (Eliava Consulting, LLC) does behind-the-scenes back-office work for travel advisors and travel agencies: client emails, payment reminders, documents and deadlines, done on time inside the advisor's own Tern, TravelJoy or Travefy. Eliava does not sell travel. It is based in Georgia, US, and works US business hours.
+
+Key facts:
+
+- Legal name: Eliava Consulting, LLC, a Georgia limited liability company doing business as Eliava Travel Ops.
+- Who it serves: established travel advisors, solo or small agencies, including advisors getting ready to hire, moving to Tern, or heading into wave season.
+- Tools: Tern, TravelJoy and Travefy, plus Trello, Asana, ClickUp, Flodesk, Gmail, Outlook, Google Drive or a spreadsheet.
+- Credentials: Travefy Advanced Certified; Tern Workflows & Automations Certified. 15+ years in operations and 4+ years inside luxury agencies.
+- How it works: a free 25-minute Zoom call, then the plan and price in writing before any payment. No hourly billing.
+- Client safety: nothing reaches a client without the advisor's OK; Eliava never contacts, markets to or books the advisor's clients; the host login is never needed; Eliava signs the advisor's NDA and carries E&O insurance.
+- Contact: hello@eliavatravel.com
+
+## Services and prices
+
+- [Services and prices](https://eliavatravel.com/services/): every package, with prices and common questions.
+- [Automation plan, $295](https://eliavatravel.com/services/automation-plan/): one kind of trip mapped in full, what to automate and what to keep by hand, with video walkthroughs, in 2 weeks.
+- [Set up your Tern, TravelJoy or Travefy, from $1,175](https://eliavatravel.com/services/setup/): client emails in the advisor's voice, every payment date and deadline, and checklists for one kind of trip, live in about 3 weeks.
+- [Backlog catch-up, from $495](https://eliavatravel.com/services/backlog-catch-up/): a fixed list of overdue work, agreed up front, done in two weeks.
+- [Weekly back-office help, $990 a month](https://eliavatravel.com/services/weekly-help/): weekly help from new inquiries to welcome-home emails; $990 a month on the quarter plan or $1,100 month to month; month 1 has no commitment. Embedded (for a team) is $1,980 a month on the quarter plan or $2,200 month to month.
+- [Assistant hand-off kit, from $495](https://eliavatravel.com/services/hand-off-kit/): written steps, templates and supplier notes for one kind of trip, then two live training sessions for the new hire.
+
+## Working with Eliava
+
+- [Get started](https://eliavatravel.com/get-started/): the short application and booking for the free 25-minute call.
+- [How we work together](https://eliavatravel.com/working-agreement/): approvals, access, timing, new work, money, and what the advisor keeps.
+
+## Optional
+
+- [Terms of Service](https://eliavatravel.com/terms/)
+- [Privacy Policy](https://eliavatravel.com/privacy/)
+- [Full detail for AI systems](https://eliavatravel.com/llms-full.txt)

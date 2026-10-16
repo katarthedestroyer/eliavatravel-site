@@ -1,0 +1,69 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Backlog catch-up",
+      "description": "A fixed list of overdue work in your Tern, TravelJoy or Travefy, agreed before we start, then done in two weeks.",
+      "serviceType": "Travel advisor back-office operations",
+      "provider": {
+        "@id": "https://eliavatravel.com/#organization"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Travel advisors and travel agencies"
+      },
+      "@id": "https://eliavatravel.com/services/backlog-catch-up/#service",
+      "url": "https://eliavatravel.com/services/backlog-catch-up/",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 495,
+          "priceCurrency": "USD"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://eliavatravel.com/services/backlog-catch-up/#faq",
+      "url": "https://eliavatravel.com/services/backlog-catch-up/",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What counts as a task?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One thing with a clear finish, like sending final payment reminders for one trip."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my pile is bigger than the list?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We do the most urgent ones first. You can add a second round after."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you need my host login?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. We work in your own software and email, never your host's portal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will you talk to my clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Anything that goes to a client goes out in your name, after your OK."
+          }
+        }
+      ]
+    }
+  ]
+}
