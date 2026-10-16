@@ -33,38 +33,48 @@
     <div class="hero">
       <div class="hero-grid">
         <div class="hero-copy">
-          <p class="kicker">Free / A skill for Claude</p>
-          <h1>The operating <b>map.</b></h1>
-          <p class="lede">See where your business still runs through you.</p>
-          <p class="prose">A free Claude skill for travel advisors. Claude walks you through how your agency really runs. Then it builds a written map of what stays with you, what moves to your team, what your tools and AI should own, and what gets checked.</p>
+          <p class="kicker">For when the work moves but the checking stays with you</p>
+          <h1 class="long">Yours free: the Claude skill that shows where your agency <b>still runs through you.</b></h1>
+          <p class="prose">Get the Operating Map, my free skill for Claude. It walks you through how your agency really runs. Then it writes down what stays with you, what moves to your VA, and what your tools and AI should own.</p>
+          <p class="works">Works in the Claude app and Claude Code.</p>
         </div>
-        <ul class="ticks">
-          <li>Works in the Claude app and Claude Code</li>
-          <li>A snapshot in about 20 minutes, the full map in about two hours</li>
-          <li>Fits Tern, TravelJoy, Travefy, or a spreadsheet</li>
-          <li>Your answers stay in your own Claude account</li>
-        </ul>
 
-        <form class="signup" id="get" novalidate aria-labelledby="get-h">
-          <p class="kicker">Free download</p>
-          <h2 id="get-h">Get the skill</h2>
-          <p>Tell me where to send it. The download opens right away.</p>
+        <form class="signup" id="get" novalidate aria-label="Get the free skill">
           <div class="field">
-            <label for="f-name">First name <i>(optional)</i></label>
-            <input id="f-name" name="name" type="text" autocomplete="given-name">
-          </div>
-          <div class="field">
-            <label for="f-email">Email</label>
-            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-err">
+            <label for="f-email">Email <span aria-hidden="true">*</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@youragency.com" required aria-describedby="f-err">
           </div>
           <div class="trap" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-          <button class="btn solid" type="submit">Send me the skill
+          <button class="btn solid" type="submit">Send me the free skill
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
           </button>
           <p class="form-err" id="f-err" role="alert" hidden>Please enter a valid email address.</p>
-          <p class="fine">I will email you the link, plus an occasional note on running a travel back office. Unsubscribe anytime. <a href="/privacy/">Privacy</a></p>
+          <p class="fine">No spam. Unsubscribe anytime. I will also send an occasional note on running a travel back office. <a href="/privacy/">Privacy</a></p>
           <p class="back-again" id="f-back" hidden>Signed up before? <a href="/free-tools/get/">Go to your download</a></p>
+          <dl class="meta">
+            <div><dt>Format</dt><dd>Claude skill</dd></div>
+            <div><dt>Time</dt><dd>20-minute snapshot</dd></div>
+            <div><dt>Price</dt><dd>$0</dd></div>
+            <div><dt>Delivery</dt><dd>Instant download</dd></div>
+          </dl>
         </form>
+
+        <figure class="hero-visual">
+          <div class="frame">
+            <p class="frame-bar">From a sample operating map</p>
+            <div class="frame-body">
+              <p class="kicker">05 / Who owns what</p>
+              <ul class="mini">
+                <li><span>Check confirmations against the proposal</span><span class="tag">Team</span></li>
+                <li><span>Client payment reminders</span><span class="tag">Tools + AI</span></li>
+                <li><span>Supplier follow-ups</span><span class="tag">Team</span></li>
+                <li><span>First drafts of routine client emails</span><span class="tag">Tools + AI</span></li>
+                <li><span>Recommendations and client problems</span><span class="tag">Advisor</span></li>
+              </ul>
+            </div>
+          </div>
+          <figcaption>Your trips. Your rules. Written down.</figcaption>
+        </figure>
       </div>
     </div>
 
@@ -91,7 +101,7 @@
       <p class="kicker">03 / How it works</p>
       <h2 id="how">Answer questions. <b>Claude builds the map.</b></h2>
       <ol class="flow">
-        <li><h3>Get the skill</h3><p>Enter your email above. The download page opens right away.</p></li>
+        <li><h3>Get the skill</h3><p>Enter your email at the top. The download page opens right away.</p></li>
         <li><h3>Add it to Claude</h3><p>Upload one file in Claude's settings. It takes a few minutes, and the steps are on the download page.</p></li>
         <li><h3>Say "Start my operating map."</h3><p>Claude asks short questions, drafts each part, and you correct it. You never start from a blank page.</p></li>
       </ol>
@@ -124,29 +134,8 @@
       </div>
     </section>
 
-    <section aria-labelledby="inside">
-      <p class="kicker">04 / A look inside</p>
-      <h2 id="inside">What a section <b>looks like.</b></h2>
-      <p class="prose">Every step adds a section like this one to your map, in your words. This one is an example.</p>
-      <div class="sample">
-        <div class="sample-head"><p class="kicker">05 / Who owns what</p><p class="kicker">Example</p></div>
-        <div class="sample-scroll">
-          <table>
-            <thead><tr><th scope="col">Task</th><th scope="col">Owner today</th><th scope="col">Right owner</th><th scope="col">What has to be true first</th></tr></thead>
-            <tbody>
-              <tr><td data-label="Task">Check confirmations against the proposal</td><td data-label="Owner today">Advisor, after the VA</td><td data-label="Right owner"><span class="tag">Team</span></td><td data-label="What has to be true first">"Matches" is written down: names, dates, room, inclusions, price</td></tr>
-              <tr><td data-label="Task">Client payment reminders</td><td data-label="Owner today">Advisor, from memory</td><td data-label="Right owner"><span class="tag">Tools + AI</span></td><td data-label="What has to be true first">Due dates from supplier terms entered in the CRM</td></tr>
-              <tr><td data-label="Task">Supplier follow-ups</td><td data-label="Owner today">Advisor</td><td data-label="Right owner"><span class="tag">Team</span></td><td data-label="What has to be true first">A rule for when to follow up and when to bring it to me</td></tr>
-              <tr><td data-label="Task">First drafts of routine client emails</td><td data-label="Owner today">Advisor</td><td data-label="Right owner"><span class="tag">Tools + AI</span></td><td data-label="What has to be true first">Approved wording, and a check before anything sends</td></tr>
-              <tr><td data-label="Task">Recommendations and client problems</td><td data-label="Owner today">Advisor</td><td data-label="Right owner"><span class="tag">Advisor</span></td><td data-label="What has to be true first">Nothing. This is the work worth protecting</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
     <section aria-labelledby="fit-h">
-      <p class="kicker">05 / Who it is for</p>
+      <p class="kicker">04 / Who it is for</p>
       <h2 id="fit-h">Built for <b>travel advisors.</b></h2>
       <div class="fit">
         <div>
@@ -169,7 +158,7 @@
     </section>
 
     <section aria-labelledby="faq-h">
-      <p class="kicker">06 / Questions</p>
+      <p class="kicker">05 / Questions</p>
       <h2 id="faq-h">Before you <b>start.</b></h2>
       <div class="faq">
         <details><summary>Is it really free?</summary><p>Yes. The skill is free. You need a Claude account to use it.</p></details>
@@ -213,7 +202,7 @@
   var KEY = 'eliava-operating-map';
 
   var form = document.getElementById('get');
-  var email = document.getElementById('f-email'), name = document.getElementById('f-name');
+  var email = document.getElementById('f-email');
   var trap = document.getElementById('f-web'), err = document.getElementById('f-err');
   var btn = form.querySelector('button[type="submit"]');
 
@@ -238,13 +227,12 @@
     var kit = false;
     if (!trap.value) {
       if (typeof eliavaSend === 'function') {
-        eliavaSend([['type', 'free-tool'], ['door', 'Operating Map skill'], ['name', name.value.trim()],
-          ['email', addr], ['source', source()], ['page', location.pathname]]);
+        eliavaSend([['type', 'free-tool'], ['door', 'Operating Map skill'], ['email', addr],
+          ['source', source()], ['page', location.pathname]]);
       }
       if (KIT_FORM_ID) {
         var body = new FormData();
         body.append('email_address', addr);
-        if (name.value.trim()) body.append('fields[first_name]', name.value.trim());
         try { fetch('https://app.kit.com/forms/' + KIT_FORM_ID + '/subscriptions', { method: 'POST', mode: 'no-cors', keepalive: true, body: body }).catch(function () {}); kit = true; } catch (e2) {}
       }
     }
