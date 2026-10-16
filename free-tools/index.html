@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Operating Map | Free Claude skill for travel advisors | Eliava Travel Ops</title>
+<meta name="description" content="A free Claude skill for travel advisors. Map how your agency really runs and where each piece of work belongs: with you, your team, your tools and AI, or a check.">
+<link rel="canonical" href="https://eliavatravel.com/free-tools/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eliavatravel.com/free-tools/">
+<meta property="og:title" content="The Operating Map: a free Claude skill for travel advisors">
+<meta property="og:description" content="Map how your agency really runs and where each piece of work belongs: with you, your team, your tools and AI, or a check.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/png" href="/assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..700&display=swap" rel="stylesheet">
+<style>
+  /* Same new-build tokens as the home placeholder (/index.html) */
+  :root {
+    --bg: #000; --ink: #fff;
+    --prose: rgba(255,255,255,.72); --secondary: rgba(255,255,255,.58);
+    --outline: rgba(255,255,255,.28); --rule: rgba(255,255,255,.2); --line: rgba(255,255,255,.1);
+    --panel: rgba(255,255,255,.03);
+    --tint-deep: #050508; --tint-mid: #141F26;
+    --sans: Inter, system-ui, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --ease-glide: cubic-bezier(.19,1,.22,1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); overflow-x: hidden;
+    font: 400 15px/1.625 var(--sans); -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: #fff; color: #080808; }
+  :focus-visible { outline: 1px solid #fff; outline-offset: 5px; }
+  a { color: inherit; }
+
+  .tint, .grain { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .tint::before {
+    content: ""; position: absolute; inset: -30%;
+    background:
+      radial-gradient(40% 35% at 30% 30%, rgba(102,128,153,.35), transparent 70%),
+      radial-gradient(45% 40% at 70% 40%, rgba(51,77,102,.45), transparent 70%),
+      radial-gradient(60% 50% at 50% 20%, var(--tint-mid), transparent 75%),
+      var(--tint-deep);
+    filter: blur(40px);
+    animation: drift 28s ease-in-out infinite alternate;
+  }
+  .tint::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 20%, #000 70%); }
+  @keyframes drift {
+    0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+    50%  { transform: translate(4%, 3%) rotate(8deg) scale(1.08); }
+    100% { transform: translate(-3%, 5%) rotate(-6deg) scale(1.04); }
+  }
+  .grain {
+    opacity: .12; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap { position: relative; z-index: 1; width: 100%; max-width: 820px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 768px) { .wrap { padding: 0 32px; } }
+
+  /* wordmark, as on the home placeholder */
+  .top { padding: 32px 0 0; }
+  .lockup { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 6px; color: var(--ink); text-decoration: none; }
+  .word { font: 600 15px/12px var(--sans); letter-spacing: .3em; text-transform: uppercase; }
+  .sub { position: relative; font: 400 11px/1 var(--mono); letter-spacing: .3em; text-transform: uppercase; color: var(--secondary); }
+  .sub::after {
+    content: attr(data-text); position: absolute; inset: 0; color: #fff;
+    clip-path: inset(0 100% 0 0); transition: clip-path .45s cubic-bezier(.65,0,.35,1);
+  }
+  .lockup:hover .sub::after { clip-path: inset(0 0 0 0); transition: clip-path 1s cubic-bezier(.65,0,.35,1) .2s; }
+
+  .kicker { font: 400 11px/1.4 var(--mono); letter-spacing: .3em; text-transform: uppercase; color: var(--prose); }
+
+  /* hero */
+  .hero { padding: 72px 0 64px; }
+  h1 {
+    margin-top: 22px; font: 100 clamp(3rem, 12vw, 6.75rem)/.85 var(--sans);
+    letter-spacing: -0.05em; text-transform: uppercase;
+  }
+  h1 b, h2 b { font-weight: 700; display: block; }
+  .lede { margin-top: 28px; max-width: 46ch; font: 400 12px/1.625 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--secondary); }
+  .hero .prose { margin-top: 16px; max-width: 56ch; font-size: 17px; color: var(--prose); }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 32px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 28px; font: 400 11px/1.6 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--secondary); }
+  .facts span::before { content: "/ "; color: var(--outline); }
+  @media (min-width: 768px) { .lede { font-size: 13px; } .hero { padding: 104px 0 88px; } }
+
+  /* buttons: square, white fills in from the left on hover */
+  .btn {
+    position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px;
+    padding: 16px 28px; border: 1px solid var(--rule); color: #fff; text-decoration: none; overflow: hidden; isolation: isolate;
+    font: 700 11px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; cursor: pointer; background: none;
+    transition: border-color .8s var(--ease-glide), color .8s var(--ease-glide);
+  }
+  .btn::before { content: ""; position: absolute; inset: 0; background: #fff; transform: scaleX(0); transform-origin: left; transition: transform .8s var(--ease-glide); z-index: -1; }
+  .btn:hover { border-color: rgba(255,255,255,.6); color: #080808; }
+  .btn:hover::before { transform: scaleX(1); }
+  .btn:active { transform: scale(.97); }
+  .btn svg { width: 14px; height: 14px; flex: none; }
+  .btn.solid { background: #fff; border-color: #fff; color: #080808; }
+  .btn.solid::before { background: #080808; }
+  .btn.solid:hover { color: #fff; }
+  .textlink { font: 400 11px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--prose); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 4px; }
+  .textlink:hover { color: #fff; border-color: #fff; }
+
+  /* sections */
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { margin-top: 18px; font: 200 clamp(1.9rem, 6vw, 3rem)/1 var(--sans); letter-spacing: -0.03em; text-transform: uppercase; }
+  section > .prose, .block > .prose { margin-top: 18px; max-width: 60ch; color: var(--prose); }
+  .prose + .prose { margin-top: 12px; }
+  .prose b { color: #fff; font-weight: 600; }
+  @media (min-width: 768px) { section { padding: 80px 0; } }
+
+  /* what you keep: four handoff pages */
+  .pages { display: grid; gap: 1px; margin-top: 32px; background: var(--line); border: 1px solid var(--line); }
+  @media (min-width: 640px) { .pages { grid-template-columns: 1fr 1fr; } }
+  .page { background: #000; padding: 24px 22px 26px; }
+  .page .kicker { color: var(--secondary); }
+  .page h3 { margin-top: 14px; font: 600 15px/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; }
+  .page p { margin-top: 8px; color: var(--prose); }
+  .note { margin-top: 18px; font: 400 11px/1.7 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--secondary); }
+
+  /* ways to use it */
+  .ways { display: grid; gap: 16px; margin-top: 32px; }
+  @media (min-width: 720px) { .ways { grid-template-columns: repeat(3, 1fr); } }
+  .way { border: 1px solid var(--rule); padding: 22px 20px; background: var(--panel); }
+  .way h3 { font: 600 15px/1.2 var(--sans); }
+  .way .kicker { margin-top: 8px; color: var(--secondary); letter-spacing: .18em; }
+  .way p { margin-top: 12px; color: var(--prose); font-size: 14px; }
+
+  .steps { display: grid; gap: 28px; margin-top: 40px; }
+  @media (min-width: 720px) { .steps { grid-template-columns: 1fr 1fr; gap: 40px; } }
+  .steps h3 { font: 400 11px/1.4 var(--mono); letter-spacing: .24em; text-transform: uppercase; color: var(--secondary); padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .steps ol { list-style: none; counter-reset: s var(--start, 0); }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 2.4em 1fr; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--prose); }
+  .steps li::before { content: counter(s, decimal-leading-zero); font: 400 12px/1.9 var(--mono); color: var(--secondary); }
+  .steps li b { color: #fff; font-weight: 600; }
+
+  /* install */
+  .block { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .block:first-of-type { border-top: 0; padding-top: 0; }
+  .block h3 { font: 600 clamp(1.1rem, 3.4vw, 1.35rem)/1.25 var(--sans); }
+  .howto { margin-top: 18px; padding-left: 0; list-style: none; counter-reset: h; }
+  .howto li { counter-increment: h; position: relative; padding: 0 0 14px 40px; color: var(--prose); max-width: 62ch; }
+  .howto li::before { content: counter(h); position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border: 1px solid var(--rule); display: grid; place-items: center; font: 400 11px/1 var(--mono); color: #fff; }
+  .howto b { color: #fff; font-weight: 600; }
+  .tip { margin-top: 6px; padding: 14px 16px; border-left: 1px solid var(--outline); background: var(--panel); color: var(--prose); font-size: 14px; max-width: 62ch; }
+  .tip a, .faq a { color: #fff; text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .tip a:hover, .faq a:hover { border-color: #fff; }
+
+  .say { display: flex; align-items: stretch; margin-top: 10px; max-width: 100%; border: 1px solid var(--rule); background: var(--panel); }
+  .say code { flex: 1; min-width: 0; padding: 12px 14px; font: 400 13px/1.5 var(--mono); color: #fff; }
+  .say.cmd code { overflow-x: auto; white-space: pre; }
+  .copy { flex: none; padding: 0 14px; border: 0; border-left: 1px solid var(--rule); background: none; color: var(--prose); font: 700 10px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; cursor: pointer; }
+  .copy:hover { color: #000; background: #fff; }
+  .say + .actions { margin-top: 20px; }
+
+  /* questions */
+  .faq { margin-top: 28px; border-top: 1px solid var(--line); }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; font-weight: 600; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font: 300 20px/1 var(--sans); color: var(--secondary); transition: transform .4s var(--ease-glide); }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { padding: 0 0 20px; max-width: 62ch; color: var(--prose); }
+
+  /* close */
+  .close { padding: 80px 0 64px; }
+  .close h2 { font-size: clamp(1.9rem, 6.4vw, 3.4rem); }
+  .close .prose { margin-top: 20px; max-width: 54ch; color: var(--prose); }
+
+  footer { position: relative; z-index: 1; padding: 20px 0 40px; border-top: 1px solid var(--line); font: 400 11px/2 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--secondary); }
+  footer a { color: var(--prose); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer a:hover { color: #fff; border-color: #fff; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tint::before { animation: none; }
+    .btn, .btn::before, .sub::after, .faq summary::after { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="tint" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="wrap">
+  <header class="top">
+    <a class="lockup" href="/" aria-label="Eliava Travel Ops, home">
+      <span class="word">Eliava</span><span class="sub" data-text="Travel Ops">Travel Ops</span>
+    </a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <p class="kicker">Free / A skill for Claude</p>
+      <h1>The operating <b>map.</b></h1>
+      <p class="lede">See where your business still runs through you.</p>
+      <p class="prose">A free Claude skill for travel advisors. Claude walks you through how your agency really runs, one trip type at a time. You leave with a written map of what stays with you, what moves to your team, what your tools and AI should own, and what gets checked.</p>
+      <div class="actions">
+        <a class="btn solid" href="/free-tools/travel-operating-map.zip" download>Download the skill
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="m6 10 6 6 6-6"/><path d="M5 20h14"/></svg>
+        </a>
+        <a class="textlink" href="#install">How to install it</a>
+      </div>
+      <p class="facts"><span>Free</span><span>Claude app or Claude Code</span><span>Snapshot in about 20 minutes</span></p>
+    </div>
+
+    <section aria-labelledby="why">
+      <p class="kicker">01 / Why</p>
+      <h2 id="why">The work moves. <b>The checking stays.</b></h2>
+      <p class="prose">Most advisors are not short on tools or help. The VA finishes the task, and you check it. AI drafts the email, and you rewrite it. The CRM sends the reminder, and you make sure it went.</p>
+      <p class="prose">This skill helps you decide where each piece of work belongs, so less of it comes back to you. It maps your agency, not a generic one.</p>
+    </section>
+
+    <section aria-labelledby="keep">
+      <p class="kicker">02 / What you keep</p>
+      <h2 id="keep">One document. <b>Your operating map.</b></h2>
+      <div class="pages">
+        <div class="page"><p class="kicker">01 / Ownership</p><h3>Who owns what</h3><p>What stays with you, what moves to your team, and what your tools and AI should own.</p></div>
+        <div class="page"><p class="kicker">02 / Workflows</p><h3>Trigger to done</h3><p>Your trip from first inquiry to welcome home, with the dates and triggers that move it.</p></div>
+        <div class="page"><p class="kicker">03 / Checks</p><h3>What gets checked</h3><p>What "done" really means, what needs review, and where problems go.</p></div>
+        <div class="page"><p class="kicker">04 / Written down</p><h3>Out of your head</h3><p>The rules you carry in your memory, written so someone else can follow them.</p></div>
+      </div>
+      <p class="note">Plus three changes to make in the next 30 days.</p>
+    </section>
+
+    <section aria-labelledby="runs">
+      <p class="kicker">03 / How it runs</p>
+      <h2 id="runs">Answer questions. <b>Claude builds the map.</b></h2>
+      <p class="prose">Claude drafts each part from what you tell it, and you correct it. You do not start from a blank page.</p>
+      <div class="ways">
+        <div class="way"><h3>Quick snapshot</h3><p class="kicker">About 20 minutes</p><p>Five questions and a one-page view of what still reaches you and where it should go.</p></div>
+        <div class="way"><h3>Full map</h3><p class="kicker">Ten steps</p><p>One sitting of about two hours, or one step a day for two weeks. Save it and pick up where you left off.</p></div>
+        <div class="way"><h3>One piece</h3><p class="kicker">Any single step</p><p>Jump straight to what you need, like escalation rules for your VA.</p></div>
+      </div>
+      <div class="steps">
+        <div>
+          <h3>Part 1 / How the work moves now</h3>
+          <ol>
+            <li><span><b>Trip lifecycle.</b> Where a trip really begins and ends.</span></li>
+            <li><span><b>What you remember.</b> The rules that live in your head.</span></li>
+            <li><span><b>What done means.</b> Completed is not the same as correct.</span></li>
+            <li><span><b>Where you are needed.</b> Not everything needs your review.</span></li>
+            <li><span><b>Who owns what.</b> Today's owner and the right one.</span></li>
+          </ol>
+        </div>
+        <div>
+          <h3>Part 2 / Rules that let work leave your desk</h3>
+          <ol style="--start: 5">
+            <li><span><b>Timing rules.</b> Trigger, action, owner, deadline.</span></li>
+            <li><span><b>Escalation rules.</b> Instead of "ask me if you are unsure."</span></li>
+            <li><span><b>Tools and AI.</b> Use what you already pay for.</span></li>
+            <li><span><b>What gets checked.</b> Stop reviewing everything the same way.</span></li>
+            <li><span><b>Stop, fix, protect.</b> Three changes for the next 30 days.</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" aria-labelledby="install-h">
+      <p class="kicker">04 / Install</p>
+      <h2 id="install-h">Set it up once. <b>Use it anytime.</b></h2>
+
+      <div class="block">
+        <h3>In the Claude app, on the web or desktop</h3>
+        <ol class="howto">
+          <li><b>Download the skill.</b> Keep it as a .zip file. You do not need to open it.</li>
+          <li>In Claude, open <b>Settings</b> and check that <b>Code execution and file creation</b> is turned on. On a Team or Enterprise plan, your admin controls this.</li>
+          <li>Go to <b>Customize</b>, then <b>Skills</b>. Click <b>+</b>, choose <b>Create skill</b>, then <b>Upload a skill</b>, and pick the zip.</li>
+          <li>Turn the skill on.</li>
+          <li>Start a new chat and type:</li>
+        </ol>
+        <div class="say"><code>Start my operating map.</code><button class="copy" type="button" data-copy="Start my operating map.">Copy</button></div>
+        <div class="actions">
+          <a class="btn solid" href="/free-tools/travel-operating-map.zip" download>Download the skill
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="m6 10 6 6 6-6"/><path d="M5 20h14"/></svg>
+          </a>
+        </div>
+        <p class="tip" style="margin-top: 24px">On a Mac, did the download turn into a folder? Right-click the folder, choose <b>Compress</b>, and upload the new .zip. Menu names in Claude change from time to time. If yours look different, see <a href="https://support.claude.com/en/articles/12512180-using-skills-in-claude" rel="noopener">Claude's help page on skills</a>.</p>
+      </div>
+
+      <div class="block">
+        <h3>In Claude Code</h3>
+        <ol class="howto">
+          <li>Download the skill, then run this in the folder where you saved it:</li>
+        </ol>
+        <div class="say cmd"><code>mkdir -p ~/.claude/skills &amp;&amp; unzip travel-operating-map.zip -d ~/.claude/skills</code><button class="copy" type="button" data-copy="mkdir -p ~/.claude/skills &amp;&amp; unzip travel-operating-map.zip -d ~/.claude/skills">Copy</button></div>
+        <ol class="howto" style="counter-reset: h 1; margin-top: 18px">
+          <li>Type <b>/travel-operating-map</b>, or just say "Start my operating map."</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h3>No Skills option? Use the one-file guide.</h3>
+        <ol class="howto">
+          <li>Download the guide. It is the same skill in one file.</li>
+          <li>Start a new chat or Project in Claude and attach the file.</li>
+          <li>Type:</li>
+        </ol>
+        <div class="say"><code>Follow this guide and start my operating map.</code><button class="copy" type="button" data-copy="Follow this guide and start my operating map.">Copy</button></div>
+        <div class="actions">
+          <a class="btn" href="/free-tools/travel-operating-map-guide.md" download>Download the guide
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="m6 10 6 6 6-6"/><path d="M5 20h14"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-h">
+      <p class="kicker">05 / Questions</p>
+      <h2 id="faq-h">Before you <b>start.</b></h2>
+      <div class="faq">
+        <details><summary>Does it work with Tern, TravelJoy, or Travefy?</summary><p>Yes, and with any other setup, even a spreadsheet. It asks what your tools do today. It never logs into them.</p></details>
+        <details><summary>What happens to my answers?</summary><p>The skill runs inside your own Claude account. Nothing is sent to me. Leave out client names, passport numbers, and card details. Describe the work, not the people.</p></details>
+        <details><summary>Do I need to be technical?</summary><p>No. Setup takes a few minutes. After that, you answer questions and Claude does the writing.</p></details>
+        <details><summary>What if I stop halfway?</summary><p>Claude gives you the map so far as a document. Next time, attach it and say "pick up where I left off."</p></details>
+        <details><summary>Can I share it?</summary><p>Yes. Share it with anyone, with credit to Eliava Travel Ops. Please do not resell it.</p></details>
+      </div>
+    </section>
+
+    <section class="close" aria-labelledby="close-h">
+      <h2 id="close-h">Your clients need your judgment. <b>Your back office shouldn't need all of it.</b></h2>
+      <p class="prose">If the map shows more than you want to build and keep up yourself, tell me what's stuck. I read every message myself.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:hello@eliavatravel.com?subject=What%27s%20stuck">Tell me what's stuck
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Current client? <a href="https://billing.stripe.com/p/login/eVq3cw1K91OXcVY1no1gs00">Client billing portal</a>
+    <br><a href="/privacy/">Privacy</a> &nbsp;/&nbsp; <a href="/terms/">Terms</a>
+    <br>Eliava Consulting, LLC
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var text = b.getAttribute('data-copy');
+      var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1600); };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done, function () {});
+      } else {
+        var t = document.createElement('textarea'); t.value = text; t.setAttribute('readonly', '');
+        t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(t);
+      }
+    });
+  });
+</script>
+</body>
+</html>
