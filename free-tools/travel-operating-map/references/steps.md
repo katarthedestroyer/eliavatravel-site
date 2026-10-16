@@ -21,7 +21,7 @@ Tell them at the start of Part 1: "This part is about what really happens, not w
 - Here is a starting list of stages for that trip type. What is missing, wrong, or in the wrong order?
 - For each stage, who does it today, and in which tool?
 
-Aim for 8 to 15 stages. Include the quiet stages people forget, like checking confirmations against the proposal, or tracking commission after travel.
+Aim for about 8 to 16 stages. Include the quiet stages people forget, like checking confirmations against the proposal, or tracking commission after travel.
 
 **Add to the map:**
 
@@ -71,7 +71,7 @@ Count the "In my head" items and say the count back to them plainly. This is oft
 
 Example:
 
-| Hotel reconfirmation | Email sent | Hotel confirms room type, dates, bedding, and the special requests that matter for this trip | VA, advisor spot checks |
+| Hotel reconfirmation | Email sent | Hotel confirms room type and dates in writing. Requests like bedding or view are noted, with what is guaranteed kept separate from what is only requested | VA, advisor spot checks |
 
 **Reflect:** Which tasks get marked done before the real problem is solved?
 
@@ -162,12 +162,16 @@ Example:
 
 **Situations to cover** (use the ones that fit): price difference, room or category difference, supplier not replying, client complaint, payment problem, automation or tool error, unclear special request, schedule change, missing client details or documents.
 
-**Ask:** For each situation, finish these three sentences:
+**Draft first.** Pick the five or six situations that fit their business and draft every row from [travel-examples.md](travel-examples.md). Then ask them to correct it. Do not ask them to write every sentence from scratch.
+
+Each row finishes three sentences:
 - Handle it without me when...
 - Send it to operations when...
 - Bring it to me when...
 
-If they work alone, frame it as: what should a tool flag, what should future help handle, and what must always come to them.
+Match the columns to who they have:
+- **A VA but no separate operations person** (the advisor plays that role): rename the middle column "Add to my review list when." Those items wait for a set time of day instead of interrupting.
+- **Nobody yet:** use "A tool flags it when," "Future help handles it when," and "Always comes to me when."
 
 **Add to the map:**
 
