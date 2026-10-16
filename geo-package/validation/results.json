@@ -1,0 +1,704 @@
+[
+ {
+  "group": "schema/organization.jsonld",
+  "check": "JSON syntax",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/organization.jsonld",
+  "check": "JSON-LD parses to RDF (rdflib)",
+  "status": "PASS",
+  "detail": "45 triples"
+ },
+ {
+  "group": "schema/organization.jsonld",
+  "check": "@context is https://schema.org",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/organization.jsonld",
+  "check": "schema.org v29.3 types and properties valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/organization.jsonld",
+  "check": "Organization has name, url, logo",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-automation-plan.jsonld",
+  "check": "JSON syntax",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-automation-plan.jsonld",
+  "check": "JSON-LD parses to RDF (rdflib)",
+  "status": "PASS",
+  "detail": "40 triples"
+ },
+ {
+  "group": "schema/service-automation-plan.jsonld",
+  "check": "@context is https://schema.org",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-automation-plan.jsonld",
+  "check": "schema.org v29.3 types and properties valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-automation-plan.jsonld",
+  "check": "Service 'Automation plan' has name, provider, description",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-automation-plan.jsonld",
+  "check": "FAQPage required fields (Question.name, acceptedAnswer.text)",
+  "status": "PASS",
+  "detail": "4 questions"
+ },
+ {
+  "group": "schema/service-automation-plan.jsonld",
+  "check": "FAQ text matches visible page text on /services/automation-plan/",
+  "status": "PASS",
+  "detail": "all Q&A found verbatim"
+ },
+ {
+  "group": "schema/service-backlog-catch-up.jsonld",
+  "check": "JSON syntax",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-backlog-catch-up.jsonld",
+  "check": "JSON-LD parses to RDF (rdflib)",
+  "status": "PASS",
+  "detail": "43 triples"
+ },
+ {
+  "group": "schema/service-backlog-catch-up.jsonld",
+  "check": "@context is https://schema.org",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-backlog-catch-up.jsonld",
+  "check": "schema.org v29.3 types and properties valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-backlog-catch-up.jsonld",
+  "check": "Service 'Backlog catch-up' has name, provider, description",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-backlog-catch-up.jsonld",
+  "check": "FAQPage required fields (Question.name, acceptedAnswer.text)",
+  "status": "PASS",
+  "detail": "4 questions"
+ },
+ {
+  "group": "schema/service-backlog-catch-up.jsonld",
+  "check": "FAQ text matches visible page text on /services/backlog-catch-up/",
+  "status": "PASS",
+  "detail": "all Q&A found verbatim"
+ },
+ {
+  "group": "schema/service-hand-off-kit.jsonld",
+  "check": "JSON syntax",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-hand-off-kit.jsonld",
+  "check": "JSON-LD parses to RDF (rdflib)",
+  "status": "PASS",
+  "detail": "49 triples"
+ },
+ {
+  "group": "schema/service-hand-off-kit.jsonld",
+  "check": "@context is https://schema.org",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-hand-off-kit.jsonld",
+  "check": "schema.org v29.3 types and properties valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-hand-off-kit.jsonld",
+  "check": "Service 'Assistant hand-off kit' has name, provider, description",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-hand-off-kit.jsonld",
+  "check": "FAQPage required fields (Question.name, acceptedAnswer.text)",
+  "status": "PASS",
+  "detail": "5 questions"
+ },
+ {
+  "group": "schema/service-hand-off-kit.jsonld",
+  "check": "FAQ text matches visible page text on /services/hand-off-kit/",
+  "status": "PASS",
+  "detail": "all Q&A found verbatim"
+ },
+ {
+  "group": "schema/service-setup.jsonld",
+  "check": "JSON syntax",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-setup.jsonld",
+  "check": "JSON-LD parses to RDF (rdflib)",
+  "status": "PASS",
+  "detail": "49 triples"
+ },
+ {
+  "group": "schema/service-setup.jsonld",
+  "check": "@context is https://schema.org",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-setup.jsonld",
+  "check": "schema.org v29.3 types and properties valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-setup.jsonld",
+  "check": "Service 'Set up your Tern, TravelJoy or Travefy' has name, provider, description",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-setup.jsonld",
+  "check": "FAQPage required fields (Question.name, acceptedAnswer.text)",
+  "status": "PASS",
+  "detail": "5 questions"
+ },
+ {
+  "group": "schema/service-setup.jsonld",
+  "check": "FAQ text matches visible page text on /services/setup/",
+  "status": "PASS",
+  "detail": "all Q&A found verbatim"
+ },
+ {
+  "group": "schema/service-weekly-help.jsonld",
+  "check": "JSON syntax",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-weekly-help.jsonld",
+  "check": "JSON-LD parses to RDF (rdflib)",
+  "status": "PASS",
+  "detail": "75 triples"
+ },
+ {
+  "group": "schema/service-weekly-help.jsonld",
+  "check": "@context is https://schema.org",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-weekly-help.jsonld",
+  "check": "schema.org v29.3 types and properties valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-weekly-help.jsonld",
+  "check": "Service 'Weekly back-office help' has name, provider, description",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-weekly-help.jsonld",
+  "check": "FAQPage required fields (Question.name, acceptedAnswer.text)",
+  "status": "PASS",
+  "detail": "6 questions"
+ },
+ {
+  "group": "schema/service-weekly-help.jsonld",
+  "check": "FAQ text matches visible page text on /services/weekly-help/",
+  "status": "PASS",
+  "detail": "all Q&A found verbatim"
+ },
+ {
+  "group": "schema/services.jsonld",
+  "check": "JSON syntax",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/services.jsonld",
+  "check": "JSON-LD parses to RDF (rdflib)",
+  "status": "PASS",
+  "detail": "257 triples"
+ },
+ {
+  "group": "schema/services.jsonld",
+  "check": "@context is https://schema.org",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/services.jsonld",
+  "check": "schema.org v29.3 types and properties valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/services.jsonld",
+  "check": "FAQPage required fields (Question.name, acceptedAnswer.text)",
+  "status": "PASS",
+  "detail": "8 questions"
+ },
+ {
+  "group": "schema/services.jsonld",
+  "check": "FAQ text matches visible page text on /services/",
+  "status": "PASS",
+  "detail": "all Q&A found verbatim"
+ },
+ {
+  "group": "schema/*",
+  "check": "Every @id reference resolves to a node in the package",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-backlog-catch-up.jsonld",
+  "check": "Every eliavatravel.com URL is a confirmed indexable path",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-hand-off-kit.jsonld",
+  "check": "Every eliavatravel.com URL is a confirmed indexable path",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-setup.jsonld",
+  "check": "Every eliavatravel.com URL is a confirmed indexable path",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-weekly-help.jsonld",
+  "check": "Every eliavatravel.com URL is a confirmed indexable path",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/organization.jsonld",
+  "check": "Every eliavatravel.com URL is a confirmed indexable path",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/service-automation-plan.jsonld",
+  "check": "Every eliavatravel.com URL is a confirmed indexable path",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "schema/services.jsonld",
+  "check": "Every eliavatravel.com URL is a confirmed indexable path",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "discovery/sitemap.xml",
+  "check": "Every eliavatravel.com URL is a confirmed indexable path",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "discovery/llms.txt",
+  "check": "Every eliavatravel.com URL is a confirmed indexable path",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "discovery/robots.txt",
+  "check": "Every eliavatravel.com URL is a confirmed indexable path",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "discovery/llms-full.txt",
+  "check": "Every eliavatravel.com URL is a confirmed indexable path",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "assets",
+  "check": "/assets/eliava-logo.png exists in deployed source",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "assets",
+  "check": "/assets/share.png exists in deployed source",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "discovery/sitemap.xml",
+  "check": "XSD valid (sitemaps.org 0.9, xmllint)",
+  "status": "PASS",
+  "detail": "/home/user/eliavatravel-site/geo-package/discovery/sitemap.xml validates"
+ },
+ {
+  "group": "discovery/sitemap.xml",
+  "check": "Lists exactly the confirmed indexable paths",
+  "status": "PASS",
+  "detail": "10 URLs; missing=[] extra=[]"
+ },
+ {
+  "group": "discovery/sitemap.xml",
+  "check": "Excluded crawled paths",
+  "status": "WARN",
+  "detail": "/ (noindex), /fix/next/ (noindex), /samples/ (redirects to /services/)"
+ },
+ {
+  "group": "discovery/robots.txt",
+  "check": "Parses; all indexable paths allowed for search and AI crawlers",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "discovery/robots.txt",
+  "check": "Declares sitemap",
+  "status": "PASS",
+  "detail": "['https://eliavatravel.com/sitemap.xml']"
+ },
+ {
+  "group": "discovery/llms.txt",
+  "check": "llmstxt.org shape: H1 first, then blockquote summary",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "discovery/llms.txt",
+  "check": "Has H2 sections",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "discovery/llms-full.txt",
+  "check": "llmstxt.org shape: H1 first, then blockquote summary",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "discovery/llms-full.txt",
+  "check": "Has H2 sections",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "discovery/llms.txt",
+  "check": "Section entries are markdown link lists",
+  "status": "PASS",
+  "detail": "11 links"
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Legal name Eliava Consulting, LLC",
+  "status": "PASS",
+  "detail": "/terms/: \"Eliava Consulting, LLC is a Georgia limited liability company\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: DBA Eliava Travel Ops",
+  "status": "PASS",
+  "detail": "/terms/: \"does business as Eliava Travel Ops\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Does not sell travel",
+  "status": "PASS",
+  "detail": "/terms/: \"We do not sell travel.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Never takes or holds client payments",
+  "status": "PASS",
+  "detail": "/terms/: \"We never take or hold your clients' payments.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: No marketing, websites or travel sales",
+  "status": "PASS",
+  "detail": "/get-started/: \"We also don't do marketing, websites or travel sales.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Serves travel advisors and travel agencies",
+  "status": "PASS",
+  "detail": "/privacy/: \"behind-the-scenes help for travel advisors and travel agencies\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Footer description",
+  "status": "PASS",
+  "detail": "/services/: \"Client emails, payment reminders, documents and deadlines, done on time inside your tools.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Based in Georgia, US business hours",
+  "status": "PASS",
+  "detail": "/services/: \"Based in Georgia, on US business hours.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: 15+ years ops, 4+ years luxury agencies",
+  "status": "PASS",
+  "detail": "/services/: \"15+ years in operations and 4+ years inside luxury agencies.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Certifications",
+  "status": "PASS",
+  "detail": "/services/: \"Travefy Advanced Certified and Tern Workflows & Automations Certified.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: NDA + E&O insurance",
+  "status": "PASS",
+  "detail": "/services/: \"Eliava signs your NDA and carries E&O insurance.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Contact email hello@",
+  "status": "PASS",
+  "detail": "/services/: \"hello@eliavatravel.com\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Legal email legal@",
+  "status": "PASS",
+  "detail": "/privacy/: \"legal@eliavatravel.com\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Free 25-minute call on Zoom",
+  "status": "PASS",
+  "detail": "/services/: \"It's free and takes 25 minutes on Zoom.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: No hourly billing",
+  "status": "PASS",
+  "detail": "/services/: \"No hourly billing.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Nothing reaches a client without OK",
+  "status": "PASS",
+  "detail": "/working-agreement/: \"Nothing reaches a client without your OK.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Host login never needed",
+  "status": "PASS",
+  "detail": "/working-agreement/: \"Your host login is never needed.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Automation plan $295",
+  "status": "PASS",
+  "detail": "/services/automation-plan/: \"$295 \u00b7 2 weeks to your plan\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Setup from $1,175, 3 weeks",
+  "status": "PASS",
+  "detail": "/services/setup/: \"From $1,175 for one kind of trip \u00b7 3 weeks to live\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Setup 14 days of questions",
+  "status": "PASS",
+  "detail": "/services/setup/: \"14 days of questions answered\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Backlog from $495, 2 weeks",
+  "status": "PASS",
+  "detail": "/services/backlog-catch-up/: \"From $495 \u00b7 2 weeks start to done\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Hand-off kit from $495",
+  "status": "PASS",
+  "detail": "/services/hand-off-kit/: \"From $495 for one kind of trip \u00b7 2 weeks to hand-off\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Weekly help $990 / $1,100",
+  "status": "PASS",
+  "detail": "/services/weekly-help/: \"$990 a month, quarter plan \u00b7 $1,100 month to month \u00b7 Month 1 no commitment\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Weekly: routine tasks in 2 business days",
+  "status": "PASS",
+  "detail": "/services/weekly-help/: \"Routine tasks are done within 2 business days.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Embedded $1,980 / $2,200",
+  "status": "PASS",
+  "detail": "/services/weekly-help/: \"It's $1,980 a month on the quarter plan, or $2,200 month to month.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: One Embedded client at a time",
+  "status": "PASS",
+  "detail": "/services/weekly-help/: \"We take one Embedded client at a time.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: $110 off month 2",
+  "status": "PASS",
+  "detail": "/services/: \"$110 comes off month 2\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Private library from $1,495",
+  "status": "PASS",
+  "detail": "/services/: \"From $1,495\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Untangle one thing $95",
+  "status": "PASS",
+  "detail": "/services/: \"Untangle one thing, together\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: AI setup with Claude",
+  "status": "PASS",
+  "detail": "/services/: \"We set up Claude with your voice, your steps and your templates.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Team training 4+ people",
+  "status": "PASS",
+  "detail": "/services/: \"4 or more people\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: $295 credited toward setup within 30 days",
+  "status": "PASS",
+  "detail": "/services/automation-plan/: \"Book a setup within 30 days and the $295 comes off the price.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Tool list",
+  "status": "PASS",
+  "detail": "/get-started/: \"VacationCRM\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Wave season Oct-Jan",
+  "status": "PASS",
+  "detail": "/get-started/: \"October to January is coming\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Established advisors 3-10+ years",
+  "status": "PASS",
+  "detail": "/get-started/: \"Three to ten-plus years in, luxury or high-touch, solo or a small agency.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Refund before work begins",
+  "status": "PASS",
+  "detail": "/terms/: \"Before work begins, you can get a refund of any deposit or prepayment.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Georgia law",
+  "status": "PASS",
+  "detail": "/terms/: \"These terms are governed by the laws of the State of Georgia.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: No analytics, ads or tracking cookies",
+  "status": "PASS",
+  "detail": "/privacy/: \"This site has no analytics, no ads and no tracking cookies of our own.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: Stripe payments",
+  "status": "PASS",
+  "detail": "/terms/: \"Payments are processed by Stripe.\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: cal.com booking link",
+  "status": "PASS",
+  "detail": "/get-started/: \"href=https://cal.com/kady-dennis/discovery-call\""
+ },
+ {
+  "group": "evidence",
+  "check": "Claim supported: AI tools: person reviews; no card/passport numbers",
+  "status": "PASS",
+  "detail": "/terms/: \"We never put card numbers or passport numbers into AI tools\""
+ },
+ {
+  "group": "unpublished",
+  "check": "/robots.txt not present at site root",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "unpublished",
+  "check": "/sitemap.xml not present at site root",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "unpublished",
+  "check": "/llms.txt not present at site root",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "unpublished",
+  "check": "/llms-full.txt not present at site root",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "unpublished",
+  "check": "No JSON-LD or noscript added to any live page",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "unpublished",
+  "check": "origin/main (deployed branch) contains no geo-package files",
+  "status": "PASS",
+  "detail": ""
+ }
+]

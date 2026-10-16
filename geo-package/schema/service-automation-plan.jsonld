@@ -1,0 +1,65 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Automation plan",
+      "description": "A full map of one kind of trip: what to automate in your Tern, TravelJoy or Travefy, what to keep by hand, and when each email goes out. With video walkthroughs. Delivered in 2 weeks.",
+      "serviceType": "Travel advisor back-office operations",
+      "provider": {
+        "@id": "https://eliavatravel.com/#organization"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Travel advisors and travel agencies"
+      },
+      "@id": "https://eliavatravel.com/services/automation-plan/#service",
+      "url": "https://eliavatravel.com/services/automation-plan/",
+      "offers": {
+        "@type": "Offer",
+        "price": 295,
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://eliavatravel.com/services/automation-plan/#faq",
+      "url": "https://eliavatravel.com/services/automation-plan/",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does it work for my software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tern, TravelJoy, Travefy, or even a spreadsheet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I want you to build it after?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Book a setup within 30 days and the $295 comes off the price."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to watch the videos live?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. They're recorded, so you watch when it suits you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will you talk to my clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. This is a plan for you. Nothing goes to a client."
+          }
+        }
+      ]
+    }
+  ]
+}

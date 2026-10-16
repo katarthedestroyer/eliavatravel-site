@@ -1,0 +1,116 @@
+# Eliava Travel Ops: full reference
+
+> Eliava Travel Ops (Eliava Consulting, LLC) does behind-the-scenes back-office work for travel advisors and travel agencies: client emails, payment reminders, documents and deadlines, done on time inside the advisor's own Tern, TravelJoy or Travefy. Eliava does not sell travel.
+
+Every statement below is taken from a page on eliavatravel.com. Source pages are linked in each section. Prices are in US dollars.
+
+## The business
+
+Source: https://eliavatravel.com/terms/, https://eliavatravel.com/privacy/, https://eliavatravel.com/services/
+
+- Legal name: Eliava Consulting, LLC, a Georgia limited liability company that does business as Eliava Travel Ops.
+- What it does: behind-the-scenes help for travel advisors and travel agencies. Client emails, payment reminders, documents and deadlines, done on time inside the advisor's tools.
+- What it does not do: Eliava never sells travel. It is never the seller, agent or merchant of record for any trip, and it never takes or holds client payments. It does not do marketing, websites or travel sales.
+- Location: based in Georgia, US, working US business hours.
+- Experience: 15+ years in operations and 4+ years inside luxury agencies.
+- Certifications: Travefy Advanced Certified; Tern Workflows & Automations Certified.
+- Protection: Eliava signs the advisor's NDA and carries E&O insurance.
+- Contact: hello@eliavatravel.com. Privacy and legal requests: legal@eliavatravel.com.
+- Payments are processed by Stripe. Calls are booked through cal.com and held on Zoom.
+
+## Who it is for
+
+Source: https://eliavatravel.com/get-started/
+
+- Established advisors: three to ten-plus years in, luxury or high-touch, solo or a small agency.
+- Advisors getting ready to hire who want written steps in place before someone new starts.
+- Advisors moving to Tern.
+- Advisors heading into wave season (October to January).
+- Not a fit for someone who wants everything built at once, or a template pack.
+
+Tools Eliava works in: Tern, TravelJoy, Travefy, VacationCRM, Tess, CBO, Trello, Asana, ClickUp, Flodesk, Gmail or Google Drive, Outlook, or a spreadsheet. If an advisor has no system yet, Eliava helps pick one.
+
+## How it works
+
+Source: https://eliavatravel.com/get-started/, https://eliavatravel.com/working-agreement/
+
+1. The advisor fills in a short application (about 5 minutes).
+2. A free 25-minute call on Zoom: how the advisor's trips run, where Eliava would start, and whether it fits.
+3. The plan and price come in writing. Nothing is paid before that.
+
+After the call, work happens by email, with written updates. No hourly billing.
+
+Rules Eliava holds itself to:
+
+- Nothing reaches a client without the advisor's OK. One person approves.
+- The advisor's clients, suppliers and commissions stay theirs. Client emails go out under the advisor's name.
+- The advisor adds Eliava as a user in their tool and can remove access at any time. The host login is never needed. Passwords go through a password manager, never email.
+- Client emails are written from emails the advisor has already sent.
+- New work is named and priced in writing before it starts.
+- Once paid for, what Eliava built is the advisor's to keep and change.
+- AI tools help draft and organize some work; a person reviews everything. Card numbers and passport numbers never go into AI tools.
+
+## Fixed projects
+
+Source: https://eliavatravel.com/services/
+
+### Automation plan: $295
+
+Source: https://eliavatravel.com/services/automation-plan/
+
+One kind of trip mapped in full, from first inquiry to welcome home: every email, payment date and deadline; which steps to automate and which to keep by hand, with the reason; the trigger for each automated step; a plan for what to fix first; and recorded video walkthroughs. Delivered in 2 weeks. Works for Tern, TravelJoy, Travefy or a spreadsheet. No logins needed. If the advisor books a setup within 30 days, the $295 comes off.
+
+### Set up your Tern, TravelJoy or Travefy: from $1,175
+
+Source: https://eliavatravel.com/services/setup/
+
+The workflow build for one kind of trip: client emails in the advisor's voice, every payment date and deadline on one list with reminders, and checklists from first inquiry to welcome home, built in the advisor's own tool. Includes a live walkthrough, short videos and 14 days of questions answered after it goes live. About 3 weeks to live. The advisor OKs each email before it is used. The software plan stays the advisor's; Eliava adds no fees on top of it.
+
+### Backlog catch-up: from $495
+
+Source: https://eliavatravel.com/services/backlog-catch-up/
+
+A fixed list of overdue tasks, agreed before work starts and sized to fit two weeks, done inside the advisor's Tern, TravelJoy or Travefy and email. Ends with a short report: what's done, what's left, and what keeps piling up and why.
+
+### Assistant hand-off kit: from $495
+
+Source: https://eliavatravel.com/services/hand-off-kit/
+
+For advisors getting ready to hire, or whose assistant just left. Written steps for one kind of trip, templates in one place and supplier notes, built in the tool the advisor chooses, then two live training sessions with the new hire. About 2 weeks. Works for an assistant based overseas too.
+
+### Other projects
+
+Source: https://eliavatravel.com/services/
+
+- CRM setup and training: trips and clients moved to Tern or another tool, set up for how the advisor works, then live training. Priced after the free call.
+- Your private library: templates, supplier contacts, trip steps and hotel notes in one private place. From $1,495.
+- Untangle one thing, together: one stuck problem fixed live on Zoom, inside the advisor's account. $95.
+
+## Ongoing help
+
+Source: https://eliavatravel.com/services/weekly-help/
+
+### Weekly back-office help: $990 a month (quarter plan) or $1,100 month to month
+
+New inquiries logged, payments and deadlines watched, supplier confirmations filed, final documents ready on time, welcome-home emails sent in the advisor's name after their OK, and one recurring problem fixed for good each month. A short list of what got done arrives by email each week. Routine tasks are done within 2 business days.
+
+Month 1 is $1,100 with no commitment. Around day 25 the advisor picks the quarter plan, stays month to month, or wraps up. Picking the quarter plan by day 25 takes $110 off month 2. Month-to-month plans can stop at the end of any month. On the quarter plan the bill stays the same each month, and the help shifts to busy months.
+
+### Embedded weekly help: $1,980 a month (quarter plan) or $2,200 month to month
+
+For a busier business or an advisor with a team: everything in weekly help, plus a weekly video recap and one new build each quarter. Eliava takes one Embedded client at a time.
+
+## Training
+
+Source: https://eliavatravel.com/services/
+
+- AI setup and training: Eliava sets up Claude with the advisor's voice, steps and templates, then teaches the advisor and their assistant. Priced after the free call.
+- Team training: for 4 or more people, planned around the advisor's trips and tools. Priced after the free call.
+
+## Policies
+
+Source: https://eliavatravel.com/terms/, https://eliavatravel.com/privacy/
+
+- Refunds: a deposit or prepayment is refundable before work begins; after work begins, payments are not refundable and the advisor gets the work done so far.
+- Governing law: State of Georgia.
+- Privacy: the site has no analytics, no ads and no tracking cookies of its own. Eliava never sells personal information.

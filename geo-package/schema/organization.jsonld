@@ -1,0 +1,69 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://eliavatravel.com/#organization",
+      "name": "Eliava Travel Ops",
+      "legalName": "Eliava Consulting, LLC",
+      "alternateName": "Eliava",
+      "url": "https://eliavatravel.com/",
+      "logo": "https://eliavatravel.com/assets/eliava-logo.png",
+      "image": "https://eliavatravel.com/assets/share.png",
+      "description": "Behind-the-scenes help for travel advisors. Client emails, payment reminders, documents and deadlines, done on time inside your tools.",
+      "email": "hello@eliavatravel.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "GA",
+        "addressCountry": "US"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "hello@eliavatravel.com",
+          "availableLanguage": "en"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "privacy and legal requests",
+          "email": "legal@eliavatravel.com"
+        }
+      ],
+      "knowsAbout": [
+        "Tern",
+        "TravelJoy",
+        "Travefy",
+        "VacationCRM",
+        "Tess",
+        "CBO",
+        "Trello",
+        "Asana",
+        "ClickUp",
+        "Flodesk",
+        "Travel advisor back-office operations",
+        "Travel CRM workflow automation"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Travefy Advanced Certified"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Tern Workflows & Automations Certified"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://eliavatravel.com/#website",
+      "url": "https://eliavatravel.com/",
+      "name": "Eliava Travel Ops",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://eliavatravel.com/#organization"
+      }
+    }
+  ]
+}

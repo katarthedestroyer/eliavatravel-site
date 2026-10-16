@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DRAFT, not published. Only canonical, indexable paths confirmed by the 2026-10-16 crawl of the deployed source (see ../confirmed-paths.md). lastmod = last git commit touching each page. Home (/) excluded while it carries noindex. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://eliavatravel.com/services/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://eliavatravel.com/services/automation-plan/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://eliavatravel.com/services/setup/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://eliavatravel.com/services/backlog-catch-up/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://eliavatravel.com/services/weekly-help/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://eliavatravel.com/services/hand-off-kit/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://eliavatravel.com/get-started/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://eliavatravel.com/working-agreement/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://eliavatravel.com/privacy/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://eliavatravel.com/terms/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+</urlset>

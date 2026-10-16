@@ -1,0 +1,9 @@
+# DRAFT, not published. Proposed /robots.txt for eliavatravel.com.
+# The live site currently has no robots.txt (none in the deployed source).
+# Everything is open to search and AI crawlers; noindex pages (/ placeholder,
+# /fix/next/, /samples/) stay crawlable so crawlers can read their noindex tag.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://eliavatravel.com/sitemap.xml
