@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Operating Map skill | Eliava Travel Ops</title>
+<meta name="description" content="Download the free Operating Map skill for Claude and set it up in a few minutes.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/png" href="/assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/free-tools.css?v=20261016">
+</head>
+<body>
+<div class="tint" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="wrap narrow">
+  <header class="top">
+    <a class="lockup" href="/" aria-label="Eliava Travel Ops, home">
+      <span class="word">Eliava</span><span class="sub" data-text="Travel Ops">Travel Ops</span>
+    </a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <p class="kicker">You are in</p>
+      <h1>Your skill is <b>ready.</b></h1>
+      <p class="lede">The Operating Map, a free skill for Claude.</p>
+      <p class="prose">Download it, add it to Claude, and say "Start my operating map." Setup takes a few minutes. Bookmark this page in case you need it again.</p>
+      <p class="prose" id="sent" hidden>A copy of this link is on its way to your inbox.</p>
+      <div class="actions">
+        <a class="btn solid" href="/free-tools/travel-operating-map.zip" download>Download the skill
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="m6 10 6 6 6-6"/><path d="M5 20h14"/></svg>
+        </a>
+        <a class="textlink" href="#install">How to install it</a>
+      </div>
+      <p class="facts"><span>travel-operating-map.zip</span><span>Claude app or Claude Code</span></p>
+    </div>
+
+    <section id="install" aria-labelledby="install-h">
+      <p class="kicker">01 / Install</p>
+      <h2 id="install-h">Set it up once. <b>Use it anytime.</b></h2>
+
+      <div class="block">
+        <h3>In the Claude app, on the web or desktop</h3>
+        <ol class="howto">
+          <li><b>Download the skill.</b> Keep it as a .zip file. You do not need to open it.</li>
+          <li>In Claude, open <b>Settings</b> and check that <b>Code execution and file creation</b> is turned on. On a Team or Enterprise plan, your admin controls this.</li>
+          <li>Go to <b>Customize</b>, then <b>Skills</b>. Click <b>+</b>, choose <b>Create skill</b>, then <b>Upload a skill</b>, and pick the zip.</li>
+          <li>Turn the skill on.</li>
+          <li>Start a new chat and type:</li>
+        </ol>
+        <div class="say"><code>Start my operating map.</code><button class="copy" type="button" data-copy="Start my operating map.">Copy</button></div>
+        <p class="tip">On a Mac, did the download turn into a folder? Right-click the folder, choose <b>Compress</b>, and upload the new .zip. Menu names in Claude change from time to time. If yours look different, see <a href="https://support.claude.com/en/articles/12512180-using-skills-in-claude" rel="noopener">Claude's help page on skills</a>.</p>
+      </div>
+
+      <div class="block">
+        <h3>In Claude Code</h3>
+        <ol class="howto">
+          <li>Download the skill, then run this in the folder where you saved it:</li>
+        </ol>
+        <div class="say cmd"><code>mkdir -p ~/.claude/skills &amp;&amp; unzip travel-operating-map.zip -d ~/.claude/skills</code><button class="copy" type="button" data-copy="mkdir -p ~/.claude/skills &amp;&amp; unzip travel-operating-map.zip -d ~/.claude/skills">Copy</button></div>
+        <ol class="howto" style="--start: 1; margin-top: 18px">
+          <li>Type <b>/travel-operating-map</b>, or just say "Start my operating map."</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h3>No Skills option? Use the one-file guide.</h3>
+        <ol class="howto">
+          <li>Download the guide. It is the same skill in one file.</li>
+          <li>Start a new chat or Project in Claude and attach the file.</li>
+          <li>Type:</li>
+        </ol>
+        <div class="say"><code>Follow this guide and start my operating map.</code><button class="copy" type="button" data-copy="Follow this guide and start my operating map.">Copy</button></div>
+        <div class="actions">
+          <a class="btn" href="/free-tools/travel-operating-map-guide.md" download>Download the guide
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="m6 10 6 6 6-6"/><path d="M5 20h14"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="try-h">
+      <p class="kicker">02 / Try it</p>
+      <h2 id="try-h">Three ways <b>to start.</b></h2>
+      <p class="prose">Type any of these in a new chat once the skill is on.</p>
+      <div class="say" style="margin-top: 24px"><code>Start my operating map.</code><button class="copy" type="button" data-copy="Start my operating map.">Copy</button></div>
+      <div class="say"><code>Give me a quick operating map snapshot.</code><button class="copy" type="button" data-copy="Give me a quick operating map snapshot.">Copy</button></div>
+      <div class="say"><code>Help me write escalation rules for my VA.</code><button class="copy" type="button" data-copy="Help me write escalation rules for my VA.">Copy</button></div>
+      <p class="tip">Leave out client names, passport numbers, and card details. Describe the work, not the people. If you stop halfway, Claude gives you the map so far. Next time, attach it and say "pick up where I left off."</p>
+    </section>
+
+    <section class="close" aria-labelledby="close-h">
+      <h2 id="close-h">Your clients need your judgment. <b>Your back office shouldn't need all of it.</b></h2>
+      <p class="prose">If the map shows more than you want to build and keep up yourself, tell me what's stuck. I read every message myself.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:hello@eliavatravel.com?subject=What%27s%20stuck">Tell me what's stuck
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Current client? <a href="https://billing.stripe.com/p/login/eVq3cw1K91OXcVY1no1gs00">Client billing portal</a>
+    <br><a href="/privacy/">Privacy</a> &nbsp;/&nbsp; <a href="/terms/">Terms</a>
+    <br>Eliava Consulting, LLC
+  </footer>
+</div>
+
+<script>
+  if (/[?&]sent=1/.test(location.search)) document.getElementById('sent').hidden = false;
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var text = b.getAttribute('data-copy');
+      var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1600); };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done, function () {});
+      } else {
+        var t = document.createElement('textarea'); t.value = text; t.setAttribute('readonly', '');
+        t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(t);
+      }
+    });
+  });
+</script>
+</body>
+</html>

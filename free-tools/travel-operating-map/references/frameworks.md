@@ -82,6 +82,8 @@ For each situation, three sentences:
 - **Send it to operations when...** (needs judgment about the process, a supplier, or a fix)
 - **Bring it to me when...** (affects the client relationship, money above the limit, or a promise to the client)
 
+With a VA but no separate operations person, the middle column becomes "Add to my review list when": it waits for a set time instead of interrupting.
+
 Common situations: price difference, room or category difference, supplier not replying, client complaint, payment problem, tool or automation error, unclear special request, schedule change, missing client details or documents.
 
 ## AI map (step 8)
